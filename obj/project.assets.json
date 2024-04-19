@@ -587,23 +587,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\qdeni\\.nuget\\packages\\": {},
+    "C:\\Users\\seu21\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\qdeni\\Desktop\\UBB-SE-2024-Popsicles\\UBB-SE-2024-Popsicles.csproj",
+      "projectUniqueName": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\UBB-SE-2024-Popsicles.csproj",
       "projectName": "UBB-SE-2024-Popsicles",
-      "projectPath": "C:\\Users\\qdeni\\Desktop\\UBB-SE-2024-Popsicles\\UBB-SE-2024-Popsicles.csproj",
-      "packagesPath": "C:\\Users\\qdeni\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\qdeni\\Desktop\\UBB-SE-2024-Popsicles\\obj\\",
+      "projectPath": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\UBB-SE-2024-Popsicles.csproj",
+      "packagesPath": "C:\\Users\\seu21\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\qdeni\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\seu21\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -663,7 +663,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
