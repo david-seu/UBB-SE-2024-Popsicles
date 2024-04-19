@@ -7,7 +7,9 @@
 
         public Guid Id { get; }
         public Guid OwnerId { get; }
-        public string Name { get; set; }
+
+        private string _name;
+        public string Name { get => _name; set => _name = value; }
         public string Description { get; set; }
         private string _icon;
         public string Icon
