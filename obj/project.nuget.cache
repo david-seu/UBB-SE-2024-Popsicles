@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "AmbBpKQ8UqwxRdLM9u0EJa6g6PPZuVkVnTu9EUrOFIKd9/PV2OaZZC6/81qIpnJeJTwkI8W+ZnJ+X8KhMtJW2Q==",
+  "dgSpecHash": "NITyifU8zK81KFpYx6EfZFpLEM4AG5V+1iZrdPSIv1T64cf4Bp8vJCJtBdkh5gfzfZVZcwediq5HilpuHXbIEA==",
   "success": true,
   "projectFilePath": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\UBB-SE-2024-Popsicles.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,7 @@
     "C:\\Users\\seu21\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\seu21\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\seu21\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\seu21\\.nuget\\packages\\stylecop.analyzers\\1.1.118\\stylecop.analyzers.1.1.118.nupkg.sha512",
     "C:\\Users\\seu21\\.nuget\\packages\\system.data.sqlclient\\4.8.6\\system.data.sqlclient.4.8.6.nupkg.sha512",
     "C:\\Users\\seu21\\.nuget\\packages\\system.drawing.common\\8.0.4\\system.drawing.common.8.0.4.nupkg.sha512",
     "C:\\Users\\seu21\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
