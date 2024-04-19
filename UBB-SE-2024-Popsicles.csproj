@@ -1,0 +1,119 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>UBB_SE_2024_Popsicles</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\GroupBanners\animals.jpg" />
+    <None Remove="Resources\GroupBanners\elephants.jpg" />
+    <None Remove="Resources\GroupBanners\lights.jpg" />
+    <None Remove="Resources\GroupBanners\maple.jpg" />
+    <None Remove="Resources\GroupBanners\mobile-phone.jpg" />
+    <None Remove="Resources\GroupBanners\moon.jpg" />
+    <None Remove="Resources\GroupBanners\nature.jpg" />
+    <None Remove="Resources\GroupBanners\sunset.jpg" />
+    <None Remove="Resources\GroupBanners\white-paper.jpg" />
+    <None Remove="Resources\GroupBanners\woman.jpg" />
+    <None Remove="Resources\GroupIcons\american-football-club.jpg" />
+    <None Remove="Resources\GroupIcons\basket-boys.jpg" />
+    <None Remove="Resources\GroupIcons\cute-girls.jpg" />
+    <None Remove="Resources\GroupIcons\football-team.jpg" />
+    <None Remove="Resources\GroupIcons\friendship-rocks.jpg" />
+    <None Remove="Resources\GroupIcons\robotics-group.jpg" />
+    <None Remove="Resources\GroupIcons\smiley-fingers.jpg" />
+    <None Remove="Resources\GroupIcons\tech-research.jpg" />
+    <None Remove="Resources\GroupIcons\tennis-club.jpg" />
+    <None Remove="Resources\GroupIcons\usa-swimming-team.jpg" />
+    <None Remove="Resources\Icons\search-icon.png" />
+    <None Remove="Resources\Images\group-banner.jpg" />
+    <None Remove="Resources\Images\group-icon.jpg" />
+    <None Remove="Resources\Images\user-profile-picture.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\GroupBanners\animals.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\GroupBanners\elephants.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\GroupBanners\lights.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\GroupBanners\maple.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\GroupBanners\mobile-phone.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\GroupBanners\moon.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\GroupBanners\nature.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\GroupBanners\sunset.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\GroupBanners\white-paper.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\GroupBanners\woman.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\GroupIcons\american-football-club.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\GroupIcons\basket-boys.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\GroupIcons\cute-girls.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\GroupIcons\football-team.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\GroupIcons\friendship-rocks.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\GroupIcons\robotics-group.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\GroupIcons\smiley-fingers.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\GroupIcons\tech-research.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\GroupIcons\tennis-club.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\GroupIcons\usa-swimming-team.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Icons\search-icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\group-banner.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\group-icon.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\user-profile-picture.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

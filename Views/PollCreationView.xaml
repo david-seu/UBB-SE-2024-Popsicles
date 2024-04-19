@@ -1,0 +1,115 @@
+﻿<UserControl
+    x:Class="UBB_SE_2024_Popsicles.Views.PollCreationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:UBB_SE_2024_Popsicles.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <Grid>
+        <!--  the question input  -->
+        <StackPanel
+            x:Name="OptionsStackPanel"
+            Width="780"
+            Height="450"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            RenderTransformOrigin="0.894,0.843">
+            <TextBlock
+                Margin="0,0,0,20"
+                FontFamily="Arial"
+                FontSize="24"
+                Text="Create a New Poll" />
+            <Grid x:Name="Options" Margin="100,0,0,0">
+                <Grid.ColumnDefinitions>
+
+
+                    <ColumnDefinition />
+
+                </Grid.ColumnDefinitions>
+                <Label
+                    Grid.ColumnSpan="8"
+                    Margin="-10,-22,10,-4"
+                    Content="Question:" />
+                <TextBox
+                    x:Name="PollQuestion"
+                    Grid.ColumnSpan="8"
+                    Margin="-10,1,210,19" />
+
+                <Label
+                    Grid.Column="6"
+                    Grid.ColumnSpan="3"
+                    Margin="2,56,53,-161"
+                    Content="Option 1" />
+                <TextBox
+                    x:Name="PollOption"
+                    Grid.Column="6"
+                    Grid.ColumnSpan="2"
+                    Margin="2,82,173,-62" />
+                <Label
+                    Grid.Column="6"
+                    Grid.ColumnSpan="3"
+                    Margin="2,100,53,-100"
+                    Content="Option 2" />
+                <TextBox
+                    x:Name="PollOption2"
+                    Grid.Column="6"
+                    Grid.ColumnSpan="2"
+                    Margin="2,127,173,-107" />
+                <Label
+                    Grid.Column="6"
+                    Grid.ColumnSpan="3"
+                    Margin="2,152,53,-152"
+                    Content="Option 3" />
+                <TextBox
+                    x:Name="PollOption3"
+                    Grid.Column="6"
+                    Grid.ColumnSpan="2"
+                    Margin="2,181,173,-161" />
+                <Label Margin="2,208,79,-208" Content="Option 4" />
+                <TextBox
+                    x:Name="PollOption4"
+                    Grid.Column="6"
+                    Grid.ColumnSpan="2"
+                    Margin="2,237,173,-217" />
+
+            </Grid>
+
+            <Button
+                x:Name="PollCreationButton"
+                Width="100"
+                Margin="630,160,0,0"
+                Content="Create Poll"
+                RenderTransformOrigin="2.64,13.356" />
+            <Grid
+                x:Name="CheckBoxes"
+                Height="176"
+                RenderTransformOrigin="0.481,-2.112">
+                <Grid.ColumnDefinitions />
+                <CheckBox
+                    x:Name="ShowVotesCheckBox"
+                    Margin="13,92,91,0"
+                    Content="Show Votes" />
+                <CheckBox
+                    x:Name="MultipleChoiceCheckBox"
+                    Margin="13,60,91,10"
+                    Content="Allow multiple choice" />
+                <CheckBox
+                    x:Name="HasEndDateCheckBox"
+                    Margin="13,127,-1,21"
+                    Checked="HasEndDateCheckBox_Checked"
+                    Content="Has End Date"
+                    Unchecked="HasEndDateCheckBox_Unchecked" />
+                <DatePicker
+                    x:Name="EndDatePicker"
+                    Margin="136,127,523,-42"
+                    Visibility="Collapsed" />
+            </Grid>
+
+        </StackPanel>
+
+    </Grid>
+</UserControl>
