@@ -31,7 +31,7 @@ namespace UBB_SE_2024_Popsicles.Models
 
         public Request GetOutgoingRequest(Guid requestId)
         {
-            Request request = OutgoingRequests.First(r => r.Id == requestId);
+            Request request = OutgoingRequests.First(request => request.Id == requestId);
             if (request == null)
             {
                 throw new Exception("Request not found");
@@ -46,7 +46,7 @@ namespace UBB_SE_2024_Popsicles.Models
 
         public void RemoveOutgoingRequest(Guid requestId)
         {
-            Request request = OutgoingRequests.First(r => r.Id == requestId);
+            Request request = OutgoingRequests.First(request => request.Id == requestId);
             if (request == null)
             {
                 throw new Exception("Request not found");

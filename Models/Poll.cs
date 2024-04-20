@@ -63,7 +63,7 @@ namespace UBB_SE_2024_Popsicles.Models
 
         public Vote GetVote(Guid voteId)
         {
-            Vote vote = Votes.First(v => v.Id == voteId);
+            Vote vote = Votes.First(vote => vote.Id == voteId);
             if (vote == null)
             {
                 throw new Exception("Vote not found");
@@ -78,7 +78,7 @@ namespace UBB_SE_2024_Popsicles.Models
 
         public void RemoveVote(Guid voteId)
         {
-            Vote vote = Votes.First(v => v.Id == voteId);
+            Vote vote = Votes.First(vote => vote.Id == voteId);
             if (vote == null)
             {
                 throw new Exception("Vote not found");

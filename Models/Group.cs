@@ -63,7 +63,7 @@
 
         public GroupMembership GetMembership(Guid groupMemberId)
         {
-            GroupMembership groupMembership = Memberships.First(m => m.GroupMemberId == groupMemberId);
+            GroupMembership groupMembership = Memberships.First(groupMembership => groupMembership.GroupMemberId == groupMemberId);
             if (groupMembership == null)
             {
                 throw new Exception("Membership not found");
@@ -79,7 +79,7 @@
 
         public void RemoveMember(Guid groupMembershipId)
         {
-            GroupMembership groupMembership = Memberships.First(m => m.Id == groupMembershipId);
+            GroupMembership groupMembership = Memberships.First(groupMembership => groupMembership.Id == groupMembershipId);
             if (groupMembership == null)
             {
                 throw new Exception("Membership not found");
@@ -90,7 +90,7 @@
 
         public Request GetRequest(Guid requestId)
         {
-            Request request = Requests.First(r => r.Id == requestId);
+            Request request = Requests.First(request => request.Id == requestId);
             if (request == null)
             {
                 throw new Exception("Request not found");
@@ -106,7 +106,7 @@
 
         public void RemoveRequest(Guid requestId)
         {
-            Request request = Requests.First(r => r.Id == requestId);
+            Request request = Requests.First(request => request.Id == requestId);
             if (request == null)
             {
                 throw new Exception("Request not found");
@@ -117,7 +117,7 @@
 
         public GroupPost GetPost(Guid postId)
         {
-            GroupPost post = Posts.First(p => p.Id == postId);
+            GroupPost post = Posts.First(post => post.Id == postId);
             if (post == null)
             {
                 throw new Exception("Post not found");
@@ -133,7 +133,7 @@
 
         public void RemovePost(Guid postId)
         {
-            GroupPost groupPost = Posts.First(p => p.Id == postId);
+            GroupPost groupPost = Posts.First(groupPost => groupPost.Id == postId);
             if (groupPost == null)
             {
                 throw new Exception("Post not found");
@@ -144,7 +144,7 @@
 
         public Poll GetPoll(Guid pollId)
         {
-            Poll poll = Polls.First(p => p.Id == pollId);
+            Poll poll = Polls.First(poll => poll.Id == pollId);
             if (poll == null)
             {
                 throw new Exception("Poll not found");
@@ -160,7 +160,7 @@
 
         public void RemovePoll(Guid pollId)
         {
-            Poll poll = Polls.First(p => p.Id == pollId);
+            Poll poll = Polls.First(poll => poll.Id == pollId);
             if (poll == null)
             {
                 throw new Exception("Poll not found");

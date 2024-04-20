@@ -11,7 +11,7 @@
 
         public GroupMembership GetMembership(Guid groupId)
         {
-            GroupMembership groupMembership = Memberships.First(gm => gm.GroupId == groupId);
+            GroupMembership groupMembership = Memberships.First(groupMembership => groupMembership.GroupId == groupId);
             if (groupMembership == null)
             {
                 throw new Exception("Group membership not found");
@@ -26,7 +26,7 @@
 
         public void RemoveGroupMembership(Guid groupMembershipId)
         {
-            GroupMembership groupMembership = Memberships.First(gm => gm.Id == groupMembershipId);
+            GroupMembership groupMembership = Memberships.First(groupMembership => groupMembership.Id == groupMembershipId);
             if (groupMembership == null)
             {
                 throw new Exception("Group membership not found");
