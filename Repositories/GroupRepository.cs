@@ -8,10 +8,20 @@ using UBB_SE_2024_Popsicles.Models;
 
 namespace UBB_SE_2024_Popsicles.Repositories
 {
-    internal class GroupRepository
+    internal class GroupRepository : IGroupRepository
     {
         private SqlConnection _connection;
         private List<Group> _groups = new List<Group>();
+
+        public SqlConnection Connection
+        {
+            get { return _connection; }
+        }
+
+        public List<Group> Groups
+        {
+            get { return _groups; }
+        }
 
         public GroupRepository(SqlConnection connection)
         {
@@ -21,15 +31,15 @@ namespace UBB_SE_2024_Popsicles.Repositories
 
         private void LoadDataFromSql()
         {
-            string query = @"
+            string selectGroupsQuery = @"
              SELECT GroupId, OwnerId, Name, Description, Icon, Banner, MaxPostsPerHour, GroupCode, IsPublic, CanPostByDefault, CreatedAt
              FROM Groups";
 
-            SqlCommand command = new SqlCommand(query, _connection);
+            SqlCommand selectGroupsCommand = new SqlCommand(selectGroupsQuery, _connection);
             try
             {
                 _connection.Open();
-                using (SqlDataReader reader = command.ExecuteReader())
+                using (SqlDataReader reader = selectGroupsCommand.ExecuteReader())
                 {
                     while (reader.Read())
                     {
@@ -71,7 +81,7 @@ namespace UBB_SE_2024_Popsicles.Repositories
             }
         }
 
-        public Group GetGroup(Guid groupId)
+        public Group GetGroupById(Guid groupId)
         {
             Group group = _groups.First(g => g.Id == groupId);
             if (group == null)
@@ -89,26 +99,26 @@ namespace UBB_SE_2024_Popsicles.Repositories
         public void AddGroup(Group group)
         {
             _groups.Add(group);
-            string query = "INSERT INTO Groups (GroupId, OwnerId, Name, Description, Icon, Banner, MaxPostsPerHour, GroupCode, IsPublic, CanPostByDefault, CreatedAt ) VALUES (@GroupId, @OwnerId, @Name, @Description, @Icon, @Banner, @MaxPostsPerHour, @GroupCode, @IsPublic, @CanPostByDefault, @CreatedAt)";
+            string insertGroupQuery = "INSERT INTO Groups (GroupId, OwnerId, Name, Description, Icon, Banner, MaxPostsPerHour, GroupCode, IsPublic, CanPostByDefault, CreatedAt ) VALUES (@GroupId, @OwnerId, @Name, @Description, @Icon, @Banner, @MaxPostsPerHour, @GroupCode, @IsPublic, @CanPostByDefault, @CreatedAt)";
 
-            SqlCommand command = new SqlCommand(query, _connection);
-            command.Parameters.AddWithValue("@GroupId", group.Id);
-            command.Parameters.AddWithValue("@OwnerId", group.OwnerId);
-            command.Parameters.AddWithValue("@Name", group.Name);
-            command.Parameters.AddWithValue("@Description", group.Description);
-            command.Parameters.AddWithValue("@Icon", group.Icon);
-            command.Parameters.AddWithValue("@Banner", group.Banner);
-            command.Parameters.AddWithValue("@MaxPostsPerHour", group.MaxPostsPerHourPerUser);
-            command.Parameters.AddWithValue("@GroupCode", group.GroupCode);
-            command.Parameters.AddWithValue("@IsPublic", group.IsPublic);
-            command.Parameters.AddWithValue("@CanPostByDefault", group.CanMakePostsByDefault);
-            command.Parameters.AddWithValue("@CreatedAt", group.CreatedAt);
+            SqlCommand insertGroupCommand = new SqlCommand(insertGroupQuery, _connection);
+            insertGroupCommand.Parameters.AddWithValue("@GroupId", group.Id);
+            insertGroupCommand.Parameters.AddWithValue("@OwnerId", group.OwnerId);
+            insertGroupCommand.Parameters.AddWithValue("@Name", group.Name);
+            insertGroupCommand.Parameters.AddWithValue("@Description", group.Description);
+            insertGroupCommand.Parameters.AddWithValue("@Icon", group.Icon);
+            insertGroupCommand.Parameters.AddWithValue("@Banner", group.Banner);
+            insertGroupCommand.Parameters.AddWithValue("@MaxPostsPerHour", group.MaxPostsPerHourPerUser);
+            insertGroupCommand.Parameters.AddWithValue("@GroupCode", group.GroupCode);
+            insertGroupCommand.Parameters.AddWithValue("@IsPublic", group.IsPublic);
+            insertGroupCommand.Parameters.AddWithValue("@CanPostByDefault", group.CanMakePostsByDefault);
+            insertGroupCommand.Parameters.AddWithValue("@CreatedAt", group.CreatedAt);
             _connection.Open();
-            command.ExecuteNonQuery();
+            insertGroupCommand.ExecuteNonQuery();
             _connection.Close();
         }
 
-        public void Update(Group group)
+        public void UpdateGroup(Group group)
         {
             Group oldGroup = _groups.First(g => g.Id == group.Id);
             if (oldGroup == null)
@@ -118,7 +128,7 @@ namespace UBB_SE_2024_Popsicles.Repositories
             _groups.Remove(oldGroup);
             _groups.Add(group);
 
-            string query = @"
+            string updateGroupQuery = @"
             UPDATE Groups
             SET 
                 OwnerId = @OwnerId,
@@ -132,42 +142,42 @@ namespace UBB_SE_2024_Popsicles.Repositories
                 CanPostByDefault = @CanPostByDefault,
                 CreatedAt = @CreatedAt
              WHERE GroupId = @GroupId";
-            SqlCommand command = new SqlCommand(query, _connection);
+            SqlCommand updateGroupCommand = new SqlCommand(updateGroupQuery, _connection);
 
-            command.Parameters.AddWithValue("@GroupId", group.Id);
-            command.Parameters.AddWithValue("@OwnerId", group.OwnerId);
-            command.Parameters.AddWithValue("@Name", group.Name);
-            command.Parameters.AddWithValue("@Description", group.Description);
-            command.Parameters.AddWithValue("@Icon", group.Icon);
-            command.Parameters.AddWithValue("@Banner", group.Banner);
-            command.Parameters.AddWithValue("@MaxPostsPerHour", group.MaxPostsPerHourPerUser);
-            command.Parameters.AddWithValue("@GroupCode", group.GroupCode);
-            command.Parameters.AddWithValue("@IsPublic", group.IsPublic);
-            command.Parameters.AddWithValue("@CanPostByDefault", group.CanMakePostsByDefault);
-            command.Parameters.AddWithValue("@CreatedAt", group.CreatedAt);
+            updateGroupCommand.Parameters.AddWithValue("@GroupId", group.Id);
+            updateGroupCommand.Parameters.AddWithValue("@OwnerId", group.OwnerId);
+            updateGroupCommand.Parameters.AddWithValue("@Name", group.Name);
+            updateGroupCommand.Parameters.AddWithValue("@Description", group.Description);
+            updateGroupCommand.Parameters.AddWithValue("@Icon", group.Icon);
+            updateGroupCommand.Parameters.AddWithValue("@Banner", group.Banner);
+            updateGroupCommand.Parameters.AddWithValue("@MaxPostsPerHour", group.MaxPostsPerHourPerUser);
+            updateGroupCommand.Parameters.AddWithValue("@GroupCode", group.GroupCode);
+            updateGroupCommand.Parameters.AddWithValue("@IsPublic", group.IsPublic);
+            updateGroupCommand.Parameters.AddWithValue("@CanPostByDefault", group.CanMakePostsByDefault);
+            updateGroupCommand.Parameters.AddWithValue("@CreatedAt", group.CreatedAt);
 
             _connection.Open();
-            command.ExecuteNonQuery();
+            updateGroupCommand.ExecuteNonQuery();
             _connection.Close();
 
         }
 
-        public void RemoveGroup(Guid groupId)
+        public void RemoveGroupById(Guid groupId)
         {
             Group group = _groups.First(g => g.Id == groupId);
             if (group == null)
             {
-                throw new Exception("Group not found");
+                throw new Exception("Group not found!");
             }
             _groups.Remove(group);
 
-            string query = "DELETE FROM Groups WHERE GroupId = @GroupId";
+            string deleteGroupQuery = "DELETE FROM Groups WHERE GroupId = @GroupId";
 
-            SqlCommand command = new SqlCommand(query, _connection);
-            command.Parameters.AddWithValue("@GroupId", groupId);
+            SqlCommand deleteGroupCommand = new SqlCommand(deleteGroupQuery, _connection);
+            deleteGroupCommand.Parameters.AddWithValue("@GroupId", groupId);
 
             _connection.Open();
-            command.ExecuteNonQuery();
+            deleteGroupCommand.ExecuteNonQuery();
             _connection.Close();
         }
     }

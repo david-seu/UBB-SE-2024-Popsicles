@@ -4,10 +4,20 @@ using UBB_SE_2024_Popsicles.Models;
 
 namespace UBB_SE_2024_Popsicles.Repositories
 {
-    internal class RequestsRepository
+    internal class RequestsRepository : IRequestRepository
     {
         private SqlConnection _connection;
         private List<Request> _requests = new List<Request>();
+
+        public SqlConnection Connection
+        {
+            get { return _connection; }
+        }
+
+        public List<Request> Requests
+        {
+            get { return _requests; }
+        }
 
         public RequestsRepository(SqlConnection connection)
         {
@@ -18,9 +28,9 @@ namespace UBB_SE_2024_Popsicles.Repositories
         private void LoadDataFromSql()
         {
             string query = @"
-SELECT r.RequestId, r.GroupMemberId, r.GroupId, m.UserName 
-FROM Requests r
-JOIN GroupMembers m ON r.GroupMemberId = m.GroupMemberId";
+                SELECT r.RequestId, r.GroupMemberId, r.GroupId, m.UserName 
+                FROM Requests r
+                JOIN GroupMembers m ON r.GroupMemberId = m.GroupMemberId";
             SqlCommand command = new SqlCommand(query, _connection);
 
             _connection.Open();
@@ -41,7 +51,7 @@ JOIN GroupMembers m ON r.GroupMemberId = m.GroupMemberId";
 
         }
 
-        public Request GetRequest(Guid requestId)
+        public Request GetRequestById(Guid requestId)
         {
             Request request = _requests.FirstOrDefault(r => r.Id == requestId);
             if (request == null)
@@ -58,16 +68,16 @@ JOIN GroupMembers m ON r.GroupMemberId = m.GroupMemberId";
 
         public void AddRequest(Request request)
         {
-            string query = @"INSERT INTO Requests (RequestId, GroupMemberId, GroupId) 
+            string insertRequestQuery = @"INSERT INTO Requests (RequestId, GroupMemberId, GroupId) 
                         VALUES (@RequestId, @GroupMemberId, @GroupId)";
 
-            SqlCommand command = new SqlCommand(query, _connection);
-            command.Parameters.AddWithValue("@RequestId", request.Id);
-            command.Parameters.AddWithValue("@GroupMemberId", request.GroupMemberId);
-            command.Parameters.AddWithValue("@GroupId", request.GroupId);
+            SqlCommand insertRequestCommand = new SqlCommand(insertRequestQuery, _connection);
+            insertRequestCommand.Parameters.AddWithValue("@RequestId", request.Id);
+            insertRequestCommand.Parameters.AddWithValue("@GroupMemberId", request.GroupMemberId);
+            insertRequestCommand.Parameters.AddWithValue("@GroupId", request.GroupId);
 
             _connection.Open();
-            command.ExecuteNonQuery();
+            insertRequestCommand.ExecuteNonQuery();
             _connection.Close();
 
             _requests.Add(request);
@@ -84,17 +94,17 @@ JOIN GroupMembers m ON r.GroupMemberId = m.GroupMemberId";
             _requests.Add(request);
 
 
-            string query = @"UPDATE Requests 
+            string updateRequestQuery = @"UPDATE Requests 
                         SET GroupMemberId = @GroupMemberId, GroupId = @GroupId 
                         WHERE RequestId = @RequestId";
 
-            SqlCommand command = new SqlCommand(query, _connection);
-            command.Parameters.AddWithValue("@RequestId", request.Id);
-            command.Parameters.AddWithValue("@GroupMemberId", request.GroupMemberId);
-            command.Parameters.AddWithValue("@GroupId", request.GroupId);
+            SqlCommand updateRequestCommand = new SqlCommand(updateRequestQuery, _connection);
+            updateRequestCommand.Parameters.AddWithValue("@RequestId", request.Id);
+            updateRequestCommand.Parameters.AddWithValue("@GroupMemberId", request.GroupMemberId);
+            updateRequestCommand.Parameters.AddWithValue("@GroupId", request.GroupId);
 
             _connection.Open();
-            int affectedRows = command.ExecuteNonQuery();
+            int affectedRows = updateRequestCommand.ExecuteNonQuery();
             _connection.Close();
             if (affectedRows == 0)
             {
@@ -102,7 +112,7 @@ JOIN GroupMembers m ON r.GroupMemberId = m.GroupMemberId";
             }
         }
 
-        public void RemoveRequest(Guid requestId)
+        public void RemoveRequestById(Guid requestId)
         {
             Request request = _requests.FirstOrDefault(r => r.Id == requestId);
             if (request == null)
@@ -111,12 +121,12 @@ JOIN GroupMembers m ON r.GroupMemberId = m.GroupMemberId";
             }
             _requests.Remove(request);
 
-            string query = "DELETE FROM Requests WHERE RequestId = @RequestId";
-            SqlCommand command = new SqlCommand(query, _connection);
-            command.Parameters.AddWithValue("@RequestId", requestId);
+            string deleteRequestQuery = "DELETE FROM Requests WHERE RequestId = @RequestId";
+            SqlCommand deleteRequestCommand = new SqlCommand(deleteRequestQuery, _connection);
+            deleteRequestCommand.Parameters.AddWithValue("@RequestId", requestId);
 
             _connection.Open();
-            int affectedRows = command.ExecuteNonQuery();
+            int affectedRows = deleteRequestCommand.ExecuteNonQuery();
             _connection.Close();
             if (affectedRows == 0)
             {
