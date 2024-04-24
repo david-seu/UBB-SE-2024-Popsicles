@@ -6,22 +6,22 @@ namespace UBB_SE_2024_Popsicles.Repositories
 {
     internal class RequestsRepository : IRequestRepository
     {
-        private SqlConnection _connection;
-        private List<Request> _requests = new List<Request>();
+        private SqlConnection connection;
+        private List<Request> requests = new List<Request>();
 
         public SqlConnection Connection
         {
-            get { return _connection; }
+            get { return connection; }
         }
 
         public List<Request> Requests
         {
-            get { return _requests; }
+            get { return requests; }
         }
 
         public RequestsRepository(SqlConnection connection)
         {
-            this._connection = connection;
+            this.connection = connection;
             LoadDataFromSql();
         }
 
@@ -31,9 +31,9 @@ namespace UBB_SE_2024_Popsicles.Repositories
                 SELECT r.RequestId, r.GroupMemberId, r.GroupId, m.UserName 
                 FROM Requests r
                 JOIN GroupMembers m ON r.GroupMemberId = m.GroupMemberId";
-            SqlCommand command = new SqlCommand(query, _connection);
+            SqlCommand command = new SqlCommand(query, connection);
 
-            _connection.Open();
+            connection.Open();
             using (SqlDataReader reader = command.ExecuteReader())
             {
                 while (reader.Read())
@@ -42,18 +42,16 @@ namespace UBB_SE_2024_Popsicles.Repositories
                         id: reader.GetGuid(0),
                         groupMemberId: reader.GetGuid(1),
                         groupMemberName: reader.GetString(3),
-                        groupId: reader.GetGuid(2)
-                    );
-                    _requests.Add(request);
+                        groupId: reader.GetGuid(2));
+                    requests.Add(request);
                 }
             }
-            _connection.Close();
-
+            connection.Close();
         }
 
         public Request GetRequestById(Guid requestId)
         {
-            Request request = _requests.FirstOrDefault(r => r.Id == requestId);
+            Request request = requests.FirstOrDefault(r => r.Id == requestId);
             if (request == null)
             {
                 throw new Exception("Request not found");
@@ -63,7 +61,7 @@ namespace UBB_SE_2024_Popsicles.Repositories
 
         public List<Request> GetAllRequests()
         {
-            return _requests;
+            return requests;
         }
 
         public void AddRequest(Request request)
@@ -71,41 +69,40 @@ namespace UBB_SE_2024_Popsicles.Repositories
             string insertRequestQuery = @"INSERT INTO Requests (RequestId, GroupMemberId, GroupId) 
                         VALUES (@RequestId, @GroupMemberId, @GroupId)";
 
-            SqlCommand insertRequestCommand = new SqlCommand(insertRequestQuery, _connection);
+            SqlCommand insertRequestCommand = new SqlCommand(insertRequestQuery, connection);
             insertRequestCommand.Parameters.AddWithValue("@RequestId", request.Id);
             insertRequestCommand.Parameters.AddWithValue("@GroupMemberId", request.GroupMemberId);
             insertRequestCommand.Parameters.AddWithValue("@GroupId", request.GroupId);
 
-            _connection.Open();
+            connection.Open();
             insertRequestCommand.ExecuteNonQuery();
-            _connection.Close();
+            connection.Close();
 
-            _requests.Add(request);
+            requests.Add(request);
         }
 
         public void UpdateRequest(Request request)
         {
-            Request existingRequest = _requests.FirstOrDefault(r => r.Id == request.Id);
+            Request existingRequest = requests.FirstOrDefault(r => r.Id == request.Id);
             if (existingRequest == null)
             {
                 throw new Exception("Request not found");
             }
-            _requests.Remove(existingRequest);
-            _requests.Add(request);
-
+            requests.Remove(existingRequest);
+            requests.Add(request);
 
             string updateRequestQuery = @"UPDATE Requests 
                         SET GroupMemberId = @GroupMemberId, GroupId = @GroupId 
                         WHERE RequestId = @RequestId";
 
-            SqlCommand updateRequestCommand = new SqlCommand(updateRequestQuery, _connection);
+            SqlCommand updateRequestCommand = new SqlCommand(updateRequestQuery, connection);
             updateRequestCommand.Parameters.AddWithValue("@RequestId", request.Id);
             updateRequestCommand.Parameters.AddWithValue("@GroupMemberId", request.GroupMemberId);
             updateRequestCommand.Parameters.AddWithValue("@GroupId", request.GroupId);
 
-            _connection.Open();
+            connection.Open();
             int affectedRows = updateRequestCommand.ExecuteNonQuery();
-            _connection.Close();
+            connection.Close();
             if (affectedRows == 0)
             {
                 throw new Exception("No request was updated; the request may not exist.");
@@ -114,20 +111,20 @@ namespace UBB_SE_2024_Popsicles.Repositories
 
         public void RemoveRequestById(Guid requestId)
         {
-            Request request = _requests.FirstOrDefault(r => r.Id == requestId);
+            Request request = requests.FirstOrDefault(r => r.Id == requestId);
             if (request == null)
             {
                 throw new Exception("Request not found");
             }
-            _requests.Remove(request);
+            requests.Remove(request);
 
             string deleteRequestQuery = "DELETE FROM Requests WHERE RequestId = @RequestId";
-            SqlCommand deleteRequestCommand = new SqlCommand(deleteRequestQuery, _connection);
+            SqlCommand deleteRequestCommand = new SqlCommand(deleteRequestQuery, connection);
             deleteRequestCommand.Parameters.AddWithValue("@RequestId", requestId);
 
-            _connection.Open();
+            connection.Open();
             int affectedRows = deleteRequestCommand.ExecuteNonQuery();
-            _connection.Close();
+            connection.Close();
             if (affectedRows == 0)
             {
                 throw new Exception("No request was deleted; the request may not exist.");
