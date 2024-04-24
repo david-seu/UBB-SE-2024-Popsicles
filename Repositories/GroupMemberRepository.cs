@@ -3,10 +3,20 @@ using UBB_SE_2024_Popsicles.Models;
 
 namespace UBB_SE_2024_Popsicles.Repositories
 {
-    internal class GroupMemberRepository
+    internal class GroupMemberRepository : IGroupMemberRepository
     {
         private SqlConnection _connection;
         private List<GroupMember> _groupMembers = new List<GroupMember>();
+
+        public SqlConnection Connection
+        {
+            get { return _connection; }
+        }
+
+        public List<GroupMember> GroupMembers
+        {
+            get { return _groupMembers; }
+        }
 
         public GroupMemberRepository(SqlConnection connection)
         {
@@ -31,7 +41,7 @@ namespace UBB_SE_2024_Popsicles.Repositories
                         description: reader.IsDBNull(3) ? null : reader.GetString(3),
                         email: reader.GetString(4),
                         phone: reader.GetString(5)
-                    );
+                        );
                     _groupMembers.Add(groupMember);
                 }
             }
@@ -39,7 +49,7 @@ namespace UBB_SE_2024_Popsicles.Repositories
 
         }
 
-        public GroupMember GetGroupMember(Guid groupMemberId)
+        public GroupMember GetGroupMemberById(Guid groupMemberId)
         {
             GroupMember groupMember = _groupMembers.First(gm => gm.Id == groupMemberId);
             if (groupMember == null)
@@ -56,26 +66,26 @@ namespace UBB_SE_2024_Popsicles.Repositories
 
         public void AddGroupMember(GroupMember groupMember)
         {
-            string query = @"INSERT INTO GroupMembers (GroupMemberId, UserName, Password, Description, Email, Phone) 
+            string insertGroupMemberQuery = @"INSERT INTO GroupMembers (GroupMemberId, UserName, Password, Description, Email, Phone) 
                         VALUES (@Id, @UserName, @Password, @Description, @Email, @Phone)";
 
-            SqlCommand command = new SqlCommand(query, _connection);
+            SqlCommand insertGroupMemberCommand = new SqlCommand(insertGroupMemberQuery, _connection);
 
-            command.Parameters.AddWithValue("@Id", groupMember.Id);
-            command.Parameters.AddWithValue("@UserName", groupMember.Username);
-            command.Parameters.AddWithValue("@Password", groupMember.Password);
-            command.Parameters.AddWithValue("@Description", groupMember.Description);
-            command.Parameters.AddWithValue("@Email", groupMember.Email);
-            command.Parameters.AddWithValue("@Phone", groupMember.Phone);
+            insertGroupMemberCommand.Parameters.AddWithValue("@Id", groupMember.Id);
+            insertGroupMemberCommand.Parameters.AddWithValue("@UserName", groupMember.Username);
+            insertGroupMemberCommand.Parameters.AddWithValue("@Password", groupMember.Password);
+            insertGroupMemberCommand.Parameters.AddWithValue("@Description", groupMember.Description);
+            insertGroupMemberCommand.Parameters.AddWithValue("@Email", groupMember.Email);
+            insertGroupMemberCommand.Parameters.AddWithValue("@Phone", groupMember.Phone);
 
             _connection.Open();
-            command.ExecuteNonQuery();
+            insertGroupMemberCommand.ExecuteNonQuery();
             _connection.Close();
 
             _groupMembers.Add(groupMember);
         }
 
-        public void Update(GroupMember groupMember)
+        public void UpdateGroupMember(GroupMember groupMember)
         {
             GroupMember oldGroupMember = _groupMembers.First(gm => gm.Id == groupMember.Id);
             if (oldGroupMember == null)
@@ -85,30 +95,29 @@ namespace UBB_SE_2024_Popsicles.Repositories
             _groupMembers.Remove(oldGroupMember);
             _groupMembers.Add(groupMember);
 
-            string query = @"UPDATE GroupMembers 
+            string updateGroupMemberQuery = @"UPDATE GroupMembers 
                         SET UserName = @UserName, Password = @Password, Description = @Description, 
                             Email = @Email, Phone = @Phone 
                         WHERE GroupMemberId = @Id";
 
-            SqlCommand command = new SqlCommand(query, _connection);
+            SqlCommand updateGroupMemberCommand = new SqlCommand(updateGroupMemberQuery, _connection);
 
-            command.Parameters.AddWithValue("@Id", groupMember.Id);
-            command.Parameters.AddWithValue("@UserName", groupMember.Username);
-            command.Parameters.AddWithValue("@Password", groupMember.Password);
-            command.Parameters.AddWithValue("@Description", groupMember.Description);
-            command.Parameters.AddWithValue("@Email", groupMember.Email);
-            command.Parameters.AddWithValue("@Phone", groupMember.Phone);
+            updateGroupMemberCommand.Parameters.AddWithValue("@Id", groupMember.Id);
+            updateGroupMemberCommand.Parameters.AddWithValue("@UserName", groupMember.Username);
+            updateGroupMemberCommand.Parameters.AddWithValue("@Password", groupMember.Password);
+            updateGroupMemberCommand.Parameters.AddWithValue("@Description", groupMember.Description);
+            updateGroupMemberCommand.Parameters.AddWithValue("@Email", groupMember.Email);
+            updateGroupMemberCommand.Parameters.AddWithValue("@Phone", groupMember.Phone);
 
             _connection.Open();
-            int affectedRows = command.ExecuteNonQuery();
+            int affectedRows = updateGroupMemberCommand.ExecuteNonQuery();
             _connection.Close();
             if (affectedRows == 0)
             {
                 throw new Exception("No group member was updated; the member may not exist.");
             }
-
         }
-        public void RemoveGroupMember(Guid groupMemberId)
+        public void RemoveGroupMemberById(Guid groupMemberId)
         {
             GroupMember groupMember = _groupMembers.First(gm => gm.Id == groupMemberId);
             if (groupMember == null)
@@ -117,20 +126,19 @@ namespace UBB_SE_2024_Popsicles.Repositories
             }
             _groupMembers.Remove(groupMember);
 
-            string query = "DELETE FROM GroupMembers WHERE GroupMemberId = @Id";
+            string deleteGroupMemberQuery = "DELETE FROM GroupMembers WHERE GroupMemberId = @Id";
 
-            SqlCommand command = new SqlCommand(query, _connection);
+            SqlCommand deleteGroupMemberCommand = new SqlCommand(deleteGroupMemberQuery, _connection);
 
-            command.Parameters.AddWithValue("@Id", groupMemberId);
+            deleteGroupMemberCommand.Parameters.AddWithValue("@Id", groupMemberId);
 
             _connection.Open();
-            int affectedRows = command.ExecuteNonQuery();
+            int affectedRows = deleteGroupMemberCommand.ExecuteNonQuery();
             _connection.Close();
             if (affectedRows == 0)
             {
                 throw new Exception("No group member was deleted; the member may not exist.");
             }
-
         }
     }
 }

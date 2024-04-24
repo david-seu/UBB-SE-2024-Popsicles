@@ -3,10 +3,20 @@ using UBB_SE_2024_Popsicles.Models;
 
 namespace UBB_SE_2024_Popsicles.Repositories
 {
-    internal class GroupMembershipRepository
+    internal class GroupMembershipRepository : IGroupMembershipRepository
     {
-        SqlConnection _connection;
-        List<GroupMembership> _groupMemberships = new List<GroupMembership>();
+        private SqlConnection _connection;
+        private List<GroupMembership> _groupMemberships = new List<GroupMembership>();
+
+        public SqlConnection Connection
+        {
+            get { return _connection; }
+        }
+
+        public List<GroupMembership> GroupMemberships
+        {
+            get { return _groupMemberships; }
+        }
 
         public GroupMembershipRepository(SqlConnection connection)
         {
@@ -16,15 +26,15 @@ namespace UBB_SE_2024_Popsicles.Repositories
 
         private void LoadDataFromSql()
         {
-            string query = @"
- SELECT gm.GroupMembershipId, gm.GroupId, gm.GroupMemberId, gm.Role, gm.JoinDate, gm.IsBanned, gm.IsTimedOut, gm.ByPassPostSettings, m.UserName
- FROM GroupMemberships gm
- JOIN GroupMembers m ON gm.GroupMemberId = m.GroupMemberId";
+            string selectGroupMembershipQuery = @"
+                SELECT gm.GroupMembershipId, gm.GroupId, gm.GroupMemberId, gm.Role, gm.JoinDate, gm.IsBanned, gm.IsTimedOut, gm.ByPassPostSettings, m.UserName
+                FROM GroupMemberships gm
+                JOIN GroupMembers m ON gm.GroupMemberId = m.GroupMemberId";
 
-            SqlCommand command = new SqlCommand(query, _connection);
+            SqlCommand selectGeoupMembershipCommand = new SqlCommand(selectGroupMembershipQuery, _connection);
 
             _connection.Open();
-            using (SqlDataReader reader = command.ExecuteReader())
+            using (SqlDataReader reader = selectGeoupMembershipCommand.ExecuteReader())
             {
                 while (reader.Read())
                 {
@@ -57,7 +67,7 @@ namespace UBB_SE_2024_Popsicles.Repositories
             _connection.Close();
         }
 
-        public GroupMembership GetGroupMembership(Guid groupMembershipId)
+        public GroupMembership GetGroupMembershipById(Guid groupMembershipId)
         {
             GroupMembership groupMembership = _groupMemberships.First(gm => gm.Id == groupMembershipId);
             if (groupMembership == null)
@@ -74,24 +84,24 @@ namespace UBB_SE_2024_Popsicles.Repositories
 
         public void AddGroupMembership(GroupMembership groupMembership)
         {
-            string query = @"
+            string insertGroupMembershipQuery = @"
             INSERT INTO GroupMemberships (GroupMembershipId, GroupId, GroupMemberId, Role, JoinDate, IsBanned, IsTimedOut, ByPassPostSettings)
             VALUES (@Id, @GroupId, @GroupMemberId, @Role, @JoinDate, @IsBanned, @IsTimedOut, @ByPassPostSettings)";
 
-            SqlCommand command = new SqlCommand(query, _connection);
+            SqlCommand insertGroupMembershipCommand = new SqlCommand(insertGroupMembershipQuery, _connection);
 
 
-            command.Parameters.AddWithValue("@Id", groupMembership.Id);
-            command.Parameters.AddWithValue("@GroupId", groupMembership.GroupId);
-            command.Parameters.AddWithValue("@GroupMemberId", groupMembership.GroupMemberId);
-            command.Parameters.AddWithValue("@Role", groupMembership.Role);
-            command.Parameters.AddWithValue("@JoinDate", groupMembership.JoinDate);
-            command.Parameters.AddWithValue("@IsBanned", groupMembership.IsBanned);
-            command.Parameters.AddWithValue("@IsTimedOut", groupMembership.IsTimedOut);
-            command.Parameters.AddWithValue("@ByPassPostSettings", groupMembership.ByPassPostSettings);
+            insertGroupMembershipCommand.Parameters.AddWithValue("@Id", groupMembership.Id);
+            insertGroupMembershipCommand.Parameters.AddWithValue("@GroupId", groupMembership.GroupId);
+            insertGroupMembershipCommand.Parameters.AddWithValue("@GroupMemberId", groupMembership.GroupMemberId);
+            insertGroupMembershipCommand.Parameters.AddWithValue("@Role", groupMembership.Role);
+            insertGroupMembershipCommand.Parameters.AddWithValue("@JoinDate", groupMembership.JoinDate);
+            insertGroupMembershipCommand.Parameters.AddWithValue("@IsBanned", groupMembership.IsBanned);
+            insertGroupMembershipCommand.Parameters.AddWithValue("@IsTimedOut", groupMembership.IsTimedOut);
+            insertGroupMembershipCommand.Parameters.AddWithValue("@ByPassPostSettings", groupMembership.ByPassPostSettings);
 
             _connection.Open();
-            command.ExecuteNonQuery();
+            insertGroupMembershipCommand.ExecuteNonQuery();
             _connection.Close();
 
             _groupMemberships.Add(groupMembership);
@@ -99,7 +109,7 @@ namespace UBB_SE_2024_Popsicles.Repositories
 
         }
 
-        public void Update(GroupMembership groupMembership)
+        public void UpdateGroupMembership(GroupMembership groupMembership)
         {
             GroupMembership oldGroupMembership = _groupMemberships.First(gm => gm.Id == groupMembership.Id);
             if (oldGroupMembership == null)
@@ -109,27 +119,27 @@ namespace UBB_SE_2024_Popsicles.Repositories
             _groupMemberships.Remove(oldGroupMembership);
             _groupMemberships.Add(groupMembership);
 
-            string query = @"
+            string updateGroupMembershipQuery = @"
             UPDATE GroupMemberships
             SET Role = @Role, IsBanned = @IsBanned, IsTimedOut = @IsTimedOut, ByPassPostSettings = @ByPassPostSettings
             WHERE GroupMembershipId = @Id";
 
-            SqlCommand command = new SqlCommand(query, _connection);
+            SqlCommand updateGroupMembershipCommand = new SqlCommand(updateGroupMembershipQuery, _connection);
 
 
-            command.Parameters.AddWithValue("@Id", groupMembership.Id);
-            command.Parameters.AddWithValue("@Role", groupMembership.Role);
-            command.Parameters.AddWithValue("@IsBanned", groupMembership.IsBanned);
-            command.Parameters.AddWithValue("@IsTimedOut", groupMembership.IsTimedOut);
-            command.Parameters.AddWithValue("@ByPassPostSettings", groupMembership.ByPassPostSettings);
+            updateGroupMembershipCommand.Parameters.AddWithValue("@Id", groupMembership.Id);
+            updateGroupMembershipCommand.Parameters.AddWithValue("@Role", groupMembership.Role);
+            updateGroupMembershipCommand.Parameters.AddWithValue("@IsBanned", groupMembership.IsBanned);
+            updateGroupMembershipCommand.Parameters.AddWithValue("@IsTimedOut", groupMembership.IsTimedOut);
+            updateGroupMembershipCommand.Parameters.AddWithValue("@ByPassPostSettings", groupMembership.ByPassPostSettings);
 
             _connection.Open();
-            command.ExecuteNonQuery();
+            updateGroupMembershipCommand.ExecuteNonQuery();
             _connection.Close();
 
         }
 
-        public void RemoveGroupMembership(Guid groupMembershipId)
+        public void RemoveGroupMembershipById(Guid groupMembershipId)
         {
             GroupMembership groupMembership = _groupMemberships.First(gm => gm.Id == groupMembershipId);
             if (groupMembership == null)
@@ -138,12 +148,12 @@ namespace UBB_SE_2024_Popsicles.Repositories
             }
             _groupMemberships.Remove(groupMembership);
 
-            string query = "DELETE FROM GroupMemberships WHERE GroupMembershipId = @Id";
+            string deleteGroupMembershipQuery = "DELETE FROM GroupMemberships WHERE GroupMembershipId = @Id";
 
-            SqlCommand command = new SqlCommand(query, _connection);
-            command.Parameters.AddWithValue("@Id", groupMembershipId);
+            SqlCommand deleteGroupMembershipCommand = new SqlCommand(deleteGroupMembershipQuery, _connection);
+            deleteGroupMembershipCommand.Parameters.AddWithValue("@Id", groupMembershipId);
             _connection.Open();
-            int affectedRows = command.ExecuteNonQuery();
+            int affectedRows = deleteGroupMembershipCommand.ExecuteNonQuery();
             _connection.Close();
             if (affectedRows == 0)
             {
