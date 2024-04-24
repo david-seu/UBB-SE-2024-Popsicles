@@ -1,9 +1,6 @@
 ﻿using System.Collections.ObjectModel;
-using System.Data.SqlClient;
 using UBB_SE_2024_Popsicles.Models;
 using UBB_SE_2024_Popsicles.MVVM;
-using UBB_SE_2024_Popsicles.Repositories;
-using UBB_SE_2024_Popsicles.Services;
 
 namespace UBB_SE_2024_Popsicles.ViewModels
 {
@@ -13,13 +10,12 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public MainWindowViewModel()
         {
-            //string connection = "your connection string goes here";
-            //SqlConnection sqlConnection = new SqlConnection(connection);
-            //GroupMemberRepository groupMemberRepository = new GroupMemberRepository(sqlConnection);
-            //GroupRepository groupRepository = new GroupRepository(sqlConnection);
-            //GroupMembershipRepository groupMembershipRepository = new GroupMembershipRepository(sqlConnection);
-            //RequestsRepository requestsRepository = new RequestsRepository(sqlConnection);
-
+            // string connection = "your connection string goes here";
+            // SqlConnection sqlConnection = new SqlConnection(connection);
+            // GroupMemberRepository groupMemberRepository = new GroupMemberRepository(sqlConnection);
+            // GroupRepository groupRepository = new GroupRepository(sqlConnection);
+            // GroupMembershipRepository groupMembershipRepository = new GroupMembershipRepository(sqlConnection);
+            // RequestsRepository requestsRepository = new RequestsRepository(sqlConnection);
             Guid id = new Guid("44d5aa9a-b0f4-4e36-a21e-bdc33b97b5a5");
             GroupMember groupMember = new GroupMember(id, "Dorian", "admin", "dorian@ubb.ro", "0725702312", "No paper, no pencil but I am still drawing attention.");
             User = groupMember;
@@ -37,33 +33,36 @@ namespace UBB_SE_2024_Popsicles.ViewModels
             SelectedGroup = Groups[0];
         }
 
-        private GroupMember _user;
+        private GroupMember user;
 
         public GroupMember User
         {
-            get { return _user; }
-            set { _user = value; OnPropertyChanged(); }
-        }
-
-
-        private Group _selectedGroup;
-        public Group SelectedGroup
-        {
-            get { return _selectedGroup; }
+            get => user;
             set
             {
-                _selectedGroup = value;
+                user = value;
                 OnPropertyChanged();
             }
         }
 
-        private GroupViewModel _selectedGroupViewModel;
-        public GroupViewModel SelectedGroupViewModel
+        private Group selectedGroup;
+        public Group SelectedGroup
         {
-            get { return _selectedGroupViewModel; }
+            get => selectedGroup;
             set
             {
-                _selectedGroupViewModel = value;
+                selectedGroup = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private GroupViewModel selectedGroupViewModel;
+        public GroupViewModel SelectedGroupViewModel
+        {
+            get => selectedGroupViewModel;
+            set
+            {
+                selectedGroupViewModel = value;
                 OnPropertyChanged();
             }
         }

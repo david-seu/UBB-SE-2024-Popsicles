@@ -28,7 +28,7 @@ namespace UBB_SE_2024_Popsicles.Views
 
         private void CreatePollButton_Click(object sender, RoutedEventArgs e)
         {
-            //TODO: Implement this
+            // TODO: Implement this
         }
 
         private void GroupPollsButton_Click(object sender, RoutedEventArgs e)

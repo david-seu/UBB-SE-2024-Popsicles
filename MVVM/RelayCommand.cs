@@ -4,13 +4,13 @@ namespace UBB_SE_2024_Popsicles.MVVM
 {
     public class RelayCommand : ICommand
     {
-        private Action<object> _execute;
-        private Func<object, bool> _canExecute;
+        private Action<object> execute;
+        private Func<object, bool> canExecute;
 
         public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
         {
-            _execute = execute;
-            _canExecute = canExecute;
+            execute = execute;
+            canExecute = canExecute;
         }
 
         public event EventHandler? CanExecuteChanged
@@ -21,12 +21,12 @@ namespace UBB_SE_2024_Popsicles.MVVM
 
         public bool CanExecute(object? parameter)
         {
-            return _canExecute == null || _canExecute(parameter);
+            return canExecute == null || canExecute(parameter);
         }
 
         public void Execute(object? parameter)
         {
-            _execute(parameter);
+            execute(parameter);
         }
     }
 }

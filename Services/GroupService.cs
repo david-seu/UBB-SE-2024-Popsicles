@@ -29,7 +29,7 @@ namespace UBB_SE_2024_Popsicles.Services
         private GroupMembershipRepository GroupMembershipRepository { get; }
         private RequestsRepository RequestsRepository { get; }
 
-        public GroupService(GroupRepository groupRepository, GroupMemberRepository groupMemberRepository, GroupMembershipRepository groupMembershipRepository, RequestsRepository requestsRepository)
+        GroupService(GroupRepository groupRepository, GroupMemberRepository groupMemberRepository, GroupMembershipRepository groupMembershipRepository, RequestsRepository requestsRepository)
         {
             GroupRepository = groupRepository;
             GroupMemberRepository = groupMemberRepository;
@@ -317,9 +317,9 @@ namespace UBB_SE_2024_Popsicles.Services
         public GroupMember GetGroupMember(Guid groupId, Guid groupMemberId)
         {
             Group group = GroupRepository.GetGroup(groupId);
-            foreach(GroupMembership membership in group.Memberships)
+            foreach (GroupMembership membership in group.Memberships)
             {
-                if(membership.GroupMemberId == groupMemberId)
+                if (membership.GroupMemberId == groupMemberId)
                 {
                     return GroupMemberRepository.GetGroupMember(groupMemberId);
                 }

@@ -10,71 +10,71 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 {
     public class GroupPostViewModel : ViewModelBase
     {
-        private string _userNameGroupName;
+        private string userNameGroupName;
         public string UserNameGroupName
         {
-            get { return _userNameGroupName; }
+            get => userNameGroupName;
             set
             {
-                if (_userNameGroupName != value)
+                if (userNameGroupName != value)
                 {
-                    _userNameGroupName = value;
+                    userNameGroupName = value;
                     OnPropertyChanged(nameof(UserNameGroupName));
                 }
             }
         }
 
-        private string _dateTime;
+        private string dateTime;
         public string DateTime
         {
-            get { return _dateTime; }
+            get => dateTime;
             set
             {
-                if (_dateTime != value)
+                if (dateTime != value)
                 {
-                    _dateTime = value;
+                    dateTime = value;
                     OnPropertyChanged(nameof(DateTime));
                 }
             }
         }
 
-        private string _postDescription;
+        private string postDescription;
         public string PostDescription
         {
-            get { return _postDescription; }
+            get => postDescription;
             set
             {
-                if (_postDescription != value)
+                if (postDescription != value)
                 {
-                    _postDescription = value;
+                    postDescription = value;
                     OnPropertyChanged(nameof(PostDescription));
                 }
             }
         }
 
-        private string _likes;
+        private string likes;
         public string Likes
         {
-            get { return _likes; }
+            get => likes;
             set
             {
-                if (_likes != value)
+                if (likes != value)
                 {
-                    _likes = value;
+                    likes = value;
                     OnPropertyChanged(nameof(Likes));
                 }
             }
         }
 
-        private string _comments;
+        private string comments;
         public string Comments
         {
-            get { return _comments; }
+            get => comments;
             set
             {
-                if (_comments != value)
+                if (comments != value)
                 {
-                    _comments = value;
+                    comments = value;
                     OnPropertyChanged(nameof(Comments));
                 }
             }

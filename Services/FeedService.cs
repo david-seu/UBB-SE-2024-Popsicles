@@ -7,7 +7,7 @@ using UBB_SE_2024_Popsicles.Models;
 
 namespace UBB_SE_2024_Popsicles.Services
 {
-    class FeedService
+    internal class FeedService
     {
         public List<GroupPost> FilterPostsByTags(List<GroupPost> posts, List<string> tags)
         {

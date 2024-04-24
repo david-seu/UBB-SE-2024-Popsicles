@@ -20,7 +20,6 @@ namespace UBB_SE_2024_Popsicles.ViewModels
             SelectedGroup = selectedGroup;
 
             // TODO: Fetch posts and members from the repository
-
             GroupMembers = new ObservableCollection<GroupMember>
             {
                 new GroupMember(Guid.NewGuid(), "Denis", "admin", "denis@ubb.ro", "0749999345", "I am stupid."),
@@ -78,42 +77,42 @@ namespace UBB_SE_2024_Popsicles.ViewModels
             PollViewModels = new ObservableCollection<PollViewModel>(pollViewModels);
         }
 
-        private Poll _selectedPoll;
+        private Poll selectedPoll;
         public Poll SelectedPoll
         {
-            get { return _selectedPoll; }
+            get => selectedPoll;
             set
             {
-                _selectedPoll = value;
+                selectedPoll = value;
                 OnPropertyChanged();
             }
         }
 
-        private PollViewModel _selectedPollViewModel;
+        private PollViewModel selectedPollViewModel;
         public PollViewModel SelectedPollViewModel
         {
-            get { return _selectedPollViewModel; }
+            get => selectedPollViewModel;
             set
             {
-                _selectedPollViewModel = value;
+                selectedPollViewModel = value;
                 OnPropertyChanged();
             }
         }
 
-        private Group _selectedGroup;
+        private Group selectedGroup;
         public Group SelectedGroup
         {
-            get { return _selectedGroup; }
+            get => selectedGroup;
             set
             {
-                _selectedGroup = value;
+                selectedGroup = value;
                 OnPropertyChanged();
             }
         }
 
         public string Name
         {
-            get { return SelectedGroup.Name; }
+            get => SelectedGroup.Name;
             set
             {
                 SelectedGroup.Name = value;
@@ -127,8 +126,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
             get { return SelectedGroup.BannerPath; }
         }
 
-        /// Group Settings Tab
-
+        // Group Settings Tab
         public string Owner
         {
             // TODO: Fetch owner name from the repository
@@ -162,7 +160,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string IsPublic
         {
-            get { return SelectedGroup.IsPublic == true ? "Public" : "Private"; }
+            get => SelectedGroup.IsPublic == true ? "Public" : "Private";
             set
             {
                 SelectedGroup.IsPublic = value == "Public";
@@ -179,7 +177,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string Description
         {
-            get { return SelectedGroup.Description; }
+            get => SelectedGroup.Description;
             set
             {
                 SelectedGroup.Description = value;
@@ -189,7 +187,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string MaxPosts
         {
-            get { return SelectedGroup.MaxPostsPerHourPerUser.ToString(); }
+            get => SelectedGroup.MaxPostsPerHourPerUser.ToString();
             set
             {
                 SelectedGroup.MaxPostsPerHourPerUser = int.Parse(value);
@@ -199,7 +197,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string CanMakePosts
         {
-            get { return SelectedGroup.CanMakePostsByDefault == true ? "Yes" : "No"; }
+            get => SelectedGroup.CanMakePostsByDefault == true ? "Yes" : "No";
             set
             {
                 SelectedGroup.CanMakePostsByDefault = value == "Yes";
@@ -216,19 +214,19 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string Icon
         {
-            get { return SelectedGroup.Icon; }
+            get => SelectedGroup.Icon;
             set
             {
                 SelectedGroup.Icon = value;
                 // TODO: notify somehow the main window view model that IconPath has changed
-                //OnPropertyChanged("IconPath");
+                // OnPropertyChanged("IconPath");
                 OnPropertyChanged();
             }
         }
 
         public string Banner
         {
-            get { return SelectedGroup.Banner; }
+            get => SelectedGroup.Banner;
             set
             {
                 SelectedGroup.Banner = value;
@@ -237,8 +235,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
             }
         }
 
-        /// Requests
-
+        // Requests
         public RelayCommand AcceptRequestCommand => new RelayCommand(execute => AcceptRequest());
 
         private void AcceptRequest()
