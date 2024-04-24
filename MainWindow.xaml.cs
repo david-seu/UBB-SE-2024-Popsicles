@@ -32,14 +32,12 @@ namespace UBB_SE_2024_Popsicles
                     GroupViewModel groupViewModel = new GroupViewModel(selectedGroup);
                     groupViewModel.PropertyChanged += GroupViewModel_PropertyChanged;
                     mainViewModel.SelectedGroupViewModel = groupViewModel;
-
                 }
             }
         }
 
         private void GroupViewModel_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-
         }
 
         private void CreateGroupButton_Click(object sender, RoutedEventArgs e)

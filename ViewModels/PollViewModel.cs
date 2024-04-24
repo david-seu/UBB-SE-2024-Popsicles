@@ -17,20 +17,26 @@ namespace UBB_SE_2024_Popsicles.ViewModels
             SelectedPoll = selectedPoll;
         }
 
-        private Poll _selectedPoll;
+        private Poll selectedPoll;
         public Poll SelectedPoll
         {
-            get { return _selectedPoll; }
+            get
+            {
+                return this.selectedPoll;
+            }
             set
             {
-                _selectedPoll = value;
+                this.selectedPoll = value;
                 OnPropertyChanged();
             }
         }
 
         public string Description
         {
-            get { return SelectedPoll.Description; }
+            get
+            {
+                return SelectedPoll.Description;
+            }
             set
             {
                 SelectedPoll.Description = value;
@@ -40,7 +46,10 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string EndDate
         {
-            get { return SelectedPoll.EndTime.ToString(); }
+            get
+            {
+                return SelectedPoll.EndTime.ToString();
+            }
             set
             {
                 SelectedPoll.EndTime = DateTime.Parse(value);
@@ -50,7 +59,10 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string Option0
         {
-            get { return SelectedPoll.Options[0]; }
+            get
+            {
+                return SelectedPoll.Options[0];
+            }
             set
             {
                 SelectedPoll.Options[0] = value;
@@ -60,7 +72,10 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string Option1
         {
-            get { return SelectedPoll.Options[1]; }
+            get
+            {
+                return SelectedPoll.Options[1];
+            }
             set
             {
                 SelectedPoll.Options[1] = value;
@@ -70,7 +85,10 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string Option2
         {
-            get { return SelectedPoll.Options[2]; }
+            get
+            {
+                return SelectedPoll.Options[2];
+            }
             set
             {
                 SelectedPoll.Options[2] = value;
@@ -80,7 +98,10 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string Option3
         {
-            get { return SelectedPoll.Options[3]; }
+            get
+            {
+                return SelectedPoll.Options[3];
+            }
             set
             {
                 SelectedPoll.Options[3] = value;

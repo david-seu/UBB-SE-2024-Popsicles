@@ -5,21 +5,21 @@ namespace UBB_SE_2024_Popsicles.Repositories
 {
     internal class GroupMemberRepository
     {
-        private SqlConnection _connection;
-        private List<GroupMember> _groupMembers = new List<GroupMember>();
+        private SqlConnection connection;
+        private List<GroupMember> groupMembers = new List<GroupMember>();
 
         public GroupMemberRepository(SqlConnection connection)
         {
-            this._connection = connection;
+            this.connection = connection;
             LoadDataFromSql();
         }
 
         private void LoadDataFromSql()
         {
             string query = "SELECT GroupMemberId, UserName, Password, Description, Email, Phone FROM GroupMembers";
-            SqlCommand command = new SqlCommand(query, _connection);
+            SqlCommand command = new SqlCommand(query, this.connection);
 
-            _connection.Open();
+            this.connection.Open();
             using (SqlDataReader reader = command.ExecuteReader())
             {
                 while (reader.Read())
@@ -30,18 +30,16 @@ namespace UBB_SE_2024_Popsicles.Repositories
                         password: reader.GetString(2),
                         description: reader.IsDBNull(3) ? null : reader.GetString(3),
                         email: reader.GetString(4),
-                        phone: reader.GetString(5)
-                    );
-                    _groupMembers.Add(groupMember);
+                        phone: reader.GetString(5));
+                    this.groupMembers.Add(groupMember);
                 }
             }
-            _connection.Close();
-
+            this.connection.Close();
         }
 
         public GroupMember GetGroupMember(Guid groupMemberId)
         {
-            GroupMember groupMember = _groupMembers.First(gm => gm.Id == groupMemberId);
+            GroupMember groupMember = this.groupMembers.First(gm => gm.Id == groupMemberId);
             if (groupMember == null)
             {
                 throw new Exception("Group member not found");
@@ -51,7 +49,7 @@ namespace UBB_SE_2024_Popsicles.Repositories
 
         public List<GroupMember> GetGroupMembers()
         {
-            return _groupMembers;
+            return this.groupMembers;
         }
 
         public void AddGroupMember(GroupMember groupMember)
@@ -59,7 +57,7 @@ namespace UBB_SE_2024_Popsicles.Repositories
             string query = @"INSERT INTO GroupMembers (GroupMemberId, UserName, Password, Description, Email, Phone) 
                         VALUES (@Id, @UserName, @Password, @Description, @Email, @Phone)";
 
-            SqlCommand command = new SqlCommand(query, _connection);
+            SqlCommand command = new SqlCommand(query, this.connection);
 
             command.Parameters.AddWithValue("@Id", groupMember.Id);
             command.Parameters.AddWithValue("@UserName", groupMember.Username);
@@ -68,29 +66,29 @@ namespace UBB_SE_2024_Popsicles.Repositories
             command.Parameters.AddWithValue("@Email", groupMember.Email);
             command.Parameters.AddWithValue("@Phone", groupMember.Phone);
 
-            _connection.Open();
+            this.connection.Open();
             command.ExecuteNonQuery();
-            _connection.Close();
+            this.connection.Close();
 
-            _groupMembers.Add(groupMember);
+            this.groupMembers.Add(groupMember);
         }
 
         public void Update(GroupMember groupMember)
         {
-            GroupMember oldGroupMember = _groupMembers.First(gm => gm.Id == groupMember.Id);
+            GroupMember oldGroupMember = this.groupMembers.First(gm => gm.Id == groupMember.Id);
             if (oldGroupMember == null)
             {
                 throw new Exception("Group member not found");
             }
-            _groupMembers.Remove(oldGroupMember);
-            _groupMembers.Add(groupMember);
+            this.groupMembers.Remove(oldGroupMember);
+            this.groupMembers.Add(groupMember);
 
             string query = @"UPDATE GroupMembers 
                         SET UserName = @UserName, Password = @Password, Description = @Description, 
                             Email = @Email, Phone = @Phone 
                         WHERE GroupMemberId = @Id";
 
-            SqlCommand command = new SqlCommand(query, _connection);
+            SqlCommand command = new SqlCommand(query, this.connection);
 
             command.Parameters.AddWithValue("@Id", groupMember.Id);
             command.Parameters.AddWithValue("@UserName", groupMember.Username);
@@ -99,38 +97,36 @@ namespace UBB_SE_2024_Popsicles.Repositories
             command.Parameters.AddWithValue("@Email", groupMember.Email);
             command.Parameters.AddWithValue("@Phone", groupMember.Phone);
 
-            _connection.Open();
+            this.connection.Open();
             int affectedRows = command.ExecuteNonQuery();
-            _connection.Close();
+            this.connection.Close();
             if (affectedRows == 0)
             {
                 throw new Exception("No group member was updated; the member may not exist.");
             }
-
         }
         public void RemoveGroupMember(Guid groupMemberId)
         {
-            GroupMember groupMember = _groupMembers.First(gm => gm.Id == groupMemberId);
+            GroupMember groupMember = this.groupMembers.First(gm => gm.Id == groupMemberId);
             if (groupMember == null)
             {
                 throw new Exception("Group member not found");
             }
-            _groupMembers.Remove(groupMember);
+            this.groupMembers.Remove(groupMember);
 
             string query = "DELETE FROM GroupMembers WHERE GroupMemberId = @Id";
 
-            SqlCommand command = new SqlCommand(query, _connection);
+            SqlCommand command = new SqlCommand(query, this.connection);
 
             command.Parameters.AddWithValue("@Id", groupMemberId);
 
-            _connection.Open();
+            this.connection.Open();
             int affectedRows = command.ExecuteNonQuery();
-            _connection.Close();
+            this.connection.Close();
             if (affectedRows == 0)
             {
                 throw new Exception("No group member was deleted; the member may not exist.");
             }
-
         }
     }
 }

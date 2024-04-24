@@ -38,7 +38,7 @@ namespace UBB_SE_2024_Popsicles.Models
             Tags = new List<string>();
             Options = new List<string>();
             Votes = new List<Vote>();
-            SpecificToRole = "";
+            SpecificToRole = string.Empty;
         }
 
         public void AddOption(string option)

@@ -20,7 +20,7 @@ namespace UBB_SE_2024_Popsicles.Models
             DateTime = DateTime.Now;
 
             Tags = new List<string>();
-            SpecificToRole = "";
+            SpecificToRole = string.Empty;
         }
 
         public void AddTag(string tag)

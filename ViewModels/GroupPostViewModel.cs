@@ -10,71 +10,86 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 {
     public class GroupPostViewModel : ViewModelBase
     {
-        private string _userNameGroupName;
+        private string userNameGroupName;
         public string UserNameGroupName
         {
-            get { return _userNameGroupName; }
+            get
+            {
+                return this.userNameGroupName;
+            }
             set
             {
-                if (_userNameGroupName != value)
+                if (this.userNameGroupName != value)
                 {
-                    _userNameGroupName = value;
+                    this.userNameGroupName = value;
                     OnPropertyChanged(nameof(UserNameGroupName));
                 }
             }
         }
 
-        private string _dateTime;
+        private string dateTime;
         public string DateTime
         {
-            get { return _dateTime; }
+            get
+            {
+                return this.dateTime;
+            }
             set
             {
-                if (_dateTime != value)
+                if (this.dateTime != value)
                 {
-                    _dateTime = value;
+                    this.dateTime = value;
                     OnPropertyChanged(nameof(DateTime));
                 }
             }
         }
 
-        private string _postDescription;
+        private string postDescription;
         public string PostDescription
         {
-            get { return _postDescription; }
+            get
+            {
+                return this.postDescription;
+            }
             set
             {
-                if (_postDescription != value)
+                if (this.postDescription != value)
                 {
-                    _postDescription = value;
+                    this.postDescription = value;
                     OnPropertyChanged(nameof(PostDescription));
                 }
             }
         }
 
-        private string _likes;
+        private string likes;
         public string Likes
         {
-            get { return _likes; }
+            get
+            {
+                return this.likes;
+            }
             set
             {
-                if (_likes != value)
+                if (this.likes != value)
                 {
-                    _likes = value;
+                    this.likes = value;
                     OnPropertyChanged(nameof(Likes));
                 }
             }
         }
 
-        private string _comments;
+        private string comments;
         public string Comments
         {
-            get { return _comments; }
+            get
+            {
+                return this.comments;
+            }
             set
             {
-                if (_comments != value)
+                if (this.comments != value)
                 {
-                    _comments = value;
+                    this.comments = value;
                     OnPropertyChanged(nameof(Comments));
                 }
             }

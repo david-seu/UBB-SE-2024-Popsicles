@@ -8,21 +8,19 @@ using UBB_SE_2024_Popsicles.Repositories;
 
 namespace UBB_SE_2024_Popsicles.Services
 {
-    class GroupService
+    internal class GroupService
     {
-        private static string DEFAULT_GROUP_NAME = "New Group";
-        private static string DEFAULT_GROUP_DESCRIPTION = "This is a new group";
-        private static string DEFAULT_GROUP_ICON = "default";
-        private static string DEFAULT_GROUP_BANNER = "default";
-        private static int DEFAULT_MAX_POSTS_PER_HOUR_PER_USER = 5;
-        private static bool DEFAULT_IS_PUBLIC = false;
-        private static bool DEFAULT_CAN_MAKE_POSTS_BY_DEFAULT = false;
-        private static string DEFAULT_GROUP_ROLE = "user";
+        private static string defaultGroupName = "New Group";
+        private static string defaultGroupDescription = "This is a new group";
+        private static string defaultGroupIcon = "default";
+        private static string defaultGroupBanner = "default";
+        private static int defaultMaxPostsPerHourPerUser = 5;
+        private static bool defaultIsPublic = false;
+        private static bool defaultCanMakePosts = false;
+        private static string defaultGroupRole = "user";
 
-        private static bool DEFAULT_POST_IS_PINNED = false;
-        private static string DEFAULT_POST_DESCRIPTION = "This is a new post";
-
-
+        private static bool defaultPostIsPinned = false;
+        private static string defaultPostDescription = "This is a new post";
         // Add the three repos: GroupRepository, GroupMemberRepository, and GroupMembershipRepository
         private GroupRepository GroupRepository { get; }
         private GroupMemberRepository GroupMemberRepository { get; }
@@ -43,7 +41,7 @@ namespace UBB_SE_2024_Popsicles.Services
             // Generate a random group code by slicing a random GUID into a 6-character string
             // This results in a 1 in 2^36 chance of a collision (it should be fine)
             string groupCode = Guid.NewGuid().ToString().Substring(0, 6);
-            Group newGroup = new Group(groupId, ownerId, DEFAULT_GROUP_NAME, DEFAULT_GROUP_DESCRIPTION, DEFAULT_GROUP_ICON, DEFAULT_GROUP_BANNER, DEFAULT_MAX_POSTS_PER_HOUR_PER_USER, DEFAULT_IS_PUBLIC, DEFAULT_CAN_MAKE_POSTS_BY_DEFAULT, groupCode);
+            Group newGroup = new Group(groupId, ownerId, defaultGroupName, defaultGroupDescription, defaultGroupIcon, defaultGroupBanner, defaultMaxPostsPerHourPerUser, defaultIsPublic, defaultCanMakePosts, groupCode);
 
             // Add the new group to the GroupRepository
             GroupRepository.AddGroup(newGroup);
@@ -226,7 +224,7 @@ namespace UBB_SE_2024_Popsicles.Services
             group.RemoveRequest(request.Id);
             groupMember.RemoveOutgoingRequest(request.Id);
 
-            AddMember(request.GroupMemberId, request.GroupId, DEFAULT_GROUP_ROLE);
+            AddMember(request.GroupMemberId, request.GroupId, defaultGroupRole);
 
             // Delete the Request from the RequestRepository
             RequestsRepository.RemoveRequest(request.Id);
@@ -259,9 +257,8 @@ namespace UBB_SE_2024_Popsicles.Services
             GroupMembership groupMembership = group.GetMembership(groupMemberId);
 
             if (groupMembership.ByPassPostSettings || group.CanMakePostsByDefault)
-            { 
+            {
                 GroupPost newPost = new GroupPost(postId, groupMemberId, content, image, groupId);
-
                 group.Posts.Add(newPost);
             }
             else
@@ -269,7 +266,6 @@ namespace UBB_SE_2024_Popsicles.Services
                 int postCount = 0;
                 foreach (GroupPost post in group.Posts)
                 {
-
                     if (post.OwnerId == groupMemberId && post.DateTime.Date == postDate.Date)
                     {
                         postCount++;
@@ -316,16 +312,15 @@ namespace UBB_SE_2024_Popsicles.Services
         public GroupMember GetGroupMember(Guid groupId, Guid groupMemberId)
         {
             Group group = GroupRepository.GetGroup(groupId);
-            foreach(GroupMembership membership in group.Memberships)
+            foreach (GroupMembership membership in group.Memberships)
             {
-                if(membership.GroupMemberId == groupMemberId)
+                if (membership.GroupMemberId == groupMemberId)
                 {
                     return GroupMemberRepository.GetGroupMember(groupMemberId);
                 }
             }
 
             throw new Exception("Group member not found");
-
         }
 
         public List<Request> GetRequests(Guid groupId)

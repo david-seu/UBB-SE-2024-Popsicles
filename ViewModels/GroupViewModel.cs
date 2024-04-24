@@ -9,18 +9,36 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 {
     public class GroupViewModel : ViewModelBase
     {
-        public ObservableCollection<Poll> Polls { get; set; }
-        public ObservableCollection<PollViewModel> PollViewModels { get; set; }
-        public ObservableCollection<GroupMember> GroupMembers { get; set; }
-        public ObservableCollection<Request> Requests { get; set; }
-        public ObservableCollection<GroupPost> Posts { get; set; }
+        public ObservableCollection<Poll> Polls
+        {
+            get; set;
+        }
+
+        public ObservableCollection<PollViewModel> PollViewModels
+        {
+            get; set;
+        }
+
+        public ObservableCollection<GroupMember> GroupMembers
+        {
+            get; set;
+        }
+
+        public ObservableCollection<Request> Requests
+        {
+            get; set;
+        }
+
+        public ObservableCollection<GroupPost> Posts
+        {
+            get; set;
+        }
 
         public GroupViewModel(Group selectedGroup)
         {
             SelectedGroup = selectedGroup;
 
             // TODO: Fetch posts and members from the repository
-
             GroupMembers = new ObservableCollection<GroupMember>
             {
                 new GroupMember(Guid.NewGuid(), "Denis", "admin", "denis@ubb.ro", "0749999345", "I am stupid."),
@@ -33,8 +51,8 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
             Requests = new ObservableCollection<Request>()
             {
-                new Request(Guid.NewGuid(), Guid.NewGuid(), "Vasile" , Guid.NewGuid()),
-                new Request(Guid.NewGuid(), Guid.NewGuid(), "Andrei" , Guid.NewGuid()),
+                new Request(Guid.NewGuid(), Guid.NewGuid(), "Vasile", Guid.NewGuid()),
+                new Request(Guid.NewGuid(), Guid.NewGuid(), "Andrei", Guid.NewGuid()),
                 new Request(Guid.NewGuid(), Guid.NewGuid(), "Maria", Guid.NewGuid()),
                 new Request(Guid.NewGuid(), Guid.NewGuid(), "Gabriel", Guid.NewGuid())
             };
@@ -55,11 +73,11 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
             List<Poll> polls = new List<Poll>
             {
-                new Poll(Guid.NewGuid(), Guid.NewGuid(), "Mergeti la Untold?", Guid.NewGuid() ),
-                new Poll(Guid.NewGuid(), Guid.NewGuid(), "Il votati pe Boc?", Guid.NewGuid() ),
-                new Poll(Guid.NewGuid(), Guid.NewGuid(), "V-ati facut la ISS?", Guid.NewGuid() ),
-                new Poll(Guid.NewGuid(), Guid.NewGuid(), "Ati semnat pentru Sosoaca?", Guid.NewGuid() ),
-                new Poll(Guid.NewGuid(), Guid.NewGuid(), "Iti place Aqua Carpatica?", Guid.NewGuid() ),
+                new Poll(Guid.NewGuid(), Guid.NewGuid(), "Mergeti la Untold?", Guid.NewGuid()),
+                new Poll(Guid.NewGuid(), Guid.NewGuid(), "Il votati pe Boc?", Guid.NewGuid()),
+                new Poll(Guid.NewGuid(), Guid.NewGuid(), "V-ati facut la ISS?", Guid.NewGuid()),
+                new Poll(Guid.NewGuid(), Guid.NewGuid(), "Ati semnat pentru Sosoaca?", Guid.NewGuid()),
+                new Poll(Guid.NewGuid(), Guid.NewGuid(), "Iti place Aqua Carpatica?", Guid.NewGuid()),
             };
             foreach (Poll poll in polls)
             {
@@ -78,42 +96,54 @@ namespace UBB_SE_2024_Popsicles.ViewModels
             PollViewModels = new ObservableCollection<PollViewModel>(pollViewModels);
         }
 
-        private Poll _selectedPoll;
+        private Poll selectedPoll;
         public Poll SelectedPoll
         {
-            get { return _selectedPoll; }
+            get
+            {
+                return this.selectedPoll;
+            }
             set
             {
-                _selectedPoll = value;
+                this.selectedPoll = value;
                 OnPropertyChanged();
             }
         }
 
-        private PollViewModel _selectedPollViewModel;
+        private PollViewModel selectedPollViewModel;
         public PollViewModel SelectedPollViewModel
         {
-            get { return _selectedPollViewModel; }
+            get
+            {
+                return this.selectedPollViewModel;
+            }
             set
             {
-                _selectedPollViewModel = value;
+                this.selectedPollViewModel = value;
                 OnPropertyChanged();
             }
         }
 
-        private Group _selectedGroup;
+        private Group selectedGroup;
         public Group SelectedGroup
         {
-            get { return _selectedGroup; }
+            get
+            {
+                return this.selectedGroup;
+            }
             set
             {
-                _selectedGroup = value;
+                this.selectedGroup = value;
                 OnPropertyChanged();
             }
         }
 
         public string Name
         {
-            get { return SelectedGroup.Name; }
+            get
+            {
+                return SelectedGroup.Name;
+            }
             set
             {
                 SelectedGroup.Name = value;
@@ -124,45 +154,68 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string BannerPath
         {
-            get { return SelectedGroup.BannerPath; }
+            get
+            {
+                return SelectedGroup.BannerPath;
+            }
         }
 
         /// Group Settings Tab
-
         public string Owner
         {
             // TODO: Fetch owner name from the repository
-            get { return SelectedGroup.OwnerId.ToString(); }
+            get
+            {
+                return SelectedGroup.OwnerId.ToString();
+            }
         }
 
         public string GroupCode
         {
-            get { return SelectedGroup.GroupCode; }
+            get
+            {
+                return SelectedGroup.GroupCode;
+            }
         }
 
         public string CreatedAt
         {
-            get { return SelectedGroup.CreatedAt.ToString(); }
+            get
+            {
+                return SelectedGroup.CreatedAt.ToString();
+            }
         }
 
         public string MemberCount
         {
-            get { return SelectedGroup.MemberCount.ToString(); }
+            get
+            {
+                return SelectedGroup.MemberCount.ToString();
+            }
         }
 
         public string PostCount
         {
-            get { return SelectedGroup.PostCount.ToString(); }
+            get
+            {
+                return SelectedGroup.PostCount.ToString();
+            }
         }
 
         public string RequestCount
         {
-            get { return SelectedGroup.RequestCount.ToString(); }
+            get
+            {
+                return SelectedGroup.RequestCount.ToString();
+            }
         }
 
         public string IsPublic
         {
-            get { return SelectedGroup.IsPublic == true ? "Public" : "Private"; }
+            get
+            {
+                return SelectedGroup.IsPublic == true ? "Public" : "Private";
+            }
             set
             {
                 SelectedGroup.IsPublic = value == "Public";
@@ -179,7 +232,10 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string Description
         {
-            get { return SelectedGroup.Description; }
+            get
+            {
+                return SelectedGroup.Description;
+            }
             set
             {
                 SelectedGroup.Description = value;
@@ -189,7 +245,10 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string MaxPosts
         {
-            get { return SelectedGroup.MaxPostsPerHourPerUser.ToString(); }
+            get
+            {
+                return SelectedGroup.MaxPostsPerHourPerUser.ToString();
+            }
             set
             {
                 SelectedGroup.MaxPostsPerHourPerUser = int.Parse(value);
@@ -199,7 +258,10 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string CanMakePosts
         {
-            get { return SelectedGroup.CanMakePostsByDefault == true ? "Yes" : "No"; }
+            get
+            {
+                return SelectedGroup.CanMakePostsByDefault == true ? "Yes" : "No";
+            }
             set
             {
                 SelectedGroup.CanMakePostsByDefault = value == "Yes";
@@ -216,19 +278,25 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string Icon
         {
-            get { return SelectedGroup.Icon; }
+            get
+            {
+                return SelectedGroup.Icon;
+            }
             set
             {
                 SelectedGroup.Icon = value;
                 // TODO: notify somehow the main window view model that IconPath has changed
-                //OnPropertyChanged("IconPath");
+                // OnPropertyChanged("IconPath");
                 OnPropertyChanged();
             }
         }
 
         public string Banner
         {
-            get { return SelectedGroup.Banner; }
+            get
+            {
+                return SelectedGroup.Banner;
+            }
             set
             {
                 SelectedGroup.Banner = value;
@@ -238,7 +306,6 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         }
 
         /// Requests
-
         public RelayCommand AcceptRequestCommand => new RelayCommand(execute => AcceptRequest());
 
         private void AcceptRequest()

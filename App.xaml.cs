@@ -10,5 +10,4 @@ namespace UBB_SE_2024_Popsicles
     public partial class App : Application
     {
     }
-
 }

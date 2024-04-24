@@ -2,44 +2,106 @@
 {
     public class Group
     {
-        private static string BANNER_PATH = "../Resources/GroupBanners/";
-        private static string ICON_PATH = "../Resources/GroupIcons/";
+        private static string bannerPath = "../Resources/GroupBanners/";
+        private static string iconPath = "../Resources/GroupIcons/";
 
         public Guid Id { get; }
         public Guid OwnerId { get; }
 
-        private string _name;
-        public string Name { get => _name; set => _name = value; }
+        private string name;
+        public string Name { get => name; set => name = value; }
         public string Description { get; set; }
-        private string _icon;
+        private string icon;
         public string Icon
         {
-            get { return System.IO.Path.GetFileNameWithoutExtension(_icon); }
-            set { _icon = ICON_PATH + value + ".jpg"; }
+            get { return System.IO.Path.GetFileNameWithoutExtension(icon); }
+            set { icon = iconPath + value + ".jpg"; }
         }
-        public string IconPath { get { return _icon; } }
-        private string _banner;
+
+        public string IconPath
+        {
+            get { return icon; }
+        }
+        private string banner;
         public string Banner
         {
-            get { return System.IO.Path.GetFileNameWithoutExtension(_banner); }
-            set { _banner = BANNER_PATH + value + ".jpg"; }
+            get
+            {
+                return System.IO.Path.GetFileNameWithoutExtension(banner);
+            }
+            set
+            {
+                banner = bannerPath + value + ".jpg";
+            }
         }
-        public string BannerPath { get { return _banner; } }
-        public int MaxPostsPerHourPerUser { get; set; }
-        public bool IsPublic { get; set; }
-        public bool CanMakePostsByDefault { get; set; }
-        public string GroupCode { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public List<GroupMembership> Memberships { get; set; }
-        public List<Request> Requests { get; set; }
-        public List<Poll> Polls { get; set; }
-        public List<GroupPost> Posts { get; set; }
-        private int _memberCount = 0;
-        public int MemberCount { get { return _memberCount; } }
-        private int _postCount = 0;
-        public int PostCount { get { return _postCount; } }
-        private int _requestCount = 0;
-        public int RequestCount { get { return _requestCount; } }
+
+        public string BannerPath
+        {
+            get { return banner; }
+        }
+
+        public int MaxPostsPerHourPerUser
+        {
+            get; set;
+        }
+
+        public bool IsPublic
+        {
+            get; set;
+        }
+
+        public bool CanMakePostsByDefault
+        {
+            get; set;
+        }
+
+        public string GroupCode
+        {
+            get; set;
+        }
+
+        public DateTime CreatedAt
+        {
+            get; set;
+        }
+
+        public List<GroupMembership> Memberships
+        {
+            get; set;
+        }
+
+        public List<Request> Requests
+        {
+            get; set;
+        }
+
+        public List<Poll> Polls
+        {
+            get; set;
+        }
+
+        public List<GroupPost> Posts
+        {
+            get; set;
+        }
+        private int memberCount = 0;
+
+        public int MemberCount
+        {
+            get { return memberCount; }
+        }
+        private int postCount = 0;
+
+        public int PostCount
+        {
+            get { return postCount; }
+        }
+        private int requestCount = 0;
+
+        public int RequestCount
+        {
+            get { return requestCount; }
+        }
 
         public Group(Guid id, Guid ownerId, string name, string description, string icon, string banner, int maxPostsPerHourPerUser, bool isPublic, bool canMakePostsByDefault, string groupCode)
         {
@@ -74,7 +136,7 @@
         public void AddMember(GroupMembership groupMembership)
         {
             Memberships.Add(groupMembership);
-            _memberCount++;
+            memberCount++;
         }
 
         public void RemoveMember(Guid groupMembershipId)
@@ -85,7 +147,7 @@
                 throw new Exception("Membership not found");
             }
             Memberships.Remove(groupMembership);
-            _memberCount--;
+            memberCount--;
         }
 
         public Request GetRequest(Guid requestId)
@@ -101,7 +163,7 @@
         public void AddRequest(Request request)
         {
             Requests.Add(request);
-            _requestCount++;
+            requestCount++;
         }
 
         public void RemoveRequest(Guid requestId)
@@ -112,7 +174,7 @@
                 throw new Exception("Request not found");
             }
             Requests.Remove(request);
-            _requestCount--;
+            requestCount--;
         }
 
         public GroupPost GetPost(Guid postId)
@@ -128,7 +190,7 @@
         public void AddPost(GroupPost post)
         {
             Posts.Add(post);
-            _postCount++;
+            postCount++;
         }
 
         public void RemovePost(Guid postId)
@@ -139,7 +201,7 @@
                 throw new Exception("Post not found");
             }
             Posts.Remove(groupPost);
-            _postCount--;
+            postCount--;
         }
 
         public Poll GetPoll(Guid pollId)
@@ -155,7 +217,7 @@
         public void AddPoll(Poll poll)
         {
             Polls.Add(poll);
-            _postCount++;
+            postCount++;
         }
 
         public void RemovePoll(Guid pollId)
@@ -166,7 +228,7 @@
                 throw new Exception("Poll not found");
             }
             Polls.Remove(poll);
-            _postCount--;
+            postCount--;
         }
     }
 }
