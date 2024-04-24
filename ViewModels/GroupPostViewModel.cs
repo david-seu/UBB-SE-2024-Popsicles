@@ -13,6 +13,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         private string userNameGroupName;
         public string UserNameGroupName
         {
+<<<<<<< HEAD
             get
             {
                 return this.userNameGroupName;
@@ -22,6 +23,14 @@ namespace UBB_SE_2024_Popsicles.ViewModels
                 if (this.userNameGroupName != value)
                 {
                     this.userNameGroupName = value;
+=======
+            get => userNameGroupName;
+            set
+            {
+                if (userNameGroupName != value)
+                {
+                    userNameGroupName = value;
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
                     OnPropertyChanged(nameof(UserNameGroupName));
                 }
             }
@@ -30,6 +39,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         private string dateTime;
         public string DateTime
         {
+<<<<<<< HEAD
             get
             {
                 return this.dateTime;
@@ -39,6 +49,14 @@ namespace UBB_SE_2024_Popsicles.ViewModels
                 if (this.dateTime != value)
                 {
                     this.dateTime = value;
+=======
+            get => dateTime;
+            set
+            {
+                if (dateTime != value)
+                {
+                    dateTime = value;
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
                     OnPropertyChanged(nameof(DateTime));
                 }
             }
@@ -47,6 +65,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         private string postDescription;
         public string PostDescription
         {
+<<<<<<< HEAD
             get
             {
                 return this.postDescription;
@@ -56,6 +75,14 @@ namespace UBB_SE_2024_Popsicles.ViewModels
                 if (this.postDescription != value)
                 {
                     this.postDescription = value;
+=======
+            get => postDescription;
+            set
+            {
+                if (postDescription != value)
+                {
+                    postDescription = value;
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
                     OnPropertyChanged(nameof(PostDescription));
                 }
             }
@@ -64,6 +91,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         private string likes;
         public string Likes
         {
+<<<<<<< HEAD
             get
             {
                 return this.likes;
@@ -73,6 +101,14 @@ namespace UBB_SE_2024_Popsicles.ViewModels
                 if (this.likes != value)
                 {
                     this.likes = value;
+=======
+            get => likes;
+            set
+            {
+                if (likes != value)
+                {
+                    likes = value;
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
                     OnPropertyChanged(nameof(Likes));
                 }
             }
@@ -81,6 +117,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         private string comments;
         public string Comments
         {
+<<<<<<< HEAD
             get
             {
                 return this.comments;
@@ -90,6 +127,14 @@ namespace UBB_SE_2024_Popsicles.ViewModels
                 if (this.comments != value)
                 {
                     this.comments = value;
+=======
+            get => comments;
+            set
+            {
+                if (comments != value)
+                {
+                    comments = value;
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
                     OnPropertyChanged(nameof(Comments));
                 }
             }

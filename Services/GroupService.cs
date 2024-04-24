@@ -8,7 +8,11 @@ using UBB_SE_2024_Popsicles.Repositories;
 
 namespace UBB_SE_2024_Popsicles.Services
 {
+<<<<<<< HEAD
     internal class GroupService
+=======
+    public class GroupService
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
     {
         private static string defaultGroupName = "New Group";
         private static string defaultGroupDescription = "This is a new group";
@@ -27,7 +31,7 @@ namespace UBB_SE_2024_Popsicles.Services
         private GroupMembershipRepository GroupMembershipRepository { get; }
         private RequestsRepository RequestsRepository { get; }
 
-        public GroupService(GroupRepository groupRepository, GroupMemberRepository groupMemberRepository, GroupMembershipRepository groupMembershipRepository, RequestsRepository requestsRepository)
+        GroupService(GroupRepository groupRepository, GroupMemberRepository groupMemberRepository, GroupMembershipRepository groupMembershipRepository, RequestsRepository requestsRepository)
         {
             GroupRepository = groupRepository;
             GroupMemberRepository = groupMemberRepository;
@@ -45,6 +49,7 @@ namespace UBB_SE_2024_Popsicles.Services
 
             // Add the new group to the GroupRepository
             GroupRepository.AddGroup(newGroup);
+
 
             AddMember(ownerId, groupId, "admin");
         }

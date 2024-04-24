@@ -99,6 +99,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         private Poll selectedPoll;
         public Poll SelectedPoll
         {
+<<<<<<< HEAD
             get
             {
                 return this.selectedPoll;
@@ -106,6 +107,12 @@ namespace UBB_SE_2024_Popsicles.ViewModels
             set
             {
                 this.selectedPoll = value;
+=======
+            get => selectedPoll;
+            set
+            {
+                selectedPoll = value;
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
                 OnPropertyChanged();
             }
         }
@@ -113,6 +120,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         private PollViewModel selectedPollViewModel;
         public PollViewModel SelectedPollViewModel
         {
+<<<<<<< HEAD
             get
             {
                 return this.selectedPollViewModel;
@@ -120,6 +128,12 @@ namespace UBB_SE_2024_Popsicles.ViewModels
             set
             {
                 this.selectedPollViewModel = value;
+=======
+            get => selectedPollViewModel;
+            set
+            {
+                selectedPollViewModel = value;
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
                 OnPropertyChanged();
             }
         }
@@ -127,6 +141,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         private Group selectedGroup;
         public Group SelectedGroup
         {
+<<<<<<< HEAD
             get
             {
                 return this.selectedGroup;
@@ -134,16 +149,26 @@ namespace UBB_SE_2024_Popsicles.ViewModels
             set
             {
                 this.selectedGroup = value;
+=======
+            get => selectedGroup;
+            set
+            {
+                selectedGroup = value;
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
                 OnPropertyChanged();
             }
         }
 
         public string Name
         {
+<<<<<<< HEAD
             get
             {
                 return SelectedGroup.Name;
             }
+=======
+            get => SelectedGroup.Name;
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
             set
             {
                 SelectedGroup.Name = value;
@@ -160,7 +185,11 @@ namespace UBB_SE_2024_Popsicles.ViewModels
             }
         }
 
+<<<<<<< HEAD
         /// Group Settings Tab
+=======
+        // Group Settings Tab
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
         public string Owner
         {
             // TODO: Fetch owner name from the repository
@@ -212,10 +241,14 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string IsPublic
         {
+<<<<<<< HEAD
             get
             {
                 return SelectedGroup.IsPublic == true ? "Public" : "Private";
             }
+=======
+            get => SelectedGroup.IsPublic == true ? "Public" : "Private";
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
             set
             {
                 SelectedGroup.IsPublic = value == "Public";
@@ -232,10 +265,14 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string Description
         {
+<<<<<<< HEAD
             get
             {
                 return SelectedGroup.Description;
             }
+=======
+            get => SelectedGroup.Description;
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
             set
             {
                 SelectedGroup.Description = value;
@@ -245,10 +282,14 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string MaxPosts
         {
+<<<<<<< HEAD
             get
             {
                 return SelectedGroup.MaxPostsPerHourPerUser.ToString();
             }
+=======
+            get => SelectedGroup.MaxPostsPerHourPerUser.ToString();
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
             set
             {
                 SelectedGroup.MaxPostsPerHourPerUser = int.Parse(value);
@@ -258,10 +299,14 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string CanMakePosts
         {
+<<<<<<< HEAD
             get
             {
                 return SelectedGroup.CanMakePostsByDefault == true ? "Yes" : "No";
             }
+=======
+            get => SelectedGroup.CanMakePostsByDefault == true ? "Yes" : "No";
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
             set
             {
                 SelectedGroup.CanMakePostsByDefault = value == "Yes";
@@ -278,10 +323,14 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string Icon
         {
+<<<<<<< HEAD
             get
             {
                 return SelectedGroup.Icon;
             }
+=======
+            get => SelectedGroup.Icon;
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
             set
             {
                 SelectedGroup.Icon = value;
@@ -293,10 +342,14 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string Banner
         {
+<<<<<<< HEAD
             get
             {
                 return SelectedGroup.Banner;
             }
+=======
+            get => SelectedGroup.Banner;
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
             set
             {
                 SelectedGroup.Banner = value;
@@ -305,7 +358,11 @@ namespace UBB_SE_2024_Popsicles.ViewModels
             }
         }
 
+<<<<<<< HEAD
         /// Requests
+=======
+        // Requests
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
         public RelayCommand AcceptRequestCommand => new RelayCommand(execute => AcceptRequest());
 
         private void AcceptRequest()

@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
     "",
+<<<<<<< HEAD
     "\\ViewModels"
+=======
+    "\\Services"
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
   ],
   "SelectedNode": "\\UBB-SE-2024-Popsicles.sln",
   "PreviewInSolutionExplorer": false

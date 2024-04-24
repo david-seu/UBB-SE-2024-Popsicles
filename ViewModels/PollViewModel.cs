@@ -20,6 +20,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         private Poll selectedPoll;
         public Poll SelectedPoll
         {
+<<<<<<< HEAD
             get
             {
                 return this.selectedPoll;
@@ -27,16 +28,26 @@ namespace UBB_SE_2024_Popsicles.ViewModels
             set
             {
                 this.selectedPoll = value;
+=======
+            get => selectedPoll;
+            set
+            {
+                selectedPoll = value;
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
                 OnPropertyChanged();
             }
         }
 
         public string Description
         {
+<<<<<<< HEAD
             get
             {
                 return SelectedPoll.Description;
             }
+=======
+            get => SelectedPoll.Description;
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
             set
             {
                 SelectedPoll.Description = value;
@@ -46,10 +57,14 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string EndDate
         {
+<<<<<<< HEAD
             get
             {
                 return SelectedPoll.EndTime.ToString();
             }
+=======
+            get => SelectedPoll.EndTime.ToString();
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
             set
             {
                 SelectedPoll.EndTime = DateTime.Parse(value);
@@ -59,10 +74,14 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string Option0
         {
+<<<<<<< HEAD
             get
             {
                 return SelectedPoll.Options[0];
             }
+=======
+            get => SelectedPoll.Options[0];
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
             set
             {
                 SelectedPoll.Options[0] = value;
@@ -72,10 +91,14 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string Option1
         {
+<<<<<<< HEAD
             get
             {
                 return SelectedPoll.Options[1];
             }
+=======
+            get => SelectedPoll.Options[1];
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
             set
             {
                 SelectedPoll.Options[1] = value;
@@ -85,10 +108,14 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string Option2
         {
+<<<<<<< HEAD
             get
             {
                 return SelectedPoll.Options[2];
             }
+=======
+            get => SelectedPoll.Options[2];
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
             set
             {
                 SelectedPoll.Options[2] = value;
@@ -98,10 +125,14 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public string Option3
         {
+<<<<<<< HEAD
             get
             {
                 return SelectedPoll.Options[3];
             }
+=======
+            get => SelectedPoll.Options[3];
+>>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
             set
             {
                 SelectedPoll.Options[3] = value;
