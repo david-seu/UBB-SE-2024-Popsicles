@@ -1,13 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Models",
-    "\\MVVM",
-    "\\Repositories",
-    "\\Services",
+    "\\TestPopsicles",
     "\\ViewModels",
     "\\Views"
   ],
-  "SelectedNode": "\\App.xaml",
+  "SelectedNode": "\\Utils",
   "PreviewInSolutionExplorer": false
 }

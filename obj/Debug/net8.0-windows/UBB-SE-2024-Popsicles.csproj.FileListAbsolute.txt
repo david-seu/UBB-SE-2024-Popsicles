@@ -234,3 +234,5 @@ C:\Users\User\OneDrive\Desktop\UBB-SE-2024-Popsicles\obj\Debug\net8.0-windows\UB
 C:\Users\User\OneDrive\Desktop\UBB-SE-2024-Popsicles\obj\Debug\net8.0-windows\refint\UBB-SE-2024-Popsicles.dll
 C:\Users\User\OneDrive\Desktop\UBB-SE-2024-Popsicles\obj\Debug\net8.0-windows\UBB-SE-2024-Popsicles.pdb
 >>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
+C:\Users\marcl\OneDrive\Documents\GitHub\UBB-SE-2024-Popsicles\bin\Debug\net8.0-windows\nunit.framework.dll
+C:\Users\marcl\OneDrive\Documents\GitHub\UBB-SE-2024-Popsicles\bin\Debug\net8.0-windows\nunit.framework.legacy.dll
