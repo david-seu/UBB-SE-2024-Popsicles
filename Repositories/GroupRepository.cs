@@ -10,22 +10,22 @@ namespace UBB_SE_2024_Popsicles.Repositories
 {
     internal class GroupRepository : IGroupRepository
     {
-        private SqlConnection _connection;
-        private List<Group> _groups = new List<Group>();
+        private SqlConnection connection;
+        private List<Group> groups = new List<Group>();
 
         public SqlConnection Connection
         {
-            get { return _connection; }
+            get { return connection; }
         }
 
         public List<Group> Groups
         {
-            get { return _groups; }
+            get { return groups; }
         }
 
         public GroupRepository(SqlConnection connection)
         {
-            _connection = connection;
+            connection = connection;
             LoadDataFromSql();
         }
 
@@ -35,10 +35,10 @@ namespace UBB_SE_2024_Popsicles.Repositories
              SELECT GroupId, OwnerId, Name, Description, Icon, Banner, MaxPostsPerHour, GroupCode, IsPublic, CanPostByDefault, CreatedAt
              FROM Groups";
 
-            SqlCommand selectGroupsCommand = new SqlCommand(selectGroupsQuery, _connection);
+            SqlCommand selectGroupsCommand = new SqlCommand(selectGroupsQuery, connection);
             try
             {
-                _connection.Open();
+                connection.Open();
                 using (SqlDataReader reader = selectGroupsCommand.ExecuteReader())
                 {
                     while (reader.Read())
@@ -57,8 +57,7 @@ namespace UBB_SE_2024_Popsicles.Repositories
                         DateTime createdAt = reader.GetDateTime(10);
 
                         // Create and add the Group object to the list
-                        Group group = new Group
-                        (
+                        Group group = new Group(
                             id: groupId,
                             ownerId: ownerId,
                             name: name,
@@ -68,22 +67,20 @@ namespace UBB_SE_2024_Popsicles.Repositories
                             maxPostsPerHourPerUser: maxPostsPerHour,
                             isPublic: isPublic,
                             canMakePostsByDefault: canPostByDefault,
-                            groupCode: groupCode
-
-                        );
-                        _groups.Add(group);
+                            groupCode: groupCode);
+                        groups.Add(group);
                     }
                 }
             }
             finally
             {
-                _connection.Close();
+                connection.Close();
             }
         }
 
         public Group GetGroupById(Guid groupId)
         {
-            Group group = _groups.First(g => g.Id == groupId);
+            Group group = groups.First(g => g.Id == groupId);
             if (group == null)
             {
                 throw new Exception("Group not found");
@@ -93,15 +90,15 @@ namespace UBB_SE_2024_Popsicles.Repositories
 
         public List<Group> GetGroups()
         {
-            return _groups;
+            return groups;
         }
 
         public void AddGroup(Group group)
         {
-            _groups.Add(group);
+            groups.Add(group);
             string insertGroupQuery = "INSERT INTO Groups (GroupId, OwnerId, Name, Description, Icon, Banner, MaxPostsPerHour, GroupCode, IsPublic, CanPostByDefault, CreatedAt ) VALUES (@GroupId, @OwnerId, @Name, @Description, @Icon, @Banner, @MaxPostsPerHour, @GroupCode, @IsPublic, @CanPostByDefault, @CreatedAt)";
 
-            SqlCommand insertGroupCommand = new SqlCommand(insertGroupQuery, _connection);
+            SqlCommand insertGroupCommand = new SqlCommand(insertGroupQuery, connection);
             insertGroupCommand.Parameters.AddWithValue("@GroupId", group.Id);
             insertGroupCommand.Parameters.AddWithValue("@OwnerId", group.OwnerId);
             insertGroupCommand.Parameters.AddWithValue("@Name", group.Name);
@@ -113,20 +110,20 @@ namespace UBB_SE_2024_Popsicles.Repositories
             insertGroupCommand.Parameters.AddWithValue("@IsPublic", group.IsPublic);
             insertGroupCommand.Parameters.AddWithValue("@CanPostByDefault", group.CanMakePostsByDefault);
             insertGroupCommand.Parameters.AddWithValue("@CreatedAt", group.CreatedAt);
-            _connection.Open();
+            connection.Open();
             insertGroupCommand.ExecuteNonQuery();
-            _connection.Close();
+            connection.Close();
         }
 
         public void UpdateGroup(Group group)
         {
-            Group oldGroup = _groups.First(g => g.Id == group.Id);
+            Group oldGroup = groups.First(g => g.Id == group.Id);
             if (oldGroup == null)
             {
                 throw new Exception("Group not found");
             }
-            _groups.Remove(oldGroup);
-            _groups.Add(group);
+            groups.Remove(oldGroup);
+            groups.Add(group);
 
             string updateGroupQuery = @"
             UPDATE Groups
@@ -142,7 +139,7 @@ namespace UBB_SE_2024_Popsicles.Repositories
                 CanPostByDefault = @CanPostByDefault,
                 CreatedAt = @CreatedAt
              WHERE GroupId = @GroupId";
-            SqlCommand updateGroupCommand = new SqlCommand(updateGroupQuery, _connection);
+            SqlCommand updateGroupCommand = new SqlCommand(updateGroupQuery, connection);
 
             updateGroupCommand.Parameters.AddWithValue("@GroupId", group.Id);
             updateGroupCommand.Parameters.AddWithValue("@OwnerId", group.OwnerId);
@@ -156,29 +153,28 @@ namespace UBB_SE_2024_Popsicles.Repositories
             updateGroupCommand.Parameters.AddWithValue("@CanPostByDefault", group.CanMakePostsByDefault);
             updateGroupCommand.Parameters.AddWithValue("@CreatedAt", group.CreatedAt);
 
-            _connection.Open();
+            connection.Open();
             updateGroupCommand.ExecuteNonQuery();
-            _connection.Close();
-
+            connection.Close();
         }
 
         public void RemoveGroupById(Guid groupId)
         {
-            Group group = _groups.First(g => g.Id == groupId);
+            Group group = groups.First(g => g.Id == groupId);
             if (group == null)
             {
                 throw new Exception("Group not found!");
             }
-            _groups.Remove(group);
+            groups.Remove(group);
 
             string deleteGroupQuery = "DELETE FROM Groups WHERE GroupId = @GroupId";
 
-            SqlCommand deleteGroupCommand = new SqlCommand(deleteGroupQuery, _connection);
+            SqlCommand deleteGroupCommand = new SqlCommand(deleteGroupQuery, connection);
             deleteGroupCommand.Parameters.AddWithValue("@GroupId", groupId);
 
-            _connection.Open();
+            connection.Open();
             deleteGroupCommand.ExecuteNonQuery();
-            _connection.Close();
+            connection.Close();
         }
     }
 }

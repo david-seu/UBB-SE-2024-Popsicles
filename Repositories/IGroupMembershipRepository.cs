@@ -14,6 +14,5 @@ namespace UBB_SE_2024_Popsicles.Repositories
         void AddGroupMembership(GroupMembership groupMembership);
         void UpdateGroupMembership(GroupMembership groupMembership);
         void RemoveGroupMembershipById(Guid groupMembershipId);
-
     }
 }
