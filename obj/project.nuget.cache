@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "xDyo2b2buEJPk5uSsiITvg3yDaqMuD12+qrIi7hT9Zid6Xy3jtoNeFgLmKDLuPW9B1igkQH9i+39GJ4IQgljkg==",
+  "dgSpecHash": "vzdGyfzBUDWABoJaLdNP2V5hAbYfD1Jmw2Z9fR+/3L68fB1kJkRoEYoYv2YhKisJvGKJC0yzpXENiNhK+0a7HQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\marcl\\OneDrive\\Documents\\GitHub\\UBB-SE-2024-Popsicles\\UBB-SE-2024-Popsicles.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marcl\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\marcl\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\marcl\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0\\microsoft.win32.systemevents.8.0.0.nupkg.sha512",
+    "C:\\Users\\marcl\\.nuget\\packages\\nunit\\4.1.0\\nunit.4.1.0.nupkg.sha512",
     "C:\\Users\\marcl\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\marcl\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\marcl\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
