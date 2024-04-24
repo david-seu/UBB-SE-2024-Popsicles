@@ -10,36 +10,36 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 {
     public class GroupPostViewModel : ViewModelBase
     {
-        private string userNameGroupName;
-        public string UserNameGroupName
+        private string groupSpecificUserName;
+        public string GroupSpecificUserName
         {
             get
             {
-                return this.userNameGroupName;
+                return this.groupSpecificUserName;
             }
             set
             {
-                if (this.userNameGroupName != value)
+                if (this.groupSpecificUserName != value)
                 {
-                    this.userNameGroupName = value;
-                    OnPropertyChanged(nameof(UserNameGroupName));
+                    this.groupSpecificUserName = value;
+                    OnPropertyChanged(nameof(GroupSpecificUserName));
                 }
             }
         }
 
-        private string dateTime;
-        public string DateTime
+        private string dateAndTimeOfPosting;
+        public string DateAndTimeOfPosting
         {
             get
             {
-                return this.dateTime;
+                return this.dateAndTimeOfPosting;
             }
             set
             {
-                if (this.dateTime != value)
+                if (this.dateAndTimeOfPosting != value)
                 {
-                    this.dateTime = value;
-                    OnPropertyChanged(nameof(DateTime));
+                    this.dateAndTimeOfPosting = value;
+                    OnPropertyChanged(nameof(DateAndTimeOfPosting));
                 }
             }
         }
@@ -61,37 +61,37 @@ namespace UBB_SE_2024_Popsicles.ViewModels
             }
         }
 
-        private string likes;
-        public string Likes
+        private string likeCounterInStringFormat;
+        public string LikeCounterInStringFormat
         {
             get
             {
-                return this.likes;
+                return this.likeCounterInStringFormat;
             }
             set
             {
-                if (this.likes != value)
+                if (this.likeCounterInStringFormat != value)
                 {
-                    this.likes = value;
+                    this.likeCounterInStringFormat = value;
 
-                    OnPropertyChanged(nameof(Likes));
+                    OnPropertyChanged(nameof(LikeCounterInStringFormat));
                 }
             }
         }
 
-        private string comments;
-        public string Comments
+        private string commentsLeftOnThePost;
+        public string CommentsLeftOnThePost
         {
             get
             {
-                return this.comments;
+                return this.commentsLeftOnThePost;
             }
             set
             {
-                if (this.comments != value)
+                if (this.commentsLeftOnThePost != value)
                 {
-                    this.comments = value;
-                    OnPropertyChanged(nameof(Comments));
+                    this.commentsLeftOnThePost = value;
+                    OnPropertyChanged(nameof(CommentsLeftOnThePost));
                 }
             }
         }

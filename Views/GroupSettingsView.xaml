@@ -73,7 +73,7 @@
                         x:Name="OwnerTextBlock"
                         Grid.Column="1"
                         Margin="5,0"
-                        Text="{Binding Owner}" />
+                        Text="{Binding NameOfTheGroupsOwner}" />
                 </Grid>
             </Border>
             <!--  Group code  -->
@@ -92,7 +92,7 @@
                         x:Name="GroupCodeTextBlock"
                         Grid.Column="1"
                         Margin="5,0"
-                        Text="{Binding GroupCode}" />
+                        Text="{Binding UniqueGroupCode}" />
                 </Grid>
             </Border>
             <!--  Created at  -->
@@ -111,7 +111,7 @@
                         x:Name="CreatedAtTextBlock"
                         Grid.Column="1"
                         Margin="5,0"
-                        Text="{Binding CreatedAt}" />
+                        Text="{Binding DateOfCreationInStringFormat}" />
                 </Grid>
             </Border>
             <!--  Member count  -->
@@ -130,7 +130,7 @@
                         x:Name="MemberCountTextBlock"
                         Grid.Column="1"
                         Margin="5,0"
-                        Text="{Binding MemberCount}" />
+                        Text="{Binding MemberCounterInStringFormat}" />
                 </Grid>
             </Border>
             <!--  Post count  -->
@@ -149,7 +149,7 @@
                         x:Name="PostCountTextBlock"
                         Grid.Column="1"
                         Margin="5,0"
-                        Text="{Binding PostCount}" />
+                        Text="{Binding PostCounterInStringFormat}" />
                 </Grid>
             </Border>
             <!--  Privacy  -->
@@ -169,11 +169,11 @@
                         x:Name="PrivacyTextBlock"
                         Grid.Column="1"
                         Margin="5,0"
-                        Text="{Binding IsPublic}" />
+                        Text="{Binding IsTheGroupPublicToOutsiders}" />
                     <Button
                         x:Name="ChangePrivacityButton"
                         Grid.Column="2"
-                        Command="{Binding ChangePrivacyCommand}"
+                        Command="{Binding ChangePrivacyPolicyCommand}"
                         Content="Change" />
                 </Grid>
             </Border>
@@ -193,7 +193,7 @@
                         x:Name="NameTextBox"
                         Grid.Column="1"
                         Margin="5,0"
-                        Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
+                        Text="{Binding GroupName, UpdateSourceTrigger=PropertyChanged}" />
                 </Grid>
             </Border>
             <!--  Description  -->
@@ -212,7 +212,7 @@
                         x:Name="DescriptionTextBox"
                         Grid.Column="1"
                         Margin="5,0"
-                        Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" />
+                        Text="{Binding DescriptionOfTheGroup, UpdateSourceTrigger=PropertyChanged}" />
                 </Grid>
             </Border>
             <!--  Max Posts per Hour / User  -->
@@ -231,7 +231,7 @@
                         x:Name="MaxPostsTextBox"
                         Grid.Column="1"
                         Margin="5,0"
-                        Text="{Binding MaxPosts, UpdateSourceTrigger=PropertyChanged}" />
+                        Text="{Binding MaximumAmountOfPostsAllowed, UpdateSourceTrigger=PropertyChanged}" />
                 </Grid>
             </Border>
             <!--  Can make posts  -->
@@ -251,11 +251,11 @@
                         x:Name="CanMakePostsTextBlock"
                         Grid.Column="1"
                         Margin="5,0"
-                        Text="{Binding CanMakePosts}" />
+                        Text="{Binding AllowanceOfPostageOnTheGroupChat}" />
                     <Button
                         x:Name="ChangeCanMakePostsButton"
                         Grid.Column="2"
-                        Command="{Binding ChangeCanMakePostsCommand}"
+                        Command="{Binding ChangeAllowanceOfPostageCommand}"
                         Content="Change" />
                 </Grid>
             </Border>
@@ -275,7 +275,7 @@
                         x:Name="IconComboBox"
                         Grid.Column="1"
                         Margin="5,0"
-                        SelectedValue="{Binding Icon}"
+                        SelectedValue="{Binding NameOfTheGroupsIcon}"
                         SelectedValuePath="Content">
                         <ComboBoxItem Content="american-football-club" />
                         <ComboBoxItem Content="basket-boys" />
@@ -306,7 +306,7 @@
                         x:Name="BannerComboBox"
                         Grid.Column="1"
                         Margin="5,0"
-                        SelectedValue="{Binding Banner}"
+                        SelectedValue="{Binding NameOfTheGroupsBanner}"
                         SelectedValuePath="Content">
                         <ComboBoxItem Content="animals" />
                         <ComboBoxItem Content="elephants" />
@@ -341,7 +341,7 @@
                         x:Name="RequestCountTextBlock"
                         Grid.Column="1"
                         Margin="5"
-                        Text="{Binding RequestCount}" />
+                        Text="{Binding RequestCounterInStringFormat}" />
                 </Grid>
             </Border>
             <!--  List of Requests  -->
@@ -350,7 +350,7 @@
                 Background="#F9F9F9"
                 BorderBrush="#CCCCCC"
                 BorderThickness="1">
-                <ListBox ItemsSource="{Binding Requests}">
+                <ListBox ItemsSource="{Binding RequestsToJoinTheGroup}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>

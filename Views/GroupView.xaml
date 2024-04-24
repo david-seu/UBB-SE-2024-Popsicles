@@ -25,7 +25,7 @@
             <Border.Background>
                 <ImageBrush
                     x:Name="GroupBannerImageBrush"
-                    ImageSource="{Binding BannerPath}"
+                    ImageSource="{Binding DirectoryPathToTheGroupsBannerImageFile}"
                     Stretch="Fill" />
             </Border.Background>
         </Border>
@@ -36,7 +36,7 @@
             Margin="10"
             HorizontalContentAlignment="Left"
             VerticalContentAlignment="Bottom"
-            Content="{Binding Name}"
+            Content="{Binding GroupName}"
             FontSize="50"
             FontWeight="Bold"
             Foreground="White" />
@@ -165,7 +165,7 @@
                 Margin="10"
                 Background="Transparent"
                 BorderThickness="0"
-                ItemsSource="{Binding PollViewModels}"
+                ItemsSource="{Binding CollectionOfViewModelsForEachIndividualPoll}"
                 Visibility="Collapsed">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -182,7 +182,7 @@
                 Margin="10"
                 Background="Transparent"
                 BorderThickness="0"
-                ItemsSource="{Binding Posts}">
+                ItemsSource="{Binding PostsMadeInTheGroupChat}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <controls:GroupPostView MaxWidth="450" MaxHeight="560" />

@@ -28,10 +28,10 @@ namespace UBB_SE_2024_Popsicles
                 // Ensure that DataContext is MainViewModel
                 if (DataContext is MainWindowViewModel mainViewModel)
                 {
-                    mainViewModel.SelectedGroup = selectedGroup;
-                    GroupViewModel groupViewModel = new GroupViewModel(selectedGroup);
-                    groupViewModel.PropertyChanged += GroupViewModel_PropertyChanged;
-                    mainViewModel.SelectedGroupViewModel = groupViewModel;
+                    mainViewModel.CurrentlySelectedGroup = selectedGroup;
+                    GroupViewModel viewModelForSelectedGroup = new GroupViewModel(selectedGroup);
+                    viewModelForSelectedGroup.PropertyChanged += GroupViewModel_PropertyChanged;
+                    mainViewModel.ViewModelCorrespondingToTheCurrentlySelectedGroup = viewModelForSelectedGroup;
                 }
             }
         }

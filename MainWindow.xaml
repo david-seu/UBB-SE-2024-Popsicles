@@ -45,7 +45,7 @@
                 Margin="5"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
-                Content="{Binding User.Username}" />
+                Content="{Binding CurrentActiveUser.Username}" />
         </Grid>
 
         <ListBox
@@ -54,7 +54,7 @@
             Grid.Column="0"
             Background="Transparent"
             BorderThickness="0,1,0,1"
-            ItemsSource="{Binding Groups}"
+            ItemsSource="{Binding CollectionOfActiveGroups}"
             SelectionChanged="GroupListListBox_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -97,6 +97,6 @@
             Grid.Row="0"
             Grid.RowSpan="3"
             Grid.Column="1"
-            DataContext="{Binding SelectedGroupViewModel}" />
+            DataContext="{Binding ViewModelCorrespondingToTheCurrentlySelectedGroup}" />
     </Grid>
 </Window>

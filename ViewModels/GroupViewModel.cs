@@ -9,12 +9,12 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 {
     public class GroupViewModel : ViewModelBase
     {
-        public ObservableCollection<Poll> Polls
+        public ObservableCollection<Poll> CollectionOfPolls
         {
             get; set;
         }
 
-        public ObservableCollection<PollViewModel> PollViewModels
+        public ObservableCollection<PollViewModel> CollectionOfViewModelsForEachIndividualPoll
         {
             get; set;
         }
@@ -24,19 +24,19 @@ namespace UBB_SE_2024_Popsicles.ViewModels
             get; set;
         }
 
-        public ObservableCollection<Request> Requests
+        public ObservableCollection<Request> RequestsToJoinTheGroup
         {
             get; set;
         }
 
-        public ObservableCollection<GroupPost> Posts
+        public ObservableCollection<GroupPost> PostsMadeInTheGroupChat
         {
             get; set;
         }
 
         public GroupViewModel(Group selectedGroup)
         {
-            SelectedGroup = selectedGroup;
+            GroupThatIsEncapsulatedByThisInstanceOnViewModel = selectedGroup;
 
             // TODO: Fetch posts and members from the repository
             GroupMembers = new ObservableCollection<GroupMember>
@@ -49,7 +49,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
                 new GroupMember(Guid.NewGuid(), "Cristos", "admin", "denis@ubb.ro", "0749999345", "I am stupid.")
             };
 
-            Requests = new ObservableCollection<Request>()
+            RequestsToJoinTheGroup = new ObservableCollection<Request>()
             {
                 new Request(Guid.NewGuid(), Guid.NewGuid(), "Vasile", Guid.NewGuid()),
                 new Request(Guid.NewGuid(), Guid.NewGuid(), "Andrei", Guid.NewGuid()),
@@ -57,7 +57,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
                 new Request(Guid.NewGuid(), Guid.NewGuid(), "Gabriel", Guid.NewGuid())
             };
 
-            Posts = new ObservableCollection<GroupPost>
+            PostsMadeInTheGroupChat = new ObservableCollection<GroupPost>
             {
                 new GroupPost(Guid.NewGuid(), Guid.NewGuid(), "This is a description", "This is an image", Guid.NewGuid()),
                 new GroupPost(Guid.NewGuid(), Guid.NewGuid(), "This is a description", "This is an image", Guid.NewGuid()),
@@ -86,233 +86,238 @@ namespace UBB_SE_2024_Popsicles.ViewModels
                 poll.AddOption("Poate");
                 poll.AddOption("Nu vreau sa raspund");
             }
-            Polls = new ObservableCollection<Poll>(polls);
+            CollectionOfPolls = new ObservableCollection<Poll>(polls);
 
             List<PollViewModel> pollViewModels = new List<PollViewModel>();
-            foreach (Poll poll in Polls)
+            foreach (Poll poll in CollectionOfPolls)
             {
                 pollViewModels.Add(new PollViewModel(poll));
             }
-            PollViewModels = new ObservableCollection<PollViewModel>(pollViewModels);
+            CollectionOfViewModelsForEachIndividualPoll = new ObservableCollection<PollViewModel>(pollViewModels);
         }
 
-        private Poll selectedPoll;
-        public Poll SelectedPoll
+        private Poll currentlySelectedPoll;
+        public Poll CurrentlySelectedPoll
         {
             get
             {
-                return this.selectedPoll;
+                return this.currentlySelectedPoll;
             }
             set
             {
-                this.selectedPoll = value;
+                this.currentlySelectedPoll = value;
                 OnPropertyChanged();
             }
         }
 
-        private PollViewModel selectedPollViewModel;
-        public PollViewModel SelectedPollViewModel
+        private PollViewModel viewModelCorrecpondingToCurrentlySelectedPoll;
+        public PollViewModel ViewModelCorrecpondingToCurrentlySelectedPoll
         {
             get
             {
-                return this.selectedPollViewModel;
+                return this.viewModelCorrecpondingToCurrentlySelectedPoll;
             }
             set
             {
-                this.selectedPollViewModel = value;
+                this.viewModelCorrecpondingToCurrentlySelectedPoll = value;
                 OnPropertyChanged();
             }
         }
 
-        private Group selectedGroup;
-        public Group SelectedGroup
+        // ???
+        private Group groupThatIsEncapsulatedByThisInstanceOnViewModel;
+        public Group GroupThatIsEncapsulatedByThisInstanceOnViewModel
         {
             get
             {
-                return this.selectedGroup;
+                return this.groupThatIsEncapsulatedByThisInstanceOnViewModel;
             }
             set
             {
-                this.selectedGroup = value;
+                this.groupThatIsEncapsulatedByThisInstanceOnViewModel = value;
                 OnPropertyChanged();
             }
         }
 
-        public string Name
+        public string GroupName
         {
             get
             {
-                return SelectedGroup.Name;
+                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.Name;
             }
             set
             {
-                SelectedGroup.Name = value;
+                GroupThatIsEncapsulatedByThisInstanceOnViewModel.Name = value;
                 // TODO: notify somehow the main window view model that Name has changed
                 OnPropertyChanged();
             }
         }
 
-        public string BannerPath
+        public string DirectoryPathToTheGroupsBannerImageFile
         {
             get
             {
-                return SelectedGroup.BannerPath;
+                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.BannerPath;
             }
         }
         // Group Settings Tab
-        public string Owner
+        public string NameOfTheGroupsOwner
         {
             // TODO: Fetch owner name from the repository
             get
             {
-                return SelectedGroup.OwnerId.ToString();
+                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.OwnerId.ToString();
             }
         }
 
-        public string GroupCode
+        // nush redenumi asta
+        public string UniqueGroupCode
         {
             get
             {
-                return SelectedGroup.GroupCode;
+                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.GroupCode;
             }
         }
 
-        public string CreatedAt
+        public string DateOfCreationInStringFormat
         {
             get
             {
-                return SelectedGroup.CreatedAt.ToString();
+                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.CreatedAt.ToString();
             }
         }
 
-        public string MemberCount
+        public string MemberCounterInStringFormat
         {
             get
             {
-                return SelectedGroup.MemberCount.ToString();
+                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.MemberCount.ToString();
             }
         }
 
-        public string PostCount
+        public string PostCounterInStringFormat
         {
             get
             {
-                return SelectedGroup.PostCount.ToString();
+                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.PostCount.ToString();
             }
         }
 
-        public string RequestCount
+        public string RequestCounterInStringFormat
         {
             get
             {
-                return SelectedGroup.RequestCount.ToString();
+                // ma everva ca afisa 0. DACA codul ar merge, ai folosi ca mai sus
+                return RequestsToJoinTheGroup.Count.ToString();
+                // return GroupThatIsEncapsulatedByThisInstanceOnViewModel.RequestCount.ToString();
             }
         }
 
-        public string IsPublic
+        public string IsTheGroupPublicToOutsiders
         {
             get
             {
-                return SelectedGroup.IsPublic == true ? "Public" : "Private";
+                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.IsPublic == true ? "Public" : "Private";
             }
             set
             {
-                SelectedGroup.IsPublic = value == "Public";
+                GroupThatIsEncapsulatedByThisInstanceOnViewModel.IsPublic = value == "Public";
                 OnPropertyChanged();
             }
         }
 
-        public RelayCommand ChangePrivacyCommand => new RelayCommand(execute => ChangePrivacy());
+        public RelayCommand ChangePrivacyPolicyCommand => new RelayCommand(execute => ChangePrivacyPolicyOfTheGroup());
 
-        private void ChangePrivacy()
+        private void ChangePrivacyPolicyOfTheGroup()
         {
-            IsPublic = IsPublic == "Public" ? "Private" : "Public";
+            IsTheGroupPublicToOutsiders = IsTheGroupPublicToOutsiders == "Public" ? "Private" : "Public";
         }
 
-        public string Description
+        public string DescriptionOfTheGroup
         {
             get
             {
-                return SelectedGroup.Description;
+                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.Description;
             }
             set
             {
-                SelectedGroup.Description = value;
+                GroupThatIsEncapsulatedByThisInstanceOnViewModel.Description = value;
                 OnPropertyChanged();
             }
         }
 
-        public string MaxPosts
+        public string MaximumAmountOfPostsAllowed
         {
             get
             {
-                return SelectedGroup.MaxPostsPerHourPerUser.ToString();
+                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.MaxPostsPerHourPerUser.ToString();
             }
             set
             {
-                SelectedGroup.MaxPostsPerHourPerUser = int.Parse(value);
+                GroupThatIsEncapsulatedByThisInstanceOnViewModel.MaxPostsPerHourPerUser = int.Parse(value);
                 OnPropertyChanged();
             }
         }
 
-        public string CanMakePosts
+        public string AllowanceOfPostageOnTheGroupChat
         {
             get
             {
-                return SelectedGroup.CanMakePostsByDefault == true ? "Yes" : "No";
+                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.CanMakePostsByDefault == true ? "Yes" : "No";
             }
             set
             {
-                SelectedGroup.CanMakePostsByDefault = value == "Yes";
+                GroupThatIsEncapsulatedByThisInstanceOnViewModel.CanMakePostsByDefault = value == "Yes";
                 OnPropertyChanged();
             }
         }
 
-        public RelayCommand ChangeCanMakePostsCommand => new RelayCommand(execute => ChangeCanMakePosts());
+        public RelayCommand ChangeAllowanceOfPostageCommand => new RelayCommand(execute => ChangeAllowanceOfPostage());
 
-        private void ChangeCanMakePosts()
+        private void ChangeAllowanceOfPostage()
         {
-            CanMakePosts = CanMakePosts == "Yes" ? "No" : "Yes";
+            AllowanceOfPostageOnTheGroupChat = AllowanceOfPostageOnTheGroupChat == "Yes" ? "No" : "Yes";
         }
 
-        public string Icon
+        /// cum plm poate fi o iconita string???
+        public string NameOfTheGroupsIcon
         {
             get
             {
-                return SelectedGroup.Icon;
+                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.Icon;
             }
             set
             {
-                SelectedGroup.Icon = value;
+                GroupThatIsEncapsulatedByThisInstanceOnViewModel.Icon = value;
                 // TODO: notify somehow the main window view model that IconPath has changed
                 // OnPropertyChanged("IconPath");
                 OnPropertyChanged();
             }
         }
 
-        public string Banner
+        public string NameOfTheGroupsBanner
         {
             get
             {
-                return SelectedGroup.Banner;
+                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.Banner;
             }
             set
             {
-                SelectedGroup.Banner = value;
+                GroupThatIsEncapsulatedByThisInstanceOnViewModel.Banner = value;
                 OnPropertyChanged();
                 OnPropertyChanged("BannerPath");
             }
         }
         // Requests
-        public RelayCommand AcceptRequestCommand => new RelayCommand(execute => AcceptRequest());
+        public RelayCommand AcceptJoinRequestCommand => new RelayCommand(execute => AcceptJoinRequest());
 
-        private void AcceptRequest()
+        private void AcceptJoinRequest()
         {
         }
 
-        public RelayCommand RejectRequestCommand => new RelayCommand(execute => RejectRequest());
+        public RelayCommand RejectJoinRequestCommand => new RelayCommand(execute => RejectJoinRequest());
 
-        private void RejectRequest()
+        private void RejectJoinRequest()
         {
         }
     }

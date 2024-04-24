@@ -23,13 +23,13 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="13"
-            Text="{Binding Description}" />
+            Text="{Binding DescriptionOfThePoll}" />
         <TextBlock
             Grid.Row="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="13"
-            Text="{Binding EndDate}" />
+            Text="{Binding DueDateOfThePollInStringFormat}" />
         <StackPanel
             Grid.Row="2"
             Margin="20"
@@ -45,22 +45,22 @@
             </StackPanel.Resources>
             <Border>
                 <StackPanel Orientation="Horizontal">
-                    <CheckBox Content="{Binding Option0}" />
+                    <CheckBox Content="{Binding FirstPossibleOptionOfThePoll}" />
                 </StackPanel>
             </Border>
             <Border>
                 <StackPanel Orientation="Horizontal">
-                    <CheckBox Content="{Binding Option1}" />
+                    <CheckBox Content="{Binding SecondPossibleOptionOfThePoll}" />
                 </StackPanel>
             </Border>
             <Border>
                 <StackPanel Orientation="Horizontal">
-                    <CheckBox Content="{Binding Option2}" />
+                    <CheckBox Content="{Binding ThirdPossibleOptionOfThePoll}" />
                 </StackPanel>
             </Border>
             <Border>
                 <StackPanel Orientation="Horizontal">
-                    <CheckBox Content="{Binding Option3}" />
+                    <CheckBox Content="{Binding FourthPossibleOptionOfThePoll}" />
                 </StackPanel>
             </Border>
         </StackPanel>

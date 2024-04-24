@@ -19,14 +19,14 @@ namespace UBB_SE_2024_Popsicles.MVVM
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public bool CanExecute(object? parameter)
+        public bool CanExecute(object? relayCommandParameter)
         {
-            return this.canExecute == null || this.canExecute(parameter);
+            return this.canExecute == null || this.canExecute(relayCommandParameter);
         }
 
-        public void Execute(object? parameter)
+        public void Execute(object? relayCommandParameter)
         {
-            this.execute(parameter);
+            this.execute(relayCommandParameter);
         }
     }
 }

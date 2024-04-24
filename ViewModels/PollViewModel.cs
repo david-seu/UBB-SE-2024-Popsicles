@@ -12,99 +12,99 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 {
     public class PollViewModel : ViewModelBase
     {
-        public PollViewModel(Poll selectedPoll)
+        public PollViewModel(Poll pollThatIsEncapsulatedByThisInstanceOnAViewModel)
         {
-            SelectedPoll = selectedPoll;
+            PollThatIsEncapsulatedByThisInstanceOnViewModel = pollThatIsEncapsulatedByThisInstanceOnAViewModel;
         }
 
-        private Poll selectedPoll;
-        public Poll SelectedPoll
+        private Poll pollThatIsEncapsulatedByThisInstanceOnViewModel;
+        public Poll PollThatIsEncapsulatedByThisInstanceOnViewModel
         {
             get
             {
-                return this.selectedPoll;
+                return this.pollThatIsEncapsulatedByThisInstanceOnViewModel;
             }
             set
             {
-                this.selectedPoll = value;
+                this.pollThatIsEncapsulatedByThisInstanceOnViewModel = value;
                 OnPropertyChanged();
             }
         }
 
-        public string Description
+        public string DescriptionOfThePoll
         {
             get
             {
-                return SelectedPoll.Description;
+                return PollThatIsEncapsulatedByThisInstanceOnViewModel.Description;
             }
             set
             {
-                SelectedPoll.Description = value;
+                PollThatIsEncapsulatedByThisInstanceOnViewModel.Description = value;
                 OnPropertyChanged();
             }
         }
 
-        public string EndDate
+        public string DueDateOfThePollInStringFormat
         {
             get
             {
-                return SelectedPoll.EndTime.ToString();
+                return PollThatIsEncapsulatedByThisInstanceOnViewModel.EndTime.ToString();
             }
             set
             {
-                SelectedPoll.EndTime = DateTime.Parse(value);
+                PollThatIsEncapsulatedByThisInstanceOnViewModel.EndTime = DateTime.Parse(value);
                 OnPropertyChanged();
             }
         }
 
-        public string Option0
+        public string FirstPossibleOptionOfThePoll
         {
             get
             {
-                return SelectedPoll.Options[0];
+                return PollThatIsEncapsulatedByThisInstanceOnViewModel.Options[0];
             }
             set
             {
-                SelectedPoll.Options[0] = value;
+                PollThatIsEncapsulatedByThisInstanceOnViewModel.Options[0] = value;
                 OnPropertyChanged();
             }
         }
 
-        public string Option1
+        public string SecondPossibleOptionOfThePoll
         {
             get
             {
-                return SelectedPoll.Options[1];
+                return PollThatIsEncapsulatedByThisInstanceOnViewModel.Options[1];
             }
             set
             {
-                SelectedPoll.Options[1] = value;
+                PollThatIsEncapsulatedByThisInstanceOnViewModel.Options[1] = value;
                 OnPropertyChanged();
             }
         }
 
-        public string Option2
+        public string ThirdPossibleOptionOfThePoll
         {
             get
             {
-                return SelectedPoll.Options[2];
+                return PollThatIsEncapsulatedByThisInstanceOnViewModel.Options[2];
             }
             set
             {
-                SelectedPoll.Options[2] = value;
+                PollThatIsEncapsulatedByThisInstanceOnViewModel.Options[2] = value;
                 OnPropertyChanged();
             }
         }
 
-        public string Option3
+        public string FourthPossibleOptionOfThePoll
         {
             get
             {
-                return SelectedPoll.Options[3];
+                return PollThatIsEncapsulatedByThisInstanceOnViewModel.Options[3];
             }
             set
             {
-                SelectedPoll.Options[3] = value;
+                PollThatIsEncapsulatedByThisInstanceOnViewModel.Options[3] = value;
                 OnPropertyChanged();
             }
         }

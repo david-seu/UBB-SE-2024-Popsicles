@@ -6,7 +6,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        public ObservableCollection<Group> Groups { get; set; }
+        public ObservableCollection<Group> CollectionOfActiveGroups { get; set; }
 
         public MainWindowViewModel()
         {
@@ -16,12 +16,12 @@ namespace UBB_SE_2024_Popsicles.ViewModels
             // GroupRepository groupRepository = new GroupRepository(sqlConnection);
             // GroupMembershipRepository groupMembershipRepository = new GroupMembershipRepository(sqlConnection);
             // RequestsRepository requestsRepository = new RequestsRepository(sqlConnection);
-            Guid id = new Guid("44d5aa9a-b0f4-4e36-a21e-bdc33b97b5a5");
-            GroupMember groupMember = new GroupMember(id, "Dorian", "admin", "dorian@ubb.ro", "0725702312", "No paper, no pencil but I am still drawing attention.");
-            User = groupMember;
+            Guid idOfCurrentMockUser = new Guid("44d5aa9a-b0f4-4e36-a21e-bdc33b97b5a5");
+            GroupMember mockGroupMember = new GroupMember(idOfCurrentMockUser, "Dorian", "admin", "dorian@ubb.ro", "0725702312", "No paper, no pencil but I am still drawing attention.");
+            CurrentActiveUser = mockGroupMember;
 
             // TODO: Replace this with a call to the repository
-            Groups = new ObservableCollection<Group>
+            CollectionOfActiveGroups = new ObservableCollection<Group>
             {
                 new Group(Guid.NewGuid(), Guid.NewGuid(), "Group 1", "Description 1", "basket-boys", "animals", 10, true, true, "5481f1"),
                 new Group(Guid.NewGuid(), Guid.NewGuid(), "Group 2", "Description 2", "cute-girls", "lights", 20, false, false, "5481f2"),
@@ -30,48 +30,48 @@ namespace UBB_SE_2024_Popsicles.ViewModels
                 new Group(Guid.NewGuid(), Guid.NewGuid(), "Group 5", "Description 5", "robotics-group", "woman", 50, true, true, "5481f5"),
             };
 
-            SelectedGroup = Groups[0];
+            CurrentlySelectedGroup = CollectionOfActiveGroups[0];
         }
 
-        private GroupMember user;
+        private GroupMember currentActiveUser;
 
-        public GroupMember User
+        public GroupMember CurrentActiveUser
         {
             get
             {
-                return this.user;
+                return this.currentActiveUser;
             }
             set
             {
-                this.user = value;
+                this.currentActiveUser = value;
                 OnPropertyChanged();
             }
         }
 
-        private Group selectedGroup;
-        public Group SelectedGroup
+        private Group currentlySelectedGroup;
+        public Group CurrentlySelectedGroup
         {
             get
             {
-                return this.selectedGroup;
+                return this.currentlySelectedGroup;
             }
             set
             {
-                this.selectedGroup = value;
+                this.currentlySelectedGroup = value;
                 OnPropertyChanged();
             }
         }
 
-        private GroupViewModel selectedGroupViewModel;
-        public GroupViewModel SelectedGroupViewModel
+        private GroupViewModel viewModelCorrespondingToTheCurrentlySelectedGroup;
+        public GroupViewModel ViewModelCorrespondingToTheCurrentlySelectedGroup
         {
             get
             {
-                return this.selectedGroupViewModel;
+                return this.viewModelCorrespondingToTheCurrentlySelectedGroup;
             }
             set
             {
-                this.selectedGroupViewModel = value;
+                this.viewModelCorrespondingToTheCurrentlySelectedGroup = value;
                 OnPropertyChanged();
             }
         }
