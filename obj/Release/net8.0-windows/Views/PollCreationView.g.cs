@@ -151,11 +151,7 @@ namespace UBB_SE_2024_Popsicles.Views {
         /// InitializeComponent
         /// </summary>
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-<<<<<<< HEAD
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.4.0")]
-=======
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.2.0")]
->>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
         public void InitializeComponent() {
             if (_contentLoaded) {
                 return;
@@ -171,11 +167,7 @@ namespace UBB_SE_2024_Popsicles.Views {
         }
         
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-<<<<<<< HEAD
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.4.0")]
-=======
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.2.0")]
->>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]

@@ -14,11 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UBB-SE-2024-Popsicles")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+85dff6f6c91188baeed1a648aa084696ed07974d")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+05011cc9f341c4bbc42599ca65bbfc6612d5d605")]
->>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+021c126a9834e9fcd7c4c622ba5ed8e9443b3f7e")]
 [assembly: System.Reflection.AssemblyProductAttribute("UBB-SE-2024-Popsicles")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UBB-SE-2024-Popsicles")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

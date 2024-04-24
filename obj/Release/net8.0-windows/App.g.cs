@@ -45,11 +45,7 @@ namespace UBB_SE_2024_Popsicles {
         /// InitializeComponent
         /// </summary>
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-<<<<<<< HEAD
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.4.0")]
-=======
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.2.0")]
->>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
         public void InitializeComponent() {
             
             #line 6 "..\..\..\App.xaml"
@@ -64,11 +60,7 @@ namespace UBB_SE_2024_Popsicles {
         /// </summary>
         [System.STAThreadAttribute()]
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-<<<<<<< HEAD
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.4.0")]
-=======
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.2.0")]
->>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
         public static void Main() {
             UBB_SE_2024_Popsicles.App app = new UBB_SE_2024_Popsicles.App();
             app.InitializeComponent();

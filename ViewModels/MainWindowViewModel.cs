@@ -37,7 +37,6 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 
         public GroupMember User
         {
-<<<<<<< HEAD
             get
             {
                 return this.user;
@@ -45,12 +44,6 @@ namespace UBB_SE_2024_Popsicles.ViewModels
             set
             {
                 this.user = value;
-=======
-            get => user;
-            set
-            {
-                user = value;
->>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
                 OnPropertyChanged();
             }
         }
@@ -58,7 +51,6 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         private Group selectedGroup;
         public Group SelectedGroup
         {
-<<<<<<< HEAD
             get
             {
                 return this.selectedGroup;
@@ -66,12 +58,6 @@ namespace UBB_SE_2024_Popsicles.ViewModels
             set
             {
                 this.selectedGroup = value;
-=======
-            get => selectedGroup;
-            set
-            {
-                selectedGroup = value;
->>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
                 OnPropertyChanged();
             }
         }
@@ -79,7 +65,6 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         private GroupViewModel selectedGroupViewModel;
         public GroupViewModel SelectedGroupViewModel
         {
-<<<<<<< HEAD
             get
             {
                 return this.selectedGroupViewModel;
@@ -87,12 +72,6 @@ namespace UBB_SE_2024_Popsicles.ViewModels
             set
             {
                 this.selectedGroupViewModel = value;
-=======
-            get => selectedGroupViewModel;
-            set
-            {
-                selectedGroupViewModel = value;
->>>>>>> 146baad66157a51bea86d44d5e2950cd37b116d0
                 OnPropertyChanged();
             }
         }
