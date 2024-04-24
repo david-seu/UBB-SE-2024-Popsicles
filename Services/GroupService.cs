@@ -8,7 +8,7 @@ using UBB_SE_2024_Popsicles.Repositories;
 
 namespace UBB_SE_2024_Popsicles.Services
 {
-    class GroupService
+    public class GroupService
     {
         private static string DEFAULT_GROUP_NAME = "New Group";
         private static string DEFAULT_GROUP_DESCRIPTION = "This is a new group";
@@ -47,6 +47,7 @@ namespace UBB_SE_2024_Popsicles.Services
 
             // Add the new group to the GroupRepository
             GroupRepository.AddGroup(newGroup);
+
 
             AddMember(ownerId, groupId, "admin");
         }
