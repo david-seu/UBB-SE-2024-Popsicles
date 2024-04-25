@@ -8,6 +8,6 @@
     "\\ViewModels",
     "\\Views"
   ],
-  "SelectedNode": "\\ViewModels\\GroupPostViewModel.cs",
+  "SelectedNode": "\\Repositories\\GroupMemberRepository.cs",
   "PreviewInSolutionExplorer": false
 }
