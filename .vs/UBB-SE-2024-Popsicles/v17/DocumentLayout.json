@@ -1,97 +1,126 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\",
+  "WorkspaceRootPath": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{68BBC7F8-7172-42AB-97AA-B8A1C1C58E2F}|..\\Test-UBB-SE-2024-Popsicles\\Test-UBB-SE-2024-Popsicles.csproj|c:\\users\\seu21\\documente\\github\\test-ubb-se-2024-popsicles\\testservice\\testgroupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DF4746BF-8491-4DB0-BC8D-DF8217237058}|..\\Test-UBB-SE-2024-Popsicles\\Test-UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\test-ubb-se-2024-popsicles\\testservice\\testfeedservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{68BBC7F8-7172-42AB-97AA-B8A1C1C58E2F}|..\\Test-UBB-SE-2024-Popsicles\\Test-UBB-SE-2024-Popsicles.csproj|c:\\users\\seu21\\documente\\github\\test-ubb-se-2024-popsicles\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\ubb-se-2024-popsicles\\models\\grouppost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:models\\grouppost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF4746BF-8491-4DB0-BC8D-DF8217237058}|..\\Test-UBB-SE-2024-Popsicles\\Test-UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\test-ubb-se-2024-popsicles\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF4746BF-8491-4DB0-BC8D-DF8217237058}|..\\Test-UBB-SE-2024-Popsicles\\Test-UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\test-ubb-se-2024-popsicles\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\ubb-se-2024-popsicles\\services\\feedservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:services\\feedservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\ubb-se-2024-popsicles\\services\\ifeedservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:services\\ifeedservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\ubb-se-2024-popsicles\\services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\ubb-se-2024-popsicles\\repositories\\igrouprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:repositories\\igrouprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\ubb-se-2024-popsicles\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\seu21\\Documente\\GitHub\\Test-UBB-SE-2024-Popsicles\\TestService\\TestGroupService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{68BBC7F8-7172-42AB-97AA-B8A1C1C58E2F}|..\\Test-UBB-SE-2024-Popsicles\\Test-UBB-SE-2024-Popsicles.csproj|c:\\users\\seu21\\documente\\github\\test-ubb-se-2024-popsicles\\test-ubb-se-2024-popsicles.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\ubb-se-2024-popsicles.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\ubb-se-2024-popsicles\\ubb-se-2024-popsicles.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:ubb-se-2024-popsicles.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\models\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\ubb-se-2024-popsicles\\models\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:models\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|d:\\users\\erik\\popsicles\\testubb-se-2024-popsicles\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Users\\Erik\\POPSICLES\\TestUBB-SE-2024-Popsicles\\UnitTest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\viewmodels\\grouppostviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\ubb-se-2024-popsicles\\viewmodels\\grouppostviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:viewmodels\\grouppostviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\viewmodels\\groupviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\ubb-se-2024-popsicles\\viewmodels\\groupviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:viewmodels\\groupviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\ubb-se-2024-popsicles\\viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\viewmodels\\pollviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\ubb-se-2024-popsicles\\viewmodels\\pollviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:viewmodels\\pollviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\views\\groupview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\ubb-se-2024-popsicles\\views\\groupview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:views\\groupview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\views\\pollcreationview.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\ubb-se-2024-popsicles\\views\\pollcreationview.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:views\\pollcreationview.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\views\\pollcreationview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\ubb-se-2024-popsicles\\views\\pollcreationview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:views\\pollcreationview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\views\\pollview.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\ubb-se-2024-popsicles\\views\\pollview.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:views\\pollview.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\views\\pollview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\ubb-se-2024-popsicles\\views\\pollview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:views\\pollview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\.gitattributes||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\ubb-se-2024-popsicles\\.gitattributes||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:.gitattributes||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\app.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\ubb-se-2024-popsicles\\app.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:app.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\ubb-se-2024-popsicles\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\ubb-se-2024-popsicles\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\mainwindow.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\ubb-se-2024-popsicles\\mainwindow.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:mainwindow.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\se.ruleset||{86B136E6-CC1D-4C8A-B135-8100555B9D17}",
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\ubb-se-2024-popsicles\\se.ruleset||{86B136E6-CC1D-4C8A-B135-8100555B9D17}",
       "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:se.ruleset||{86B136E6-CC1D-4C8A-B135-8100555B9D17}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|c:\\users\\user\\onedrive\\desktop\\ubb-se-2024-popsicles\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\seu21\\Documente\\GitHub\\Test-UBB-SE-2024-Popsicles\\Test-UBB-SE-2024-Popsicles.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\seu21\\Documente\\GitHub\\Test-UBB-SE-2024-Popsicles\\UnitTest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -101,28 +130,126 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 7,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TestGroupService.cs",
-              "DocumentMoniker": "C:\\Users\\seu21\\Documente\\GitHub\\Test-UBB-SE-2024-Popsicles\\TestService\\TestGroupService.cs",
-              "RelativeDocumentMoniker": "..\\Test-UBB-SE-2024-Popsicles\\TestService\\TestGroupService.cs",
-              "ToolTip": "C:\\Users\\seu21\\Documente\\GitHub\\Test-UBB-SE-2024-Popsicles\\TestService\\TestGroupService.cs",
-              "RelativeToolTip": "..\\Test-UBB-SE-2024-Popsicles\\TestService\\TestGroupService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAABAAAA",
+              "DocumentIndex": 2,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\Test-UBB-SE-2024-Popsicles\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "..\\Test-UBB-SE-2024-Popsicles\\UnitTest1.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\Test-UBB-SE-2024-Popsicles\\UnitTest1.cs",
+              "RelativeToolTip": "..\\Test-UBB-SE-2024-Popsicles\\UnitTest1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T10:50:07.514Z",
+              "WhenOpened": "2024-04-25T11:18:44.172Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\Test-UBB-SE-2024-Popsicles\\.gitignore",
+              "RelativeDocumentMoniker": "..\\Test-UBB-SE-2024-Popsicles\\.gitignore",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\Test-UBB-SE-2024-Popsicles\\.gitignore",
+              "RelativeToolTip": "..\\Test-UBB-SE-2024-Popsicles\\.gitignore",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG/SURBVDhPrZRNTgIxFMerDIaEhHgU97JxwUKGGaNeQJdyCY0XUBDWGhg4AB\u002BuvQk7OQCRFTP1fXWmMxUMCT94ee177eu/LVQdFK31kTSJ0WgEIa0SMJ2A6QTHcF9iicQqlYpa/6zv2\u002B2HD5nuEkWR/l4udRzHZBtjGzFor1YrPR6P9WKx0MNhpN96vTuZThyLJ1AJLK/iJFFxjBanBsXIozqkWq2qev1c1Wq19063e0ZBwBNP4JaQ6WRC/i8ajQb5wWBAvnxyghpOqQPkC8L5IEEQKjgxaqOTFsCd65tb6nmlkur1\u002BxwXCgX58KfT7QptwvCK52wrSLcJvtUKOABkQ6HFXwbGsmMRBkchzpjNphLZDSrEn5G1qnsp\u002BPEtheloXouRnXDTTjhb5tXmeyg0IgzuliHp\u002By0OANbiOCDXp1IYo3mMUxBT8/mMA/8QhGH6ZzC4Zwi5ZqoQB9M3h62I/\u002B/SAQpniBmtPvdQyGeYUdgyX8pl05eIBSxmTzQYEYbc42AuJQWLGJNQEcrJG4A4BTHneSW2sqfKOyybkxXMPbAvrx3IsyLzkPJFmUcWYtDntjG6lIvnp8cvKXNIlPoFvstpJRlQPIAAAAAASUVORK5CYII=",
+              "WhenOpened": "2024-04-25T11:18:43.236Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GroupPost.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\Models\\GroupPost.cs",
+              "RelativeDocumentMoniker": "Models\\GroupPost.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\Models\\GroupPost.cs",
+              "RelativeToolTip": "Models\\GroupPost.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T11:18:17.969Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GroupService.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\Services\\GroupService.cs",
+              "RelativeDocumentMoniker": "Services\\GroupService.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\Services\\GroupService.cs",
+              "RelativeToolTip": "Services\\GroupService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T11:14:25.232Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FeedService.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\Services\\FeedService.cs",
+              "RelativeDocumentMoniker": "Services\\FeedService.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\Services\\FeedService.cs",
+              "RelativeToolTip": "Services\\FeedService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T11:13:22.223Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IGroupRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\Repositories\\IGroupRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\IGroupRepository.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\Repositories\\IGroupRepository.cs",
+              "RelativeToolTip": "Repositories\\IGroupRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T11:02:41.446Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IFeedService.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\Services\\IFeedService.cs",
+              "RelativeDocumentMoniker": "Services\\IFeedService.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\Services\\IFeedService.cs",
+              "RelativeToolTip": "Services\\IFeedService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T10:59:38.869Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TestFeedService.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\Test-UBB-SE-2024-Popsicles\\TestService\\TestFeedService.cs",
+              "RelativeDocumentMoniker": "..\\Test-UBB-SE-2024-Popsicles\\TestService\\TestFeedService.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\Test-UBB-SE-2024-Popsicles\\TestService\\TestFeedService.cs",
+              "RelativeToolTip": "..\\Test-UBB-SE-2024-Popsicles\\TestService\\TestFeedService.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T10:59:16.141Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TestGroupService.cs",
+              "DocumentMoniker": "C:\\Users\\seu21\\Documente\\GitHub\\Test-UBB-SE-2024-Popsicles\\TestService\\TestGroupService.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\seu21\\Documente\\GitHub\\Test-UBB-SE-2024-Popsicles\\TestService\\TestGroupService.cs",
+              "ToolTip": "C:\\Users\\seu21\\Documente\\GitHub\\Test-UBB-SE-2024-Popsicles\\TestService\\TestGroupService.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\seu21\\Documente\\GitHub\\Test-UBB-SE-2024-Popsicles\\TestService\\TestGroupService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T10:50:07.514Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "Microsoft.Common.CurrentVersion.targets",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
@@ -135,37 +262,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Test-UBB-SE-2024-Popsicles",
+              "DocumentIndex": 30,
+              "Title": "Test-UBB-SE-2024-Popsicles.csproj",
               "DocumentMoniker": "C:\\Users\\seu21\\Documente\\GitHub\\Test-UBB-SE-2024-Popsicles\\Test-UBB-SE-2024-Popsicles.csproj",
-              "RelativeDocumentMoniker": "..\\Test-UBB-SE-2024-Popsicles\\Test-UBB-SE-2024-Popsicles.csproj",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\seu21\\Documente\\GitHub\\Test-UBB-SE-2024-Popsicles\\Test-UBB-SE-2024-Popsicles.csproj",
               "ToolTip": "C:\\Users\\seu21\\Documente\\GitHub\\Test-UBB-SE-2024-Popsicles\\Test-UBB-SE-2024-Popsicles.csproj",
-              "RelativeToolTip": "..\\Test-UBB-SE-2024-Popsicles\\Test-UBB-SE-2024-Popsicles.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAAAAAA",
+              "RelativeToolTip": "..\\..\\..\\..\\seu21\\Documente\\GitHub\\Test-UBB-SE-2024-Popsicles\\Test-UBB-SE-2024-Popsicles.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-04-25T10:35:55.848Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-25T10:35:55.848Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 31,
               "Title": "UnitTest1.cs",
               "DocumentMoniker": "C:\\Users\\seu21\\Documente\\GitHub\\Test-UBB-SE-2024-Popsicles\\UnitTest1.cs",
-              "RelativeDocumentMoniker": "..\\Test-UBB-SE-2024-Popsicles\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\seu21\\Documente\\GitHub\\Test-UBB-SE-2024-Popsicles\\UnitTest1.cs",
               "ToolTip": "C:\\Users\\seu21\\Documente\\GitHub\\Test-UBB-SE-2024-Popsicles\\UnitTest1.cs",
-              "RelativeToolTip": "..\\Test-UBB-SE-2024-Popsicles\\UnitTest1.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAPAAAA",
+              "RelativeToolTip": "..\\..\\..\\..\\seu21\\Documente\\GitHub\\Test-UBB-SE-2024-Popsicles\\UnitTest1.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T10:28:35.893Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-25T10:28:35.893Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 11,
               "Title": "UBB-SE-2024-Popsicles.csproj",
-              "DocumentMoniker": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\UBB-SE-2024-Popsicles.csproj",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\UBB-SE-2024-Popsicles.csproj",
               "RelativeDocumentMoniker": "UBB-SE-2024-Popsicles.csproj",
-              "ToolTip": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\UBB-SE-2024-Popsicles.csproj",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\UBB-SE-2024-Popsicles.csproj",
               "RelativeToolTip": "UBB-SE-2024-Popsicles.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
@@ -174,11 +297,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 12,
               "Title": "Group.cs",
-              "DocumentMoniker": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\Models\\Group.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\Models\\Group.cs",
               "RelativeDocumentMoniker": "Models\\Group.cs",
-              "ToolTip": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\Models\\Group.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\Models\\Group.cs",
               "RelativeToolTip": "Models\\Group.cs",
               "ViewState": "AQIAAMUAAAAAAAAAAAAmwGAAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -187,22 +310,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UnitTest1.cs",
-              "DocumentMoniker": "D:\\Users\\Erik\\POPSICLES\\TestUBB-SE-2024-Popsicles\\UnitTest1.cs",
-              "ToolTip": "D:\\Users\\Erik\\POPSICLES\\TestUBB-SE-2024-Popsicles\\UnitTest1.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T08:58:58.315Z",
+              "DocumentIndex": 8,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG/SURBVDhPrZRNTgIxFMerDIaEhHgU97JxwUKGGaNeQJdyCY0XUBDWGhg4AB\u002BuvQk7OQCRFTP1fXWmMxUMCT94ee177eu/LVQdFK31kTSJ0WgEIa0SMJ2A6QTHcF9iicQqlYpa/6zv2\u002B2HD5nuEkWR/l4udRzHZBtjGzFor1YrPR6P9WKx0MNhpN96vTuZThyLJ1AJLK/iJFFxjBanBsXIozqkWq2qev1c1Wq19063e0ZBwBNP4JaQ6WRC/i8ajQb5wWBAvnxyghpOqQPkC8L5IEEQKjgxaqOTFsCd65tb6nmlkur1\u002BxwXCgX58KfT7QptwvCK52wrSLcJvtUKOABkQ6HFXwbGsmMRBkchzpjNphLZDSrEn5G1qnsp\u002BPEtheloXouRnXDTTjhb5tXmeyg0IgzuliHp\u002By0OANbiOCDXp1IYo3mMUxBT8/mMA/8QhGH6ZzC4Zwi5ZqoQB9M3h62I/\u002B/SAQpniBmtPvdQyGeYUdgyX8pl05eIBSxmTzQYEYbc42AuJQWLGJNQEcrJG4A4BTHneSW2sqfKOyybkxXMPbAvrx3IsyLzkPJFmUcWYtDntjG6lIvnp8cvKXNIlPoFvstpJRlQPIAAAAAASUVORK5CYII=",
+              "WhenOpened": "2024-04-24T19:46:12.771Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 13,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "D:\\Users\\Erik\\POPSICLES\\TestUBB-SE-2024-Popsicles\\UnitTest1.cs",
+              "ToolTip": "D:\\Users\\Erik\\POPSICLES\\TestUBB-SE-2024-Popsicles\\UnitTest1.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T08:58:58.315Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "GroupPostViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\ViewModels\\GroupPostViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\ViewModels\\GroupPostViewModel.cs",
               "RelativeDocumentMoniker": "ViewModels\\GroupPostViewModel.cs",
-              "ToolTip": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\ViewModels\\GroupPostViewModel.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\ViewModels\\GroupPostViewModel.cs",
               "RelativeToolTip": "ViewModels\\GroupPostViewModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -211,24 +345,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 15,
               "Title": "GroupViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\ViewModels\\GroupViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\ViewModels\\GroupViewModel.cs",
               "RelativeDocumentMoniker": "ViewModels\\GroupViewModel.cs",
-              "ToolTip": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\ViewModels\\GroupViewModel.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\ViewModels\\GroupViewModel.cs",
               "RelativeToolTip": "ViewModels\\GroupViewModel.cs",
-              "ViewState": "AQIAADIBAAAAAAAAAAAywAAAAAAAAAAA",
+              "ViewState": "AQIAADMBAAAAAAAAAADwvwAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-24T19:47:05.728Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 16,
               "Title": "MainWindowViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\ViewModels\\MainWindowViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\ViewModels\\MainWindowViewModel.cs",
               "RelativeDocumentMoniker": "ViewModels\\MainWindowViewModel.cs",
-              "ToolTip": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\ViewModels\\MainWindowViewModel.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\ViewModels\\MainWindowViewModel.cs",
               "RelativeToolTip": "ViewModels\\MainWindowViewModel.cs",
               "ViewState": "AQIAADUAAAAAAAAAAAAIwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -237,11 +371,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 17,
               "Title": "PollViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\ViewModels\\PollViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\ViewModels\\PollViewModel.cs",
               "RelativeDocumentMoniker": "ViewModels\\PollViewModel.cs",
-              "ToolTip": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\ViewModels\\PollViewModel.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\ViewModels\\PollViewModel.cs",
               "RelativeToolTip": "ViewModels\\PollViewModel.cs",
               "ViewState": "AQIAAFkAAAAAAAAAAAAuwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -250,11 +384,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 18,
               "Title": "GroupView.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\Views\\GroupView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\Views\\GroupView.xaml.cs",
               "RelativeDocumentMoniker": "Views\\GroupView.xaml.cs",
-              "ToolTip": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\Views\\GroupView.xaml.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\Views\\GroupView.xaml.cs",
               "RelativeToolTip": "Views\\GroupView.xaml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -263,50 +397,50 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 19,
               "Title": "PollCreationView.xaml",
-              "DocumentMoniker": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\Views\\PollCreationView.xaml",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\Views\\PollCreationView.xaml",
               "RelativeDocumentMoniker": "Views\\PollCreationView.xaml",
-              "ToolTip": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\Views\\PollCreationView.xaml",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\Views\\PollCreationView.xaml",
               "RelativeToolTip": "Views\\PollCreationView.xaml",
-              "ViewState": "AQIAAFoAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAFgAAAAAAAAAAABBwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-04-24T19:46:27.517Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 20,
               "Title": "PollCreationView.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\Views\\PollCreationView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\Views\\PollCreationView.xaml.cs",
               "RelativeDocumentMoniker": "Views\\PollCreationView.xaml.cs",
-              "ToolTip": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\Views\\PollCreationView.xaml.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\Views\\PollCreationView.xaml.cs",
               "RelativeToolTip": "Views\\PollCreationView.xaml.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAIBJwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-24T19:46:23.661Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 21,
               "Title": "PollView.xaml",
-              "DocumentMoniker": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\Views\\PollView.xaml",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\Views\\PollView.xaml",
               "RelativeDocumentMoniker": "Views\\PollView.xaml",
-              "ToolTip": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\Views\\PollView.xaml",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\Views\\PollView.xaml",
               "RelativeToolTip": "Views\\PollView.xaml",
-              "ViewState": "AQIAADAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAC4AAAAAAAAAAABBwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-04-24T19:46:18.402Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 22,
               "Title": "PollView.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\Views\\PollView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\Views\\PollView.xaml.cs",
               "RelativeDocumentMoniker": "Views\\PollView.xaml.cs",
-              "ToolTip": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\Views\\PollView.xaml.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\Views\\PollView.xaml.cs",
               "RelativeToolTip": "Views\\PollView.xaml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -315,37 +449,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 23,
               "Title": ".gitattributes",
-              "DocumentMoniker": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\.gitattributes",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\.gitattributes",
               "RelativeDocumentMoniker": ".gitattributes",
-              "ToolTip": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\.gitattributes",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\.gitattributes",
               "RelativeToolTip": ".gitattributes",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG/SURBVDhPrZRNTgIxFMerDIaEhHgU97JxwUKGGaNeQJdyCY0XUBDWGhg4AB\u002BuvQk7OQCRFTP1fXWmMxUMCT94ee177eu/LVQdFK31kTSJ0WgEIa0SMJ2A6QTHcF9iicQqlYpa/6zv2\u002B2HD5nuEkWR/l4udRzHZBtjGzFor1YrPR6P9WKx0MNhpN96vTuZThyLJ1AJLK/iJFFxjBanBsXIozqkWq2qev1c1Wq19063e0ZBwBNP4JaQ6WRC/i8ajQb5wWBAvnxyghpOqQPkC8L5IEEQKjgxaqOTFsCd65tb6nmlkur1\u002BxwXCgX58KfT7QptwvCK52wrSLcJvtUKOABkQ6HFXwbGsmMRBkchzpjNphLZDSrEn5G1qnsp\u002BPEtheloXouRnXDTTjhb5tXmeyg0IgzuliHp\u002By0OANbiOCDXp1IYo3mMUxBT8/mMA/8QhGH6ZzC4Zwi5ZqoQB9M3h62I/\u002B/SAQpniBmtPvdQyGeYUdgyX8pl05eIBSxmTzQYEYbc42AuJQWLGJNQEcrJG4A4BTHneSW2sqfKOyybkxXMPbAvrx3IsyLzkPJFmUcWYtDntjG6lIvnp8cvKXNIlPoFvstpJRlQPIAAAAAASUVORK5CYII=",
               "WhenOpened": "2024-04-24T19:46:13.452Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\.gitignore",
-              "RelativeDocumentMoniker": ".gitignore",
-              "ToolTip": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\.gitignore",
-              "RelativeToolTip": ".gitignore",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-04-24T19:46:12.771Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 24,
               "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\App.xaml",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\App.xaml",
               "RelativeDocumentMoniker": "App.xaml",
-              "ToolTip": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\App.xaml",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\App.xaml",
               "RelativeToolTip": "App.xaml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
@@ -354,11 +475,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 25,
               "Title": "App.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\App.xaml.cs",
               "RelativeDocumentMoniker": "App.xaml.cs",
-              "ToolTip": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\App.xaml.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\App.xaml.cs",
               "RelativeToolTip": "App.xaml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -367,11 +488,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 26,
               "Title": "AssemblyInfo.cs",
-              "DocumentMoniker": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\AssemblyInfo.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\AssemblyInfo.cs",
               "RelativeDocumentMoniker": "AssemblyInfo.cs",
-              "ToolTip": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\AssemblyInfo.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\AssemblyInfo.cs",
               "RelativeToolTip": "AssemblyInfo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -380,11 +501,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 27,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
@@ -393,11 +514,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 28,
               "Title": "SE.ruleset",
-              "DocumentMoniker": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\SE.ruleset",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\SE.ruleset",
               "RelativeDocumentMoniker": "SE.ruleset",
-              "ToolTip": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\SE.ruleset",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\SE.ruleset",
               "RelativeToolTip": "SE.ruleset",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002641|",
               "WhenOpened": "2024-04-24T19:45:24.68Z",
@@ -405,26 +526,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 29,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\seu21\\Documente\\GitHub\\UBB-SE-2024-Popsicles\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\UBB-SE-2024-Popsicles\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAAACoAAAAIAAAA",
+              "ViewState": "AQIAABgAAAAAAAAAAIBJwCoAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-24T16:13:27.26Z",
               "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedHeight": 200,
-          "SelectedChildIndex": -1,
-          "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             }
           ]
         }

@@ -7,7 +7,7 @@ using UBB_SE_2024_Popsicles.Models;
 
 namespace UBB_SE_2024_Popsicles.Repositories
 {
-    internal interface IGroupRepository
+    public interface IGroupRepository
     {
         Group GetGroupById(Guid groupId);
         List<Group> GetGroups();

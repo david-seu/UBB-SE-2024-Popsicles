@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UBB-SE-2024-Popsicles", "UBB-SE-2024-Popsicles.csproj", "{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUBB-SE-2024-Popsicles", "..\TestUBB-SE-2024-Popsicles\TestUBB-SE-2024-Popsicles.csproj", "{EAA6E99A-A147-429B-A1F5-0BB3DC06C4E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test-UBB-SE-2024-Popsicles", "..\Test-UBB-SE-2024-Popsicles\Test-UBB-SE-2024-Popsicles.csproj", "{DF4746BF-8491-4DB0-BC8D-DF8217237058}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EAA6E99A-A147-429B-A1F5-0BB3DC06C4E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EAA6E99A-A147-429B-A1F5-0BB3DC06C4E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EAA6E99A-A147-429B-A1F5-0BB3DC06C4E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EAA6E99A-A147-429B-A1F5-0BB3DC06C4E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF4746BF-8491-4DB0-BC8D-DF8217237058}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF4746BF-8491-4DB0-BC8D-DF8217237058}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF4746BF-8491-4DB0-BC8D-DF8217237058}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF4746BF-8491-4DB0-BC8D-DF8217237058}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
