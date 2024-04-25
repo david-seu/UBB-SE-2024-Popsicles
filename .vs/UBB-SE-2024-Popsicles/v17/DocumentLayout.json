@@ -3,19 +3,19 @@
   "WorkspaceRootPath": "D:\\Facultate\\ISS\\UBB-SE-2024-Popsicles\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|d:\\facultate\\iss\\ubb-se-2024-popsicles\\viewmodels\\groupviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:viewmodels\\groupviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|d:\\facultate\\iss\\ubb-se-2024-popsicles\\viewmodels\\grouppostviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:viewmodels\\grouppostviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|D:\\Facultate\\ISS\\UBB-SE-2024-Popsicles\\services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|d:\\facultate\\iss\\ubb-se-2024-popsicles\\services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|d:\\facultate\\iss\\ubb-se-2024-popsicles\\services\\feedservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|D:\\Facultate\\ISS\\UBB-SE-2024-Popsicles\\viewmodels\\groupviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:viewmodels\\groupviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|D:\\Facultate\\ISS\\UBB-SE-2024-Popsicles\\viewmodels\\grouppostviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:viewmodels\\grouppostviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|D:\\Facultate\\ISS\\UBB-SE-2024-Popsicles\\services\\feedservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:services\\feedservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -27,7 +27,7 @@
       "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:MVVM\\RelayCommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|d:\\facultate\\iss\\ubb-se-2024-popsicles\\repositories\\groupmemberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|D:\\Facultate\\ISS\\UBB-SE-2024-Popsicles\\repositories\\groupmemberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6B50388-FD74-4FA7-AD57-EC9AD5CDE2BB}|UBB-SE-2024-Popsicles.csproj|solutionrelative:repositories\\groupmemberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -38,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -53,55 +53,8 @@
               "Name": "ST:0:0:{a80febb4-e7e0-4147-b476-21aaf2453969}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GroupViewModel.cs",
-              "DocumentMoniker": "D:\\Facultate\\ISS\\UBB-SE-2024-Popsicles\\ViewModels\\GroupViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\GroupViewModel.cs",
-              "ToolTip": "D:\\Facultate\\ISS\\UBB-SE-2024-Popsicles\\ViewModels\\GroupViewModel.cs",
-              "RelativeToolTip": "ViewModels\\GroupViewModel.cs",
-              "ViewState": "AQIAAB4BAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T09:15:24.968Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GroupPostViewModel.cs",
-              "DocumentMoniker": "D:\\Facultate\\ISS\\UBB-SE-2024-Popsicles\\ViewModels\\GroupPostViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\GroupPostViewModel.cs",
-              "ToolTip": "D:\\Facultate\\ISS\\UBB-SE-2024-Popsicles\\ViewModels\\GroupPostViewModel.cs",
-              "RelativeToolTip": "ViewModels\\GroupPostViewModel.cs",
-              "ViewState": "AQIAAFoAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T09:15:14.677Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FeedService.cs",
-              "DocumentMoniker": "D:\\Facultate\\ISS\\UBB-SE-2024-Popsicles\\Services\\FeedService.cs",
-              "RelativeDocumentMoniker": "Services\\FeedService.cs",
-              "ToolTip": "D:\\Facultate\\ISS\\UBB-SE-2024-Popsicles\\Services\\FeedService.cs",
-              "RelativeToolTip": "Services\\FeedService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T09:15:01.702Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "GroupService.cs",
               "DocumentMoniker": "D:\\Facultate\\ISS\\UBB-SE-2024-Popsicles\\Services\\GroupService.cs",
               "RelativeDocumentMoniker": "Services\\GroupService.cs",
@@ -113,6 +66,50 @@
               "EditorCaption": ""
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GroupViewModel.cs",
+              "DocumentMoniker": "D:\\Facultate\\ISS\\UBB-SE-2024-Popsicles\\ViewModels\\GroupViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\GroupViewModel.cs",
+              "ToolTip": "D:\\Facultate\\ISS\\UBB-SE-2024-Popsicles\\ViewModels\\GroupViewModel.cs",
+              "RelativeToolTip": "ViewModels\\GroupViewModel.cs",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T09:15:24.968Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GroupPostViewModel.cs",
+              "DocumentMoniker": "D:\\Facultate\\ISS\\UBB-SE-2024-Popsicles\\ViewModels\\GroupPostViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\GroupPostViewModel.cs",
+              "ToolTip": "D:\\Facultate\\ISS\\UBB-SE-2024-Popsicles\\ViewModels\\GroupPostViewModel.cs",
+              "RelativeToolTip": "ViewModels\\GroupPostViewModel.cs",
+              "ViewState": "AQIAAFMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T09:15:14.677Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FeedService.cs",
+              "DocumentMoniker": "D:\\Facultate\\ISS\\UBB-SE-2024-Popsicles\\Services\\FeedService.cs",
+              "RelativeDocumentMoniker": "Services\\FeedService.cs",
+              "ToolTip": "D:\\Facultate\\ISS\\UBB-SE-2024-Popsicles\\Services\\FeedService.cs",
+              "RelativeToolTip": "Services\\FeedService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T09:15:01.702Z"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "GroupMemberRepository.cs",
@@ -122,8 +119,7 @@
               "RelativeToolTip": "Repositories\\GroupMemberRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-24T15:12:24.637Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-24T15:12:24.637Z"
             },
             {
               "$type": "Document",
@@ -135,8 +131,7 @@
               "RelativeToolTip": "MVVM\\RelayCommand.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-24T07:31:02.59Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-24T07:31:02.59Z"
             },
             {
               "$type": "Document",
@@ -148,8 +143,7 @@
               "RelativeToolTip": "MVVM\\ViewModelBase.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-24T07:33:59.029Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-24T07:33:59.029Z"
             }
           ]
         }
