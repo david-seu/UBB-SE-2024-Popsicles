@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Bogdan\Documents\GitHub\UBB-SE-2024-Popsicles\obj\Release\net8.0-windows\
+D:\Facultate\ISS\UBB-SE-2024-Popsicles\obj\Release\net8.0-windows\
 UBB_SE_2024_Popsicles
 none
 false
 TRACE;RELEASE;NET;NET8_0;NETCOREAPP
-C:\Users\Bogdan\Documents\GitHub\UBB-SE-2024-Popsicles\App.xaml
+D:\Facultate\ISS\UBB-SE-2024-Popsicles\App.xaml
 7-612353953
 
 361575648235
-200-1273395695
+2001820018085
 MainWindow.xaml;Views\GroupMemberPreviewView.xaml;Views\GroupPostView.xaml;Views\GroupSettingsView.xaml;Views\GroupView.xaml;Views\PollCreationView.xaml;Views\PollView.xaml;
 
 True
