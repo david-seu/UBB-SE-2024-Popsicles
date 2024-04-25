@@ -166,7 +166,7 @@ namespace UBB_SE_2024_Popsicles.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/UBB-SE-2024-Popsicles;component/views/groupview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/UBB-SE-2024-Popsicles;V1.0.0.0;component/views/groupview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\GroupView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

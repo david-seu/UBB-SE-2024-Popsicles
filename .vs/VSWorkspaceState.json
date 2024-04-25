@@ -1,13 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Models",
-    "\\MVVM",
-    "\\Repositories",
-    "\\Services",
-    "\\ViewModels",
-    "\\Views"
+    ""
   ],
-  "SelectedNode": "\\Repositories\\GroupMemberRepository.cs",
+  "SelectedNode": "\\UBB-SE-2024-Popsicles.sln",
   "PreviewInSolutionExplorer": false
 }
