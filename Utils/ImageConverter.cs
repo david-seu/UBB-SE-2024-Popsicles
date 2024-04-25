@@ -6,20 +6,20 @@ namespace UBB_SE_2024_Popsicles.Utils
 {
     internal class ImageConverter
     {
-        public static byte[] ImageToByteArray(Image imageIn, ImageFormat format)
+        public static byte[] ImageToByteArray(Image inputImage, ImageFormat imageFormat)
         {
-            using (var ms = new MemoryStream())
+            using (var memoryStream = new MemoryStream())
             {
                 // imageIn.Save(ms, format);
-                return ms.ToArray();
+                return memoryStream.ToArray();
             }
         }
 
-        public static Image ByteArrayToImage(byte[] byteArrayIn)
+        public static Image ByteArrayToImage(byte[] inputByteArray)
         {
-            using (var ms = new MemoryStream(byteArrayIn))
+            using (var memoryStream = new MemoryStream(inputByteArray))
             {
-                return Image.FromStream(ms);
+                return Image.FromStream(memoryStream);
             }
         }
     }
