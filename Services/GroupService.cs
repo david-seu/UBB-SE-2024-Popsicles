@@ -78,7 +78,7 @@ namespace UBB_SE_2024_Popsicles.Services
 
             // Get the Group from the GroupRepository
             Group group = groupRepository.GetGroupById(groupId);
-            group.AddMember(newMembership);
+            group.AddMembership(newMembership);
 
             // Get the GroupMember from the GroupMemberRepository
             GroupMember groupMember = groupMemberRepository.GetGroupMemberById(groupMemberId);
@@ -319,7 +319,6 @@ namespace UBB_SE_2024_Popsicles.Services
                     return groupMemberRepository.GetGroupMemberById(groupMemberId);
                 }
             }
-
             throw new Exception("Group member not found");
         }
 

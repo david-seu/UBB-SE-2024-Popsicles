@@ -134,7 +134,7 @@
             return groupMembership;
         }
 
-        public void AddMember(GroupMembership groupMembership)
+        public void AddMembership(GroupMembership groupMembership)
         {
             ListOfGroupMemberships.Add(groupMembership);
             groupMemberCount++;
