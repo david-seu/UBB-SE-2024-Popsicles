@@ -126,7 +126,7 @@
 
         public GroupMembership GetMembershipFromGroupMemberId(Guid groupMemberId)
         {
-            GroupMembership groupMembership = ListOfGroupMemberships.First(groupMembership => groupMembership.GroupMemberId == groupMemberId);
+            GroupMembership? groupMembership = ListOfGroupMemberships.FirstOrDefault(groupMembership => groupMembership.GroupMemberId == groupMemberId);
             if (groupMembership == null)
             {
                 throw new Exception("Membership not found");
