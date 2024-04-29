@@ -14,9 +14,9 @@ namespace UBB_SE_2024_Popsicles.Services
         private static string defaultGroupDescription = "This is a new group";
         private static string defaultGroupIcon = "default";
         private static string defaultGroupBanner = "default";
-        private static int defaultMaxPostsPerHourPerUser = 5;
-        private static bool defaultIsPublic = false;
-        private static bool defaultCanMakePosts = false;
+        private static int defaultMaximumNumberOfPostsPerHourPerUser = 5;
+        private static bool defaultIsGroupPublic = false;
+        private static bool defaultAllowanceOfPostage = false;
         private static string defaultGroupRole = "user";
 
         // private static bool defaultPostIsPinned = false;
@@ -25,36 +25,36 @@ namespace UBB_SE_2024_Popsicles.Services
         private IGroupRepository groupRepository;
         private IGroupMemberRepository groupMemberRepository;
         private IGroupMembershipRepository groupMembershipRepository;
-        private IRequestRepository requestsRepository;
+        private IJoinRequestRepository joinRequestsRepository;
 
-        internal GroupService(IGroupRepository groupRepository, IGroupMemberRepository groupMemberRepository, IGroupMembershipRepository groupMembershipRepository, IRequestRepository requestsRepository)
+        internal GroupService(IGroupRepository groupRepository, IGroupMemberRepository groupMemberRepository, IGroupMembershipRepository groupMembershipRepository, IJoinRequestRepository joinRequestsRepository)
         {
             this.groupRepository = groupRepository;
             this.groupMemberRepository = groupMemberRepository;
             this.groupMembershipRepository = groupMembershipRepository;
-            this.requestsRepository = requestsRepository;
+            this.joinRequestsRepository = joinRequestsRepository;
         }
 
-        public void CreateGroup(Guid ownerId)
+        public void CreateGroup(Guid groupOwnerId)
         {
             Guid groupId = Guid.NewGuid();
             // Generate a random group code by slicing a random GUID into a 6-character string
             // This results in a 1 in 2^36 chance of a collision (it should be fine)
             string uniqueGroupCode = Guid.NewGuid().ToString().Substring(0, 6);
-            Group newGroup = new Group(groupId, ownerId, defaultGroupName, defaultGroupDescription, defaultGroupIcon, defaultGroupBanner, defaultMaxPostsPerHourPerUser, defaultIsPublic, defaultCanMakePosts, uniqueGroupCode);
+            Group newGroup = new Group(groupId, groupOwnerId, defaultGroupName, defaultGroupDescription, defaultGroupIcon, defaultGroupBanner, defaultMaximumNumberOfPostsPerHourPerUser, defaultIsGroupPublic, defaultAllowanceOfPostage, uniqueGroupCode);
 
             // Add the new group to the GroupRepository
             groupRepository.AddGroup(newGroup);
-            AddMemberToGroup(ownerId, groupId, "admin");
+            AddMemberToGroup(groupOwnerId, groupId, "admin");
         }
 
         public void UpdateGroup(Guid groupId, string newGroupName, string newGroupDescription, string newGroupIcon, string newGroupBanner,
-            int maxPostsPerHourPerUser, bool isTheGroupPublic, bool allowanceOfPostageByDefault)
+            int maximumNumberOfPostsPerHourPerUser, bool isGroupPublic, bool allowanceOfPostageByDefault)
         {
             // Get the Group from the GroupRepository
             Group group = groupRepository.GetGroupById(groupId);
 
-            Group newGroup = new Group(groupId, group.OwnerId, newGroupName, newGroupDescription, newGroupIcon, newGroupBanner, maxPostsPerHourPerUser, isTheGroupPublic, allowanceOfPostageByDefault, group.GroupCode);
+            Group newGroup = new Group(groupId, group.GroupOwnerId, newGroupName, newGroupDescription, newGroupIcon, newGroupBanner, maximumNumberOfPostsPerHourPerUser, isGroupPublic, allowanceOfPostageByDefault, group.GroupCode);
 
             // Update the group in the GroupRepository
             groupRepository.UpdateGroup(newGroup);
@@ -70,11 +70,11 @@ namespace UBB_SE_2024_Popsicles.Services
         {
             Guid groupMembershipId = Guid.NewGuid();
             DateTime joinDate = DateTime.Now;
-            bool isBanned = false;
-            bool isTimedOut = false;
-            bool byPassPostSettings = false;
-            string groupMemberName = groupMemberRepository.GetGroupMemberById(groupMemberId).Username;
-            GroupMembership newMembership = new GroupMembership(groupMembershipId, groupMemberId, groupMemberName, groupId, userRole, joinDate, isBanned, isTimedOut, byPassPostSettings);
+            bool isBannedFromGroup = false;
+            bool isTimedOutFromGroup = false;
+            bool bypassPostageRestrictionPostSettings = false;
+            string groupMemberName = groupMemberRepository.GetGroupMemberById(groupMemberId).UserName;
+            GroupMembership newMembership = new GroupMembership(groupMembershipId, groupMemberId, groupMemberName, groupId, userRole, joinDate, isBannedFromGroup, isTimedOutFromGroup, bypassPostageRestrictionPostSettings = false);
 
             // Get the Group from the GroupRepository
             Group group = groupRepository.GetGroupById(groupId);
@@ -95,13 +95,13 @@ namespace UBB_SE_2024_Popsicles.Services
             // Get the Group from the GroupRepository
             Group group = groupRepository.GetGroupById(groupId);
 
-            GroupMembership groupMembership = group.GetMembership(groupMemberId);
+            GroupMembership groupMembership = group.GetMembershipFromGroupMemberId(groupMemberId);
 
-            group.RemoveMember(groupMembership.Id);
-            groupMember.RemoveGroupMembership(groupMembership.Id);
+            group.RemoveMember(groupMembership.GroupMembershipId);
+            groupMember.RemoveGroupMembership(groupMembership.GroupMembershipId);
 
             // Delete the GroupMembership from the GroupMembershipRepository
-            groupMembershipRepository.RemoveGroupMembershipById(groupMembership.Id);
+            groupMembershipRepository.RemoveGroupMembershipById(groupMembership.GroupMembershipId);
         }
 
         public void BanMemberFromGroup(Guid bannedGroupMemberId, Guid groupId)
@@ -109,9 +109,9 @@ namespace UBB_SE_2024_Popsicles.Services
             // Get the Group from the GroupRepository
             Group group = groupRepository.GetGroupById(groupId);
 
-            GroupMembership groupMembership = group.GetMembership(bannedGroupMemberId);
+            GroupMembership groupMembership = group.GetMembershipFromGroupMemberId(bannedGroupMemberId);
 
-            groupMembership.IsBanned = true;
+            groupMembership.IsBannedFromGroup = true;
 
             // Update the GroupMembership in the GroupMembershipRepository
             groupMembershipRepository.UpdateGroupMembership(groupMembership);
@@ -122,9 +122,9 @@ namespace UBB_SE_2024_Popsicles.Services
             // Get the Group from the GroupRepository
             Group group = groupRepository.GetGroupById(groupId);
 
-            GroupMembership groupMembership = group.GetMembership(unbannedGroupMemberId);
+            GroupMembership groupMembership = group.GetMembershipFromGroupMemberId(unbannedGroupMemberId);
 
-            groupMembership.IsBanned = false;
+            groupMembership.IsBannedFromGroup = false;
 
             // Update the GroupMembership in the GroupMembershipRepository
             groupMembershipRepository.UpdateGroupMembership(groupMembership);
@@ -135,9 +135,9 @@ namespace UBB_SE_2024_Popsicles.Services
             // Get the Group from the GroupRepository
             Group group = groupRepository.GetGroupById(groupId);
 
-            GroupMembership groupMembership = group.GetMembership(groupMemberId);
+            GroupMembership groupMembership = group.GetMembershipFromGroupMemberId(groupMemberId);
 
-            groupMembership.IsTimedOut = true;
+            groupMembership.IsTimedOutFromGroup = true;
 
             // Update the GroupMembership in the GroupMembershipRepository
             groupMembershipRepository.UpdateGroupMembership(groupMembership);
@@ -148,9 +148,9 @@ namespace UBB_SE_2024_Popsicles.Services
             // Get the Group from the GroupRepository
             Group group = groupRepository.GetGroupById(groupId);
 
-            GroupMembership groupMembership = group.GetMembership(groupMemberId);
+            GroupMembership groupMembership = group.GetMembershipFromGroupMemberId(groupMemberId);
 
-            groupMembership.IsTimedOut = false;
+            groupMembership.IsTimedOutFromGroup = false;
 
             // Update the GroupMembership in the GroupMembershipRepository
             groupMembershipRepository.UpdateGroupMembership(groupMembership);
@@ -161,35 +161,35 @@ namespace UBB_SE_2024_Popsicles.Services
             // Get the Group from the GroupRepository
             Group group = groupRepository.GetGroupById(groupId);
 
-            GroupMembership groupMembership = group.GetMembership(groupMemberId);
+            GroupMembership groupMembership = group.GetMembershipFromGroupMemberId(groupMemberId);
 
-            groupMembership.Role = newGroupRole;
-
-            // Update the GroupMembership in the GroupMembershipRepository
-            groupMembershipRepository.UpdateGroupMembership(groupMembership);
-        }
-
-        public void AllowMemberToBypassPostageAllowance(Guid groupMemberId, Guid groupId)
-        {
-            // Get the Group from the GroupRepository
-            Group group = groupRepository.GetGroupById(groupId);
-
-            GroupMembership groupMembership = group.GetMembership(groupMemberId);
-
-            groupMembership.ByPassPostSettings = true;
+            groupMembership.GroupMemberRole = newGroupRole;
 
             // Update the GroupMembership in the GroupMembershipRepository
             groupMembershipRepository.UpdateGroupMembership(groupMembership);
         }
 
-        public void DisallowMemberToBypassPostageAllowance(Guid groupMemberId, Guid groupId)
+        public void AllowMemberToBypassPostageRestriction(Guid groupMemberId, Guid groupId)
         {
             // Get the Group from the GroupRepository
             Group group = groupRepository.GetGroupById(groupId);
 
-            GroupMembership groupMembership = group.GetMembership(groupMemberId);
+            GroupMembership groupMembership = group.GetMembershipFromGroupMemberId(groupMemberId);
 
-            groupMembership.ByPassPostSettings = false;
+            groupMembership.BypassPostageRestriction = true;
+
+            // Update the GroupMembership in the GroupMembershipRepository
+            groupMembershipRepository.UpdateGroupMembership(groupMembership);
+        }
+
+        public void DisallowMemberToBypassPostageRestriction(Guid groupMemberId, Guid groupId)
+        {
+            // Get the Group from the GroupRepository
+            Group group = groupRepository.GetGroupById(groupId);
+
+            GroupMembership groupMembership = group.GetMembershipFromGroupMemberId(groupMemberId);
+
+            groupMembership.BypassPostageRestriction = false;
 
             // Update the GroupMembership in the GroupMembershipRepository
             groupMembershipRepository.UpdateGroupMembership(groupMembership);
@@ -197,54 +197,54 @@ namespace UBB_SE_2024_Popsicles.Services
 
         public void AddNewRequestToJoinGroup(Guid groupMemberId, Guid groupId)
         {
-            Guid requestId = Guid.NewGuid();
-            string groupMemberName = groupMemberRepository.GetGroupMemberById(groupMemberId).Username;
-            Request newRequest = new Request(requestId, groupMemberId, groupMemberName, groupId);
+            Guid joinRequestId = Guid.NewGuid();
+            string groupMemberName = groupMemberRepository.GetGroupMemberById(groupMemberId).UserName;
+            JoinRequest newJoinRequest = new JoinRequest(joinRequestId, groupMemberId, groupMemberName, groupId);
 
             // Get the Group from the GroupRepository
             Group group = groupRepository.GetGroupById(groupId);
             // Get the GroupMember from the GroupMemberRepository
             GroupMember groupMember = groupMemberRepository.GetGroupMemberById(groupMemberId);
 
-            group.AddRequest(newRequest);
-            groupMember.AddOutgoingRequest(newRequest);
+            group.AddJoinRequest(newJoinRequest);
+            groupMember.AddActiveJoinRequest(newJoinRequest);
 
-            // Add the new Request to the RequestRepository
-            requestsRepository.AddRequest(newRequest);
+            // Add the new JoinRequest to the RequestRepository
+            joinRequestsRepository.AddJoinRequest(newJoinRequest);
         }
 
-        public void AcceptRequestToJoinGroup(Guid requestId)
+        public void AcceptRequestToJoinGroup(Guid joinRequestId)
         {
-            // Get the Request from the RequestRepository
-            Request request = requestsRepository.GetRequestById(requestId);
-            Group group = groupRepository.GetGroupById(request.GroupId);
+            // Get the JoinRequest from the RequestRepository
+            JoinRequest joinRequest = joinRequestsRepository.GetJoinRequestById(joinRequestId);
+            Group group = groupRepository.GetGroupById(joinRequest.GroupId);
 
-            GroupMember groupMember = groupMemberRepository.GetGroupMemberById(request.GroupMemberId);
+            GroupMember groupMember = groupMemberRepository.GetGroupMemberById(joinRequest.GroupMemberId);
 
-            group.RemoveRequest(request.Id);
-            groupMember.RemoveOutgoingRequest(request.Id);
+            group.RemoveJoinRequest(joinRequest.JoinRequestId);
+            groupMember.RemoveActiveJoinRequest(joinRequest.JoinRequestId);
 
-            AddMemberToGroup(request.GroupMemberId, request.GroupId, defaultGroupRole);
+            AddMemberToGroup(joinRequest.GroupMemberId, joinRequest.GroupId, defaultGroupRole);
 
-            // Delete the Request from the RequestRepository
-            requestsRepository.RemoveRequestById(request.Id);
+            // Delete the JoinRequest from the RequestRepository
+            joinRequestsRepository.RemoveJoinRequestById(joinRequest.JoinRequestId);
         }
 
-        public void RejectRequestToJoinGroup(Guid requestId)
+        public void RejectRequestToJoinGroup(Guid joinRequestId)
         {
-            // Get the Request from the RequestRepository
-            Request request = requestsRepository.GetRequestById(requestId);
+            // Get the JoinRequest from the RequestRepository
+            JoinRequest joinRequest = joinRequestsRepository.GetJoinRequestById(joinRequestId);
 
             // Get the Group from the GroupRepository
-            Group group = groupRepository.GetGroupById(request.GroupId);
+            Group group = groupRepository.GetGroupById(joinRequest.GroupId);
             // Get the GroupMember from the GroupMemberRepository
-            GroupMember groupMember = groupMemberRepository.GetGroupMemberById(request.GroupMemberId);
+            GroupMember groupMember = groupMemberRepository.GetGroupMemberById(joinRequest.GroupMemberId);
 
-            group.RemoveRequest(request.Id);
-            groupMember.RemoveOutgoingRequest(request.Id);
+            group.RemoveJoinRequest(joinRequest.JoinRequestId);
+            groupMember.RemoveActiveJoinRequest(joinRequest.JoinRequestId);
 
-            // Delete the Request from the RequestRepository
-            requestsRepository.RemoveRequestById(request.Id);
+            // Delete the JoinRequest from the RequestRepository
+            joinRequestsRepository.RemoveJoinRequestById(joinRequest.JoinRequestId);
         }
 
         public void CreateNewPostOnGroupChat(Guid groupId, Guid groupMemberId, string postContent, string postImage)
@@ -254,29 +254,29 @@ namespace UBB_SE_2024_Popsicles.Services
             // Get the Group from the GroupRepository
             Group group = groupRepository.GetGroupById(groupId);
 
-            GroupMembership groupMembership = group.GetMembership(groupMemberId);
+            GroupMembership groupMembership = group.GetMembershipFromGroupMemberId(groupMemberId);
 
-            if (groupMembership.ByPassPostSettings || group.CanMakePostsByDefault)
+            if (groupMembership.BypassPostageRestriction || group.AllowanceOfPostage)
             {
                 GroupPost newPost = new GroupPost(postId, groupMemberId, postContent, postImage, groupId);
-                group.Posts.Add(newPost);
+                group.ListOfGroupPosts.Add(newPost);
             }
             else
             {
                 int postCount = 0;
-                foreach (GroupPost post in group.Posts)
+                foreach (GroupPost post in group.ListOfGroupPosts)
                 {
-                    if (post.OwnerId == groupMemberId && post.DateTime.Date == postDate.Date)
+                    if (post.PostOwnerId == groupMemberId && post.PostageDateTime.Date == postDate.Date)
                     {
                         postCount++;
                     }
                 }
 
-                if (postCount < group.MaxPostsPerHourPerUser)
+                if (postCount < group.MaximumNumberOfPostsPerHourPerUser)
                 {
                     GroupPost newPost = new GroupPost(postId, groupMemberId, postContent, postImage, groupId);
 
-                    group.Posts.Add(newPost);
+                    group.ListOfGroupPosts.Add(newPost);
                 }
                 else
                 {
@@ -290,7 +290,7 @@ namespace UBB_SE_2024_Popsicles.Services
             // Get the Group from the GroupRepository
             Group group = groupRepository.GetGroupById(groupId);
 
-            return group.Posts;
+            return group.ListOfGroupPosts;
         }
 
         public List<GroupMember> GetGroupMembers(Guid groupId)
@@ -299,20 +299,20 @@ namespace UBB_SE_2024_Popsicles.Services
             Group group = groupRepository.GetGroupById(groupId);
 
             // Get the Members from the Group
-            List<GroupMember> members = new List<GroupMember>();
-            foreach (GroupMembership membership in group.Memberships)
+            List<GroupMember> listOfGroupMembers = new List<GroupMember>();
+            foreach (GroupMembership groupMembership in group.ListOfGroupMemberships)
             {
-                GroupMember member = groupMemberRepository.GetGroupMemberById(membership.GroupMemberId);
-                members.Add(member);
+                GroupMember groupMember = groupMemberRepository.GetGroupMemberById(groupMembership.GroupMemberId);
+                listOfGroupMembers.Add(groupMember);
             }
 
-            return members;
+            return listOfGroupMembers;
         }
 
         public GroupMember GetMemberFromGroup(Guid groupId, Guid groupMemberId)
         {
             Group group = groupRepository.GetGroupById(groupId);
-            foreach (GroupMembership membership in group.Memberships)
+            foreach (GroupMembership membership in group.ListOfGroupMemberships)
             {
                 if (membership.GroupMemberId == groupMemberId)
                 {
@@ -323,12 +323,12 @@ namespace UBB_SE_2024_Popsicles.Services
             throw new Exception("Group member not found");
         }
 
-        public List<Request> GetRequestsToJoin(Guid groupId)
+        public List<JoinRequest> GetRequestsToJoin(Guid groupId)
         {
             // Get the Group from the GroupRepository
             Group group = groupRepository.GetGroupById(groupId);
 
-            return group.Requests;
+            return group.ListOfJoinRequests;
         }
 
         public List<Group> GetAllGroups(Guid groupMemberId)
@@ -338,7 +338,7 @@ namespace UBB_SE_2024_Popsicles.Services
 
             // Get the Groups from the GroupMember
             List<Group> groups = new List<Group>();
-            foreach (GroupMembership membership in groupMember.Memberships)
+            foreach (GroupMembership membership in groupMember.GroupMemberships)
             {
                 Group group = groupRepository.GetGroupById(membership.GroupId);
                 groups.Add(group);
@@ -352,44 +352,44 @@ namespace UBB_SE_2024_Popsicles.Services
             return groupRepository.GetGroupById(groupId);
         }
 
-        public List<Poll> GetGroupPolls(Guid groupId)
+        public List<GroupPoll> GetGroupPolls(Guid groupId)
         {
             // Get the Group from the GroupRepository
             Group group = groupRepository.GetGroupById(groupId);
 
-            return group.Polls;
+            return group.ListOfGroupPolls;
         }
 
-        public Poll GetSpecificGroupPoll(Guid groupId, Guid pollId)
+        public GroupPoll GetSpecificGroupPoll(Guid groupId, Guid pollId)
         {
             // Get the Group from the GroupRepository
             Group group = groupRepository.GetGroupById(groupId);
 
-            return group.GetPoll(pollId);
+            return group.GetGroupPoll(pollId);
         }
 
         public void CreateNewPoll(Guid groupId, Guid groupMemberId, string pollDescription)
         {
             Guid pollId = Guid.NewGuid();
-            Poll newPoll = new Poll(pollId, groupMemberId, pollDescription, groupId);
+            GroupPoll newGroupPoll = new GroupPoll(pollId, groupMemberId, pollDescription, groupId);
 
             // Get the Group from the GroupRepository
             Group group = groupRepository.GetGroupById(groupId);
 
-            group.Polls.Add(newPoll);
+            group.ListOfGroupPolls.Add(newGroupPoll);
         }
 
         public void AddNewOptionToAPoll(Guid pollId, Guid groupId, string newPollOption)
         {
             Group group = groupRepository.GetGroupById(groupId);
-            Poll poll = group.GetPoll(pollId);
-            if (poll != null)
+            GroupPoll groupPoll = group.GetGroupPoll(pollId);
+            if (groupPoll != null)
             {
-                   poll.AddOption(newPollOption);
+                   groupPoll.AddGroupPollOption(newPollOption);
             }
             else
             {
-                throw new Exception("Poll not found");
+                throw new Exception("GroupPoll not found");
             }
         }
     }

@@ -10,66 +10,66 @@ namespace UBB_SE_2024_Popsicles.Repositories
 {
     internal class GroupRepository : IGroupRepository
     {
-        private SqlConnection connection;
-        private List<Group> groups = new List<Group>();
+        private SqlConnection databaseConnection;
+        private List<Group> listOfGroups = new List<Group>();
 
-        public GroupRepository(SqlConnection connection)
+        public GroupRepository(SqlConnection databaseConnection)
         {
-            this.connection = connection;
+            this.databaseConnection = databaseConnection;
             LoadDataFromSql();
         }
 
         private void LoadDataFromSql()
         {
-            string selectGroupsQuery = @"
-             SELECT GroupId, OwnerId, Name, Description, Icon, Banner, MaxPostsPerHour, GroupCode, IsPublic, CanPostByDefault, CreatedAt
+            string selectAllGroupsQuery = @"
+             SELECT GroupId, GroupOwnerId, GroupName, GroupDescription, GroupIcon, GroupBanner, MaxPostsPerHour, GroupCode, IsGroupPublic, CanPostByDefault, DateOfGroupCreation
              FROM Groups";
-            SqlCommand command = new SqlCommand(selectGroupsQuery, this.connection);
+            SqlCommand selectAllGroupsCommand = new SqlCommand(selectAllGroupsQuery, this.databaseConnection);
             try
             {
-                this.connection.Open();
-                using (SqlDataReader reader = command.ExecuteReader())
+                this.databaseConnection.Open();
+                using (SqlDataReader selectAllGroupReader = selectAllGroupsCommand.ExecuteReader())
                 {
-                    while (reader.Read())
+                    while (selectAllGroupReader.Read())
                     {
                         // Read each field into a variable
-                        Guid groupId = reader.GetGuid(0);
-                        Guid ownerId = reader.GetGuid(1);
-                        string? name = reader.IsDBNull(2) ? null : reader.GetString(2);
-                        string? description = reader.IsDBNull(3) ? null : reader.GetString(3);
-                        string? icon = reader.IsDBNull(4) ? null : reader.GetString(4);
-                        string? banner = reader.IsDBNull(5) ? null : reader.GetString(5);
-                        int maxPostsPerHour = reader.IsDBNull(6) ? 0 : reader.GetInt32(6);
-                        string? groupCode = reader.IsDBNull(7) ? null : reader.GetString(7);
-                        bool isPublic = reader.GetBoolean(8);
-                        bool canPostByDefault = reader.GetBoolean(9);
-                        DateTime createdAt = reader.GetDateTime(10);
+                        Guid groupId = selectAllGroupReader.GetGuid(0);
+                        Guid ownerId = selectAllGroupReader.GetGuid(1);
+                        string? groupName = selectAllGroupReader.IsDBNull(2) ? null : selectAllGroupReader.GetString(2);
+                        string? groupDescription = selectAllGroupReader.IsDBNull(3) ? null : selectAllGroupReader.GetString(3);
+                        string? groupIcon = selectAllGroupReader.IsDBNull(4) ? null : selectAllGroupReader.GetString(4);
+                        string? groupBanner = selectAllGroupReader.IsDBNull(5) ? null : selectAllGroupReader.GetString(5);
+                        int maximumNumberOfPostsPerHourPerUser = selectAllGroupReader.IsDBNull(6) ? 0 : selectAllGroupReader.GetInt32(6);
+                        string? groupCode = selectAllGroupReader.IsDBNull(7) ? null : selectAllGroupReader.GetString(7);
+                        bool isGroupPublic = selectAllGroupReader.GetBoolean(8);
+                        bool allowanceOfPostage = selectAllGroupReader.GetBoolean(9);
+                        DateTime createdAt = selectAllGroupReader.GetDateTime(10);
 
                         // Create and add the Group object to the list
                         Group group = new Group(
-                            id: groupId,
-                            ownerId: ownerId,
-                            name: name,
-                            description: description,
-                            icon: icon,
-                            banner: banner,
-                            maxPostsPerHourPerUser: maxPostsPerHour,
-                            isPublic: isPublic,
-                            canMakePostsByDefault: canPostByDefault,
+                            groupId: groupId,
+                            groupOwnerId: ownerId,
+                            groupName: groupName,
+                            groupDescription: groupDescription,
+                            groupIcon: groupIcon,
+                            groupBanner: groupBanner,
+                            maximumNumberOfPostsPerHourPerUser: maximumNumberOfPostsPerHourPerUser,
+                            isGroupPublic: isGroupPublic,
+                            allowanceOfPostage: allowanceOfPostage,
                             groupCode: groupCode);
-                        this.groups.Add(group);
+                        this.listOfGroups.Add(group);
                     }
                 }
             }
             finally
             {
-                this.connection.Close();
+                this.databaseConnection.Close();
             }
         }
 
         public Group GetGroupById(Guid groupId)
         {
-            Group group = this.groups.First(g => g.Id == groupId);
+            Group group = this.listOfGroups.First(g => g.GroupId == groupId);
             if (group == null)
             {
                 throw new Exception("Group not found");
@@ -79,90 +79,90 @@ namespace UBB_SE_2024_Popsicles.Repositories
 
         public List<Group> GetGroups()
         {
-            return this.groups;
+            return this.listOfGroups;
         }
 
         public void AddGroup(Group group)
         {
-            this.groups.Add(group);
-            string query = "INSERT INTO Groups (GroupId, OwnerId, Name, Description, Icon, Banner, MaxPostsPerHour, GroupCode, IsPublic, CanPostByDefault, CreatedAt ) VALUES (@GroupId, @OwnerId, @Name, @Description, @Icon, @Banner, @MaxPostsPerHour, @GroupCode, @IsPublic, @CanPostByDefault, @CreatedAt)";
+            this.listOfGroups.Add(group);
+            string insertGroupQuery = "INSERT INTO Groups (GroupId, GroupOwnerId, GroupName, GroupDescription, GroupIcon, GroupBanner, MaxPostsPerHour, GroupCode, IsGroupPublic, CanPostByDefault, DateOfGroupCreation ) VALUES (@GroupId, @GroupOwnerId, @GroupName, @GroupDescription, @GroupIcon, @GroupBanner, @MaxPostsPerHour, @GroupCode, @IsGroupPublic, @CanPostByDefault, @DateOfGroupCreation)";
 
-            SqlCommand command = new SqlCommand(query, this.connection);
-            command.Parameters.AddWithValue("@GroupId", group.Id);
-            command.Parameters.AddWithValue("@OwnerId", group.OwnerId);
-            command.Parameters.AddWithValue("@Name", group.Name);
-            command.Parameters.AddWithValue("@Description", group.Description);
-            command.Parameters.AddWithValue("@Icon", group.Icon);
-            command.Parameters.AddWithValue("@Banner", group.Banner);
-            command.Parameters.AddWithValue("@MaxPostsPerHour", group.MaxPostsPerHourPerUser);
-            command.Parameters.AddWithValue("@GroupCode", group.GroupCode);
-            command.Parameters.AddWithValue("@IsPublic", group.IsPublic);
-            command.Parameters.AddWithValue("@CanPostByDefault", group.CanMakePostsByDefault);
-            command.Parameters.AddWithValue("@CreatedAt", group.CreatedAt);
-            this.connection.Open();
-            command.ExecuteNonQuery();
-            this.connection.Close();
+            SqlCommand insertGroupCommand = new SqlCommand(insertGroupQuery, this.databaseConnection);
+            insertGroupCommand.Parameters.AddWithValue("@GroupId", group.GroupId);
+            insertGroupCommand.Parameters.AddWithValue("@GroupOwnerId", group.GroupOwnerId);
+            insertGroupCommand.Parameters.AddWithValue("@GroupName", group.GroupName);
+            insertGroupCommand.Parameters.AddWithValue("@GroupDescription", group.GroupDescription);
+            insertGroupCommand.Parameters.AddWithValue("@GroupIcon", group.GroupIcon);
+            insertGroupCommand.Parameters.AddWithValue("@GroupBanner", group.GroupBanner);
+            insertGroupCommand.Parameters.AddWithValue("@MaxPostsPerHour", group.MaximumNumberOfPostsPerHourPerUser);
+            insertGroupCommand.Parameters.AddWithValue("@GroupCode", group.GroupCode);
+            insertGroupCommand.Parameters.AddWithValue("@IsGroupPublic", group.IsGroupPublic);
+            insertGroupCommand.Parameters.AddWithValue("@CanPostByDefault", group.AllowanceOfPostage);
+            insertGroupCommand.Parameters.AddWithValue("@DateOfGroupCreation", group.DateOfGroupCreation);
+            this.databaseConnection.Open();
+            insertGroupCommand.ExecuteNonQuery();
+            this.databaseConnection.Close();
         }
 
         public void UpdateGroup(Group group)
         {
-            Group oldGroup = this.groups.First(g => g.Id == group.Id);
+            Group oldGroup = this.listOfGroups.First(g => g.GroupId == group.GroupId);
             if (oldGroup == null)
             {
                 throw new Exception("Group not found");
             }
-            this.groups.Remove(oldGroup);
-            this.groups.Add(group);
+            this.listOfGroups.Remove(oldGroup);
+            this.listOfGroups.Add(group);
             string updateGroupQuery = @"
             UPDATE Groups
             SET 
-                OwnerId = @OwnerId,
-                Name = @Name,
-                Description = @Description,
-                Icon = @Icon,
-                Banner = @Banner,
+                GroupOwnerId = @GroupOwnerId,
+                GroupName = @GroupName,
+                GroupDescription = @GroupDescription,
+                GroupIcon = @GroupIcon,
+                GroupBanner = @GroupBanner,
                 MaxPostsPerHour = @MaxPostsPerHour,
                 GroupCode = @GroupCode,
-                IsPublic = @IsPublic,
+                IsGroupPublic = @IsGroupPublic,
                 CanPostByDefault = @CanPostByDefault,
-                CreatedAt = @CreatedAt
+                DateOfGroupCreation = @DateOfGroupCreation
              WHERE GroupId = @GroupId";
-            SqlCommand command = new SqlCommand(updateGroupQuery, this.connection);
+            SqlCommand updateGroupCommand = new SqlCommand(updateGroupQuery, this.databaseConnection);
 
-            command.Parameters.AddWithValue("@GroupId", group.Id);
-            command.Parameters.AddWithValue("@OwnerId", group.OwnerId);
-            command.Parameters.AddWithValue("@Name", group.Name);
-            command.Parameters.AddWithValue("@Description", group.Description);
-            command.Parameters.AddWithValue("@Icon", group.Icon);
-            command.Parameters.AddWithValue("@Banner", group.Banner);
-            command.Parameters.AddWithValue("@MaxPostsPerHour", group.MaxPostsPerHourPerUser);
-            command.Parameters.AddWithValue("@GroupCode", group.GroupCode);
-            command.Parameters.AddWithValue("@IsPublic", group.IsPublic);
-            command.Parameters.AddWithValue("@CanPostByDefault", group.CanMakePostsByDefault);
-            command.Parameters.AddWithValue("@CreatedAt", group.CreatedAt);
+            updateGroupCommand.Parameters.AddWithValue("@GroupId", group.GroupId);
+            updateGroupCommand.Parameters.AddWithValue("@GroupOwnerId", group.GroupOwnerId);
+            updateGroupCommand.Parameters.AddWithValue("@GroupName", group.GroupName);
+            updateGroupCommand.Parameters.AddWithValue("@GroupDescription", group.GroupDescription);
+            updateGroupCommand.Parameters.AddWithValue("@GroupIcon", group.GroupIcon);
+            updateGroupCommand.Parameters.AddWithValue("@GroupBanner", group.GroupBanner);
+            updateGroupCommand.Parameters.AddWithValue("@MaxPostsPerHour", group.MaximumNumberOfPostsPerHourPerUser);
+            updateGroupCommand.Parameters.AddWithValue("@GroupCode", group.GroupCode);
+            updateGroupCommand.Parameters.AddWithValue("@IsGroupPublic", group.IsGroupPublic);
+            updateGroupCommand.Parameters.AddWithValue("@CanPostByDefault", group.AllowanceOfPostage);
+            updateGroupCommand.Parameters.AddWithValue("@DateOfGroupCreation", group.DateOfGroupCreation);
 
-            this.connection.Open();
-            command.ExecuteNonQuery();
-            this.connection.Close();
+            this.databaseConnection.Open();
+            updateGroupCommand.ExecuteNonQuery();
+            this.databaseConnection.Close();
         }
 
         public void RemoveGroupById(Guid groupId)
         {
-            Group group = this.groups.First(g => g.Id == groupId);
+            Group group = this.listOfGroups.First(g => g.GroupId == groupId);
             if (group == null)
             {
                 throw new Exception("Group not found!");
             }
 
-            this.groups.Remove(group);
+            this.listOfGroups.Remove(group);
 
             string deleteGroupQuery = "DELETE FROM Groups WHERE GroupId = @GroupId";
-            SqlCommand command = new SqlCommand(deleteGroupQuery, this.connection);
-            command.Parameters.AddWithValue("@GroupId", groupId);
+            SqlCommand deleteGroupCommand = new SqlCommand(deleteGroupQuery, this.databaseConnection);
+            deleteGroupCommand.Parameters.AddWithValue("@GroupId", groupId);
 
-            this.connection.Open();
-            command.ExecuteNonQuery();
-            this.connection.Close();
+            this.databaseConnection.Open();
+            deleteGroupCommand.ExecuteNonQuery();
+            this.databaseConnection.Close();
         }
     }
 }

@@ -8,24 +8,24 @@ namespace UBB_SE_2024_Popsicles.Models
 {
     public class GroupMembership
     {
-        public Guid Id { get; set; }
+        public Guid GroupMembershipId { get; set; }
         public Guid GroupMemberId { get; }
         public string GroupMemberName { get; set; }
         public Guid GroupId { get; }
-        public string Role { get; set; }
+        public string GroupMemberRole { get; set; }
         public DateTime JoinDate { get; }
-        public bool IsBanned { get; set; }
-        public bool IsTimedOut { get; set; }
-        public bool ByPassPostSettings { get; set; }
+        public bool IsBannedFromGroup { get; set; }
+        public bool IsTimedOutFromGroup { get; set; }
+        public bool BypassPostageRestriction { get; set; }
 
-        public GroupMembership(Guid id, Guid groupMemberId, string groupMemberName, Guid groupId, string role, DateTime join, bool isBanned, bool isTimedOut, bool byPassPostSettings)
+        public GroupMembership(Guid groupMembershipId, Guid groupMemberId, string groupMemberName, Guid groupId, string groupMemberRole, DateTime joinDate, bool isBannedFromGroup, bool isTimedOutFromGroup, bool bypassPostageRestriction)
         {
-            Id = id;
-            Role = role;
-            JoinDate = join;
-            IsBanned = isBanned;
-            IsTimedOut = isTimedOut;
-            ByPassPostSettings = byPassPostSettings;
+            GroupMembershipId = groupMembershipId;
+            GroupMemberRole = groupMemberRole;
+            JoinDate = joinDate;
+            IsBannedFromGroup = isBannedFromGroup;
+            IsTimedOutFromGroup = isTimedOutFromGroup;
+            BypassPostageRestriction = bypassPostageRestriction;
             GroupId = groupId;
             GroupMemberId = groupMemberId;
             GroupMemberName = groupMemberName;

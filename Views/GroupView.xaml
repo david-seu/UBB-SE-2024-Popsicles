@@ -63,7 +63,7 @@
                         <Setter Property="CornerRadius" Value="10" />
                     </Style>
                 </Button.Resources>
-                Group Posts
+                Group ListOfGroupPosts
             </Button>
             <Button
                 x:Name="GroupPollsButton"
@@ -78,7 +78,7 @@
                         <Setter Property="CornerRadius" Value="10" />
                     </Style>
                 </Button.Resources>
-                Group Polls
+                Group ListOfGroupPolls
             </Button>
             <Button
                 x:Name="GroupSettingsButton"
@@ -122,7 +122,7 @@
                         <Setter Property="CornerRadius" Value="10" />
                     </Style>
                 </Button.Resources>
-                Create Poll
+                Create GroupPoll
             </Button>
             <Button
                 x:Name="MarketplaceButton"
@@ -251,7 +251,7 @@
                     ItemsSource="{Binding GroupMembers}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Label Content="{Binding Username}" />
+                            <Label Content="{Binding UserName}" />
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>

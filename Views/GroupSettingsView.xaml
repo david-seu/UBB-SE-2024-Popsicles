@@ -188,7 +188,7 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="2*" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="Name: " />
+                    <TextBlock Text="GroupName: " />
                     <TextBox
                         x:Name="NameTextBox"
                         Grid.Column="1"
@@ -207,7 +207,7 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="2*" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="Description: " />
+                    <TextBlock Text="GroupDescription: " />
                     <TextBox
                         x:Name="DescriptionTextBox"
                         Grid.Column="1"
@@ -226,7 +226,7 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="2*" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="Max Posts per Hour / User: " />
+                    <TextBlock Text="Max ListOfGroupPosts per Hour / User: " />
                     <TextBox
                         x:Name="MaxPostsTextBox"
                         Grid.Column="1"
@@ -270,7 +270,7 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="Icon: " />
+                    <TextBlock Text="GroupIcon: " />
                     <ComboBox
                         x:Name="IconComboBox"
                         Grid.Column="1"
@@ -301,7 +301,7 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="Banner: " />
+                    <TextBlock Text="GroupBanner: " />
                     <ComboBox
                         x:Name="BannerComboBox"
                         Grid.Column="1"
@@ -336,7 +336,7 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Margin="5" Text="Manage Requests" />
+                    <TextBlock Margin="5" Text="Manage ListOfJoinRequests" />
                     <TextBlock
                         x:Name="RequestCountTextBlock"
                         Grid.Column="1"

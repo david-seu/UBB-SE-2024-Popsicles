@@ -9,6 +9,6 @@ namespace UBB_SE_2024_Popsicles.Services
 {
     internal interface IFeedService
     {
-        public List<GroupPost> FilterPostsByTags(List<GroupPost> posts, List<string> tags);
+        public List<GroupPost> FilterGroupPostsByTags(List<GroupPost> listOfGroupPosts, List<string> listOfGroupPostTags);
     }
 }

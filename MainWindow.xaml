@@ -45,7 +45,7 @@
                 Margin="5"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
-                Content="{Binding CurrentActiveUser.Username}" />
+                Content="{Binding CurrentActiveUser.UserName}" />
         </Grid>
 
         <ListBox
@@ -65,7 +65,7 @@
                         </Grid.ColumnDefinitions>
                         <Border Width="50" CornerRadius="50,50,50,50">
                             <Border.Background>
-                                <ImageBrush ImageSource="{Binding IconPath}" Stretch="Fill" />
+                                <ImageBrush ImageSource="{Binding GroupIconPath}" Stretch="Fill" />
                             </Border.Background>
                         </Border>
                         <Label
@@ -73,7 +73,7 @@
                             Margin="5"
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
-                            Content="{Binding Name}" />
+                            Content="{Binding GroupName}" />
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

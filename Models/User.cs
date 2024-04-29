@@ -8,81 +8,81 @@ namespace UBB_SE_2024_Popsicles.Models
 {
     public class User
     {
-        public Guid Id
+        public Guid UserId
         {
             get;
         }
 
-        public string Username
+        public string UserName
         {
             get;
         }
 
-        public string Password
+        public string UserPassword
         {
             get;
         }
 
-        public string Email
+        public string UserEmailAdress
         {
             get;
         }
 
-        public string Phone
+        public string UserPhoneNumber
         {
             get;
         }
 
-        public string Description
+        public string UserDescription
         {
             get; set;
         }
 
-        public List<Request> OutgoingRequests
+        public List<JoinRequest> ActiveJoinRequests
         {
             get; set;
         }
 
-        public User(Guid id, string username, string password, string email, string phone, string description)
+        public User(Guid userId, string userName, string userPassword, string userEmailAdress, string userPhoneNumber, string userDescription)
         {
-            Id = id;
-            Username = username;
-            Password = password;
-            Email = email;
-            Phone = phone;
-            Description = description;
+            UserId = userId;
+            UserName = userName;
+            UserPassword = userPassword;
+            UserEmailAdress = userEmailAdress;
+            UserPhoneNumber = userPhoneNumber;
+            UserDescription = userDescription;
 
-            OutgoingRequests = new List<Request>();
+            ActiveJoinRequests = new List<JoinRequest>();
         }
 
-        public Request GetOutgoingRequest(Guid requestId)
+        public JoinRequest GetActiveJoinRequest(Guid joinRequestId)
         {
-            Request request = OutgoingRequests.First(request => request.Id == requestId);
-            if (request == null)
+            JoinRequest joinRequest = ActiveJoinRequests.First(joinRequest => joinRequest.JoinRequestId == joinRequestId);
+            if (joinRequest == null)
             {
-                throw new Exception("Request not found");
+                throw new Exception("JoinRequest not found");
             }
-            return request;
+            return joinRequest;
         }
 
-        public void AddOutgoingRequest(Request request)
+        public void AddActiveJoinRequest(JoinRequest joinRequest)
         {
-            OutgoingRequests.Add(request);
+            ActiveJoinRequests.Add(joinRequest);
         }
 
-        public void RemoveOutgoingRequest(Guid requestId)
+        public void RemoveActiveJoinRequest(Guid joinRequestId)
         {
-            Request request = OutgoingRequests.First(request => request.Id == requestId);
-            if (request == null)
+            JoinRequest joinRequest = ActiveJoinRequests.First(joinRequest => joinRequest.JoinRequestId == joinRequestId);
+            if (joinRequest == null)
             {
-                throw new Exception("Request not found");
+                throw new Exception("JoinRequest not found");
             }
-            OutgoingRequests.Remove(request);
+            ActiveJoinRequests.Remove(joinRequest);
         }
 
         public bool Login(string username, string password)
         {
-            if (username == Username && password == Password)
+            if (username == UserName && password == UserPassword)
             {
                 return true;
             }

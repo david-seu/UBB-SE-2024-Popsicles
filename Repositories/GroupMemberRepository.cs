@@ -5,58 +5,58 @@ namespace UBB_SE_2024_Popsicles.Repositories
 {
     internal class GroupMemberRepository : IGroupMemberRepository
     {
-        private SqlConnection connection;
-        private List<GroupMember> groupMembers = new List<GroupMember>();
-        public SqlConnection Connection
+        private SqlConnection databaseConnection;
+        private List<GroupMember> listOfGroupMembers = new List<GroupMember>();
+        public SqlConnection DatabaseConnection
         {
             get
             {
-               return connection;
+               return databaseConnection;
             }
         }
 
-        public List<GroupMember> GroupMembers
+        public List<GroupMember> ListOfGroupMembers
         {
             get
             {
-                return groupMembers;
+                return listOfGroupMembers;
             }
         }
-        public GroupMemberRepository(SqlConnection connection)
+        public GroupMemberRepository(SqlConnection databaseConnection)
         {
-            this.connection = connection;
+            this.databaseConnection = databaseConnection;
             LoadDataFromSql();
         }
 
         private void LoadDataFromSql()
         {
-            string query = "SELECT GroupMemberId, UserName, Password, Description, Email, Phone FROM GroupMembers";
+            string selectAllGroupMemberQuery = "SELECT UserId, UserName, UserPassword, GroupDescription, UserEmailAdress, UserPhoneNumber FROM ListOfGroupMembers";
 
-            SqlCommand command = new SqlCommand(query, this.connection);
+            SqlCommand selectAllGroupMembersCommand = new SqlCommand(selectAllGroupMemberQuery, this.databaseConnection);
 
-            this.connection.Open();
+            this.databaseConnection.Open();
 
-            using (SqlDataReader reader = command.ExecuteReader())
+            using (SqlDataReader selectAllGroupMembersReader = selectAllGroupMembersCommand.ExecuteReader())
             {
-                while (reader.Read())
+                while (selectAllGroupMembersReader.Read())
                 {
                     GroupMember groupMember = new GroupMember(
-                        id: reader.GetGuid(0),
-                        username: reader.GetString(1),
-                        password: reader.GetString(2),
-                        description: reader.IsDBNull(3) ? null : reader.GetString(3),
-                        email: reader.GetString(4),
-                        phone: reader.GetString(5));
+                        userId: selectAllGroupMembersReader.GetGuid(0),
+                        userName: selectAllGroupMembersReader.GetString(1),
+                        userPassword: selectAllGroupMembersReader.GetString(2),
+                        userDescription: selectAllGroupMembersReader.IsDBNull(3) ? null : selectAllGroupMembersReader.GetString(3),
+                        userEmailAdress: selectAllGroupMembersReader.GetString(4),
+                        userPhoneNumber: selectAllGroupMembersReader.GetString(5));
 
-                    this.groupMembers.Add(groupMember);
+                    this.listOfGroupMembers.Add(groupMember);
                 }
             }
-            this.connection.Close();
+            this.databaseConnection.Close();
         }
 
         public GroupMember GetGroupMemberById(Guid groupMemberId)
         {
-            GroupMember groupMember = this.groupMembers.First(gm => gm.Id == groupMemberId);
+            GroupMember groupMember = this.listOfGroupMembers.First(gm => gm.UserId == groupMemberId);
 
             if (groupMember == null)
             {
@@ -67,56 +67,56 @@ namespace UBB_SE_2024_Popsicles.Repositories
 
         public List<GroupMember> GetGroupMembers()
         {
-            return this.groupMembers;
+            return this.listOfGroupMembers;
         }
 
         public void AddGroupMember(GroupMember groupMember)
         {
-            string insertGroupMemberQuery = @"INSERT INTO GroupMembers (GroupMemberId, UserName, Password, Description, Email, Phone) 
-                        VALUES (@Id, @UserName, @Password, @Description, @Email, @Phone)";
+            string insertGroupMemberQuery = @"INSERT INTO ListOfGroupMembers (UserId, UserName, UserPassword, GroupDescription, UserEmailAdress, UserPhoneNumber) 
+                        VALUES (@UserId, @UserName, @UserPassword, @GroupDescription, @UserEmailAdress, @UserPhoneNumber)";
 
-            SqlCommand insertGroupMemberCommand = new SqlCommand(insertGroupMemberQuery, this.connection);
-            insertGroupMemberCommand.Parameters.AddWithValue("@Id", groupMember.Id);
-            insertGroupMemberCommand.Parameters.AddWithValue("@UserName", groupMember.Username);
-            insertGroupMemberCommand.Parameters.AddWithValue("@Password", groupMember.Password);
-            insertGroupMemberCommand.Parameters.AddWithValue("@Description", groupMember.Description);
-            insertGroupMemberCommand.Parameters.AddWithValue("@Email", groupMember.Email);
-            insertGroupMemberCommand.Parameters.AddWithValue("@Phone", groupMember.Phone);
+            SqlCommand insertGroupMemberCommand = new SqlCommand(insertGroupMemberQuery, this.databaseConnection);
+            insertGroupMemberCommand.Parameters.AddWithValue("@UserId", groupMember.UserId);
+            insertGroupMemberCommand.Parameters.AddWithValue("@UserName", groupMember.UserName);
+            insertGroupMemberCommand.Parameters.AddWithValue("@UserPassword", groupMember.UserPassword);
+            insertGroupMemberCommand.Parameters.AddWithValue("@GroupDescription", groupMember.UserDescription);
+            insertGroupMemberCommand.Parameters.AddWithValue("@UserEmailAdress", groupMember.UserEmailAdress);
+            insertGroupMemberCommand.Parameters.AddWithValue("@UserPhoneNumber", groupMember.UserPhoneNumber);
 
-            this.connection.Open();
+            this.databaseConnection.Open();
             insertGroupMemberCommand.ExecuteNonQuery();
-            this.connection.Close();
+            this.databaseConnection.Close();
 
-            this.groupMembers.Add(groupMember);
+            this.listOfGroupMembers.Add(groupMember);
         }
 
         public void UpdateGroupMember(GroupMember groupMember)
         {
-            GroupMember oldGroupMember = this.groupMembers.First(gm => gm.Id == groupMember.Id);
+            GroupMember oldGroupMember = this.listOfGroupMembers.First(gm => gm.UserId == groupMember.UserId);
             if (oldGroupMember == null)
             {
                 throw new Exception("Group member not found");
             }
 
-            this.groupMembers.Remove(oldGroupMember);
-            this.groupMembers.Add(groupMember);
+            this.listOfGroupMembers.Remove(oldGroupMember);
+            this.listOfGroupMembers.Add(groupMember);
 
-            string updateGroupMemberQuery = @"UPDATE GroupMembers 
-                        SET UserName = @UserName, Password = @Password, Description = @Description, 
-                            Email = @Email, Phone = @Phone 
-                        WHERE GroupMemberId = @Id";
+            string updateGroupMemberQuery = @"UPDATE ListOfGroupMembers 
+                        SET UserName = @UserName, UserPassword = @UserPassword, GroupDescription = @GroupDescription, 
+                            UserEmailAdress = @UserEmailAdress, UserPhoneNumber = @UserPhoneNumber 
+                        WHERE UserId = @UserId";
 
-            SqlCommand updateGroupMemberCommand = new SqlCommand(updateGroupMemberQuery, this.connection);
+            SqlCommand updateGroupMemberCommand = new SqlCommand(updateGroupMemberQuery, this.databaseConnection);
 
-            updateGroupMemberCommand.Parameters.AddWithValue("@Id", groupMember.Id);
-            updateGroupMemberCommand.Parameters.AddWithValue("@UserName", groupMember.Username);
-            updateGroupMemberCommand.Parameters.AddWithValue("@Password", groupMember.Password);
-            updateGroupMemberCommand.Parameters.AddWithValue("@Description", groupMember.Description);
-            updateGroupMemberCommand.Parameters.AddWithValue("@Email", groupMember.Email);
-            updateGroupMemberCommand.Parameters.AddWithValue("@Phone", groupMember.Phone);
-            this.connection.Open();
+            updateGroupMemberCommand.Parameters.AddWithValue("@UserId", groupMember.UserId);
+            updateGroupMemberCommand.Parameters.AddWithValue("@UserName", groupMember.UserName);
+            updateGroupMemberCommand.Parameters.AddWithValue("@UserPassword", groupMember.UserPassword);
+            updateGroupMemberCommand.Parameters.AddWithValue("@GroupDescription", groupMember.UserDescription);
+            updateGroupMemberCommand.Parameters.AddWithValue("@UserEmailAdress", groupMember.UserEmailAdress);
+            updateGroupMemberCommand.Parameters.AddWithValue("@UserPhoneNumber", groupMember.UserPhoneNumber);
+            this.databaseConnection.Open();
             int affectedRows = updateGroupMemberCommand.ExecuteNonQuery();
-            this.connection.Close();
+            this.databaseConnection.Close();
             if (affectedRows == 0)
             {
                 throw new Exception("No group member was updated; the member may not exist.");
@@ -124,19 +124,19 @@ namespace UBB_SE_2024_Popsicles.Repositories
         }
         public void RemoveGroupMemberById(Guid groupMemberId)
         {
-            GroupMember groupMember = this.groupMembers.First(gm => gm.Id == groupMemberId);
+            GroupMember groupMember = this.listOfGroupMembers.First(gm => gm.UserId == groupMemberId);
 
             if (groupMember == null)
             {
                 throw new Exception("Group member not found");
             }
-            this.groupMembers.Remove(groupMember);
-            string deleteGroupMemberQuery = "DELETE FROM GroupMembers WHERE GroupMemberId = @Id";
-            SqlCommand deleteGroupMemberCommand = new SqlCommand(deleteGroupMemberQuery, this.connection);
-            deleteGroupMemberCommand.Parameters.AddWithValue("@Id", groupMemberId);
-            this.connection.Open();
+            this.listOfGroupMembers.Remove(groupMember);
+            string deleteGroupMemberQuery = "DELETE FROM ListOfGroupMembers WHERE UserId = @UserId";
+            SqlCommand deleteGroupMemberCommand = new SqlCommand(deleteGroupMemberQuery, this.databaseConnection);
+            deleteGroupMemberCommand.Parameters.AddWithValue("@UserId", groupMemberId);
+            this.databaseConnection.Open();
             int affectedRows = deleteGroupMemberCommand.ExecuteNonQuery();
-            this.connection.Close();
+            this.databaseConnection.Close();
             if (affectedRows == 0)
             {
                 throw new Exception("No group member was deleted; the member may not exist.");

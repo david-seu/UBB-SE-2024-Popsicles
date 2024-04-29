@@ -44,8 +44,8 @@
                 <TextBlock
                     FontWeight="Bold"
                     RenderTransformOrigin="0.611,1.444"
-                    Text="Username" />
-                <TextBlock Text="{Binding Username}" />
+                    Text="UserName" />
+                <TextBlock Text="{Binding UserName}" />
             </StackPanel>
         </StackPanel>
 
@@ -54,7 +54,7 @@
             Grid.Row="1"
             Margin="10"
             IsReadOnly="True"
-            Text="{Binding Description}"
+            Text="{Binding GroupDescription}"
             TextWrapping="Wrap"
             VerticalScrollBarVisibility="Auto" />
 

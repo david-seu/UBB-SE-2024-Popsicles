@@ -2,16 +2,16 @@
 {
     public class GroupMember : User
     {
-        public List<GroupMembership> Memberships { get; set; }
+        public List<GroupMembership> GroupMemberships { get; set; }
 
-        public GroupMember(Guid id, string username, string password, string email, string phone, string description) : base(id, username, password, email, phone, description)
+        public GroupMember(Guid userId, string userName, string userPassword, string userEmailAdress, string userPhoneNumber, string userDescription) : base(userId, userName, userPassword, userEmailAdress, userPhoneNumber, userDescription)
         {
-            Memberships = new List<GroupMembership>();
+            GroupMemberships = new List<GroupMembership>();
         }
 
         public GroupMembership GetMembership(Guid groupId)
         {
-            GroupMembership groupMembership = Memberships.First(groupMembership => groupMembership.GroupId == groupId);
+            GroupMembership groupMembership = GroupMemberships.First(groupMembership => groupMembership.GroupId == groupId);
             if (groupMembership == null)
             {
                 throw new Exception("Group membership not found");
@@ -21,17 +21,17 @@
 
         public void AddGroupMembership(GroupMembership groupMembership)
         {
-            Memberships.Add(groupMembership);
+            GroupMemberships.Add(groupMembership);
         }
 
         public void RemoveGroupMembership(Guid groupMembershipId)
         {
-            GroupMembership groupMembership = Memberships.First(groupMembership => groupMembership.Id == groupMembershipId);
+            GroupMembership groupMembership = GroupMemberships.First(groupMembership => groupMembership.GroupMembershipId == groupMembershipId);
             if (groupMembership == null)
             {
                 throw new Exception("Group membership not found");
             }
-            Memberships.Remove(groupMembership);
+            GroupMemberships.Remove(groupMembership);
         }
     }
 }

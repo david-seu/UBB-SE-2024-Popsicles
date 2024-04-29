@@ -8,17 +8,17 @@ namespace UBB_SE_2024_Popsicles.Models
 {
     public class Post
     {
-        public Guid Id { get; }
-        public Guid OwnerId { get; }
-        public string Description { get; }
-        public string Image { get; }
+        public Guid PostId { get; }
+        public Guid PostOwnerId { get; }
+        public string PostDescription { get; }
+        public string PostImage { get; }
 
-        public Post(Guid id, Guid ownerId, string description, string image)
+        public Post(Guid postId, Guid postOwnerId, string postDescription, string postImage)
         {
-            Id = id;
-            OwnerId = ownerId;
-            Description = description;
-            Image = image;
+            PostId = postId;
+            PostOwnerId = postOwnerId;
+            PostDescription = postDescription;
+            PostImage = postImage;
         }
     }
 }

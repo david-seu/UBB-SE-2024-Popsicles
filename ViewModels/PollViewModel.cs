@@ -12,21 +12,21 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 {
     public class PollViewModel : ViewModelBase
     {
-        public PollViewModel(Poll pollThatIsEncapsulatedByThisInstanceOnAViewModel)
+        public PollViewModel(GroupPoll groupPollThatIsEncapsulatedByThisInstanceOnAViewModel)
         {
-            PollThatIsEncapsulatedByThisInstanceOnViewModel = pollThatIsEncapsulatedByThisInstanceOnAViewModel;
+            GroupPollThatIsEncapsulatedByThisInstanceOnViewModel = groupPollThatIsEncapsulatedByThisInstanceOnAViewModel;
         }
 
-        private Poll pollThatIsEncapsulatedByThisInstanceOnViewModel;
-        public Poll PollThatIsEncapsulatedByThisInstanceOnViewModel
+        private GroupPoll groupPollThatIsEncapsulatedByThisInstanceOnViewModel;
+        public GroupPoll GroupPollThatIsEncapsulatedByThisInstanceOnViewModel
         {
             get
             {
-                return this.pollThatIsEncapsulatedByThisInstanceOnViewModel;
+                return this.groupPollThatIsEncapsulatedByThisInstanceOnViewModel;
             }
             set
             {
-                this.pollThatIsEncapsulatedByThisInstanceOnViewModel = value;
+                this.groupPollThatIsEncapsulatedByThisInstanceOnViewModel = value;
                 OnPropertyChanged();
             }
         }
@@ -35,11 +35,11 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         {
             get
             {
-                return PollThatIsEncapsulatedByThisInstanceOnViewModel.Description;
+                return GroupPollThatIsEncapsulatedByThisInstanceOnViewModel.GroupPollDescription;
             }
             set
             {
-                PollThatIsEncapsulatedByThisInstanceOnViewModel.Description = value;
+                GroupPollThatIsEncapsulatedByThisInstanceOnViewModel.GroupPollDescription = value;
                 OnPropertyChanged();
             }
         }
@@ -48,11 +48,11 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         {
             get
             {
-                return PollThatIsEncapsulatedByThisInstanceOnViewModel.EndTime.ToString();
+                return GroupPollThatIsEncapsulatedByThisInstanceOnViewModel.GroupPollEndTime.ToString();
             }
             set
             {
-                PollThatIsEncapsulatedByThisInstanceOnViewModel.EndTime = DateTime.Parse(value);
+                GroupPollThatIsEncapsulatedByThisInstanceOnViewModel.GroupPollEndTime = DateTime.Parse(value);
                 OnPropertyChanged();
             }
         }
@@ -61,11 +61,11 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         {
             get
             {
-                return PollThatIsEncapsulatedByThisInstanceOnViewModel.Options[0];
+                return GroupPollThatIsEncapsulatedByThisInstanceOnViewModel.GroupPollOptions[0];
             }
             set
             {
-                PollThatIsEncapsulatedByThisInstanceOnViewModel.Options[0] = value;
+                GroupPollThatIsEncapsulatedByThisInstanceOnViewModel.GroupPollOptions[0] = value;
                 OnPropertyChanged();
             }
         }
@@ -74,11 +74,11 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         {
             get
             {
-                return PollThatIsEncapsulatedByThisInstanceOnViewModel.Options[1];
+                return GroupPollThatIsEncapsulatedByThisInstanceOnViewModel.GroupPollOptions[1];
             }
             set
             {
-                PollThatIsEncapsulatedByThisInstanceOnViewModel.Options[1] = value;
+                GroupPollThatIsEncapsulatedByThisInstanceOnViewModel.GroupPollOptions[1] = value;
                 OnPropertyChanged();
             }
         }
@@ -87,11 +87,11 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         {
             get
             {
-                return PollThatIsEncapsulatedByThisInstanceOnViewModel.Options[2];
+                return GroupPollThatIsEncapsulatedByThisInstanceOnViewModel.GroupPollOptions[2];
             }
             set
             {
-                PollThatIsEncapsulatedByThisInstanceOnViewModel.Options[2] = value;
+                GroupPollThatIsEncapsulatedByThisInstanceOnViewModel.GroupPollOptions[2] = value;
                 OnPropertyChanged();
             }
         }
@@ -100,11 +100,11 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         {
             get
             {
-                return PollThatIsEncapsulatedByThisInstanceOnViewModel.Options[3];
+                return GroupPollThatIsEncapsulatedByThisInstanceOnViewModel.GroupPollOptions[3];
             }
             set
             {
-                PollThatIsEncapsulatedByThisInstanceOnViewModel.Options[3] = value;
+                GroupPollThatIsEncapsulatedByThisInstanceOnViewModel.GroupPollOptions[3] = value;
                 OnPropertyChanged();
             }
         }

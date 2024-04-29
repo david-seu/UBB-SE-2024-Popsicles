@@ -22,7 +22,7 @@
                 Margin="0,0,0,20"
                 FontFamily="Arial"
                 FontSize="24"
-                Text="Create a New Poll" />
+                Text="Create a New GroupPoll" />
             <Grid x:Name="Options" Margin="100,0,0,0">
                 <Grid.ColumnDefinitions>
 
@@ -82,7 +82,7 @@
                 x:Name="PollCreationButton"
                 Width="100"
                 Margin="630,160,0,0"
-                Content="Create Poll"
+                Content="Create GroupPoll"
                 RenderTransformOrigin="2.64,13.356" />
             <Grid
                 x:Name="CheckBoxes"
@@ -92,7 +92,7 @@
                 <CheckBox
                     x:Name="ShowVotesCheckBox"
                     Margin="13,92,91,0"
-                    Content="Show Votes" />
+                    Content="Show ListOfGroupPollVotes" />
                 <CheckBox
                     x:Name="MultipleChoiceCheckBox"
                     Margin="13,60,91,10"

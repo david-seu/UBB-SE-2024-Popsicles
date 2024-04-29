@@ -9,28 +9,28 @@ namespace UBB_SE_2024_Popsicles.Models
     public class GroupPost : Post
     {
         public Guid GroupId { get; }
-        public List<string> Tags { get; set; }
+        public List<string> GroupPostTags { get; set; }
         public string SpecificToRole { get; set; }
-        public bool IsPinned { get; set; }
-        public DateTime DateTime { get; set; }
+        public bool IsGroupPostPinnedAsImportant { get; set; }
+        public DateTime PostageDateTime { get; set; }
 
-        public GroupPost(Guid id, Guid ownerId, string description, string image, Guid groupId) : base(id, ownerId, description, image)
+        public GroupPost(Guid postId, Guid postOwnerId, string postDescription, string postImage, Guid groupId) : base(postId, postOwnerId, postDescription, postImage)
         {
             GroupId = groupId;
-            DateTime = DateTime.Now;
+            PostageDateTime = DateTime.Now;
 
-            Tags = new List<string>();
+            GroupPostTags = new List<string>();
             SpecificToRole = string.Empty;
         }
 
-        public void AddTag(string tag)
+        public void AddPostTag(string postTag)
         {
-            Tags.Add(tag);
+            GroupPostTags.Add(postTag);
         }
 
-        public void RemoveTag(string tag)
+        public void RemovePostTag(string postTag)
         {
-            Tags.Remove(tag);
+            GroupPostTags.Remove(postTag);
         }
     }
 }

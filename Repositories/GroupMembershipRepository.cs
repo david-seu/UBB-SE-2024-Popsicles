@@ -5,67 +5,67 @@ namespace UBB_SE_2024_Popsicles.Repositories
 {
     internal class GroupMembershipRepository : IGroupMembershipRepository
     {
-        private SqlConnection connection;
-        private List<GroupMembership> groupMemberships = new List<GroupMembership>();
-        public SqlConnection Connection
+        private SqlConnection databaseConnection;
+        private List<GroupMembership> listOfGroupMemberships = new List<GroupMembership>();
+        public SqlConnection DatabaseConnection
         {
-            get { return connection; }
+            get { return databaseConnection; }
         }
 
-        public List<GroupMembership> GroupMemberships
+        public List<GroupMembership> ListOfGroupMemberships
         {
             get
             {
-                return groupMemberships;
+                return listOfGroupMemberships;
             }
         }
-        public GroupMembershipRepository(SqlConnection connection)
+        public GroupMembershipRepository(SqlConnection databaseConnection)
         {
-            this.connection = connection;
+            this.databaseConnection = databaseConnection;
             LoadDataFromSql();
         }
 
         private void LoadDataFromSql()
         {
-            string selectGroupMembershipQuery = @"
-                SELECT gm.GroupMembershipId, gm.GroupId, gm.GroupMemberId, gm.Role, gm.JoinDate, gm.IsBanned, gm.IsTimedOut, gm.ByPassPostSettings, m.UserName
-                FROM GroupMemberships gm
-                JOIN GroupMembers m ON gm.GroupMemberId = m.GroupMemberId";
+            string selectAllGroupMembershipsQuery = @"
+                SELECT gm.GroupMembershipId, gm.GroupId, gm.UserId, gm.GroupMemberRole, gm.JoinDate, gm.IsBannedFromGroup, gm.IsTimedOutFromGroup, gm.BypassPostageRestriction, m.UserName
+                FROM ListOfGroupMemberships gm
+                JOIN ListOfGroupMembers m ON gm.UserId = m.UserId";
 
-            SqlCommand command = new SqlCommand(selectGroupMembershipQuery, this.connection);
-            this.connection.Open();
-            using (SqlDataReader reader = command.ExecuteReader())
+            SqlCommand selectAllGroupMembershipsCommand = new SqlCommand(selectAllGroupMembershipsQuery, this.databaseConnection);
+            this.databaseConnection.Open();
+            using (SqlDataReader selectAllGroupMembershipsReader = selectAllGroupMembershipsCommand.ExecuteReader())
             {
-                while (reader.Read())
+                while (selectAllGroupMembershipsReader.Read())
                 {
-                    Guid id = reader.GetGuid(0);
-                    Guid groupId = reader.GetGuid(1);
-                    Guid groupMemberId = reader.GetGuid(2);
-                    string role = reader.GetString(3);
-                    DateTime joinDate = reader.GetDateTime(4);
-                    bool isBanned = reader.GetBoolean(5);
-                    bool isTimedOut = reader.GetBoolean(6);
-                    bool byPassPostSettings = reader.GetBoolean(7);
-                    string groupMemberName = reader.GetString(8);
+                    Guid groupMembershipId = selectAllGroupMembershipsReader.GetGuid(0);
+                    Guid groupId = selectAllGroupMembershipsReader.GetGuid(1);
+                    Guid groupMemberId = selectAllGroupMembershipsReader.GetGuid(2);
+                    string groupMemberRole = selectAllGroupMembershipsReader.GetString(3);
+                    DateTime joinDate = selectAllGroupMembershipsReader.GetDateTime(4);
+                    bool isBannedFromGroup = selectAllGroupMembershipsReader.GetBoolean(5);
+                    bool isTimedOutFromGroup = selectAllGroupMembershipsReader.GetBoolean(6);
+                    bool byPaddPostageRestriction = selectAllGroupMembershipsReader.GetBoolean(7);
+                    string groupMemberName = selectAllGroupMembershipsReader.GetString(8);
                     GroupMembership groupMembership = new GroupMembership(
-                        id: id,
+                        groupMembershipId: groupMembershipId,
                         groupMemberId: groupMemberId,
                         groupMemberName: groupMemberName,
                         groupId: groupId,
-                        role: role,
-                        join: joinDate,
-                        isBanned: isBanned,
-                        isTimedOut: isTimedOut,
-                        byPassPostSettings: byPassPostSettings);
-                    this.groupMemberships.Add(groupMembership);
+                        groupMemberRole: groupMemberRole,
+                        joinDate: joinDate,
+                        isBannedFromGroup: isBannedFromGroup,
+                        isTimedOutFromGroup: isTimedOutFromGroup,
+                        bypassPostageRestriction: byPaddPostageRestriction);
+                    this.listOfGroupMemberships.Add(groupMembership);
                 }
             }
-            this.connection.Close();
+            this.databaseConnection.Close();
         }
 
         public GroupMembership GetGroupMembershipById(Guid groupMembershipId)
         {
-            GroupMembership groupMembership = this.groupMemberships.First(gm => gm.Id == groupMembershipId);
+            GroupMembership groupMembership = this.listOfGroupMemberships.First(gm => gm.GroupMembershipId == groupMembershipId);
             if (groupMembership == null)
             {
                 throw new Exception("Group membership not found");
@@ -75,72 +75,72 @@ namespace UBB_SE_2024_Popsicles.Repositories
 
         public List<GroupMembership> GetGroupMemberships()
         {
-            return this.groupMemberships;
+            return this.listOfGroupMemberships;
         }
 
         public void AddGroupMembership(GroupMembership groupMembership)
         {
             string insertGroupMembershipQuery = @"
-            INSERT INTO GroupMemberships (GroupMembershipId, GroupId, GroupMemberId, Role, JoinDate, IsBanned, IsTimedOut, ByPassPostSettings)
-            VALUES (@Id, @GroupId, @GroupMemberId, @Role, @JoinDate, @IsBanned, @IsTimedOut, @ByPassPostSettings)";
-            SqlCommand command = new SqlCommand(insertGroupMembershipQuery, this.connection);
-            command.Parameters.AddWithValue("@Id", groupMembership.Id);
-            command.Parameters.AddWithValue("@GroupId", groupMembership.GroupId);
-            command.Parameters.AddWithValue("@GroupMemberId", groupMembership.GroupMemberId);
-            command.Parameters.AddWithValue("@Role", groupMembership.Role);
-            command.Parameters.AddWithValue("@JoinDate", groupMembership.JoinDate);
-            command.Parameters.AddWithValue("@IsBanned", groupMembership.IsBanned);
-            command.Parameters.AddWithValue("@IsTimedOut", groupMembership.IsTimedOut);
-            command.Parameters.AddWithValue("@ByPassPostSettings", groupMembership.ByPassPostSettings);
+            INSERT INTO ListOfGroupMemberships (GroupMembershipId, GroupId, UserId, GroupMemberRole, JoinDate, IsBannedFromGroup, IsTimedOutFromGroup, BypassPostageRestriction)
+            VALUES (@UserId, @GroupId, @UserId, @GroupMemberRole, @JoinDate, @IsBannedFromGroup, @IsTimedOutFromGroup, @BypassPostageRestriction)";
+            SqlCommand insertGroupMembershipCommand = new SqlCommand(insertGroupMembershipQuery, this.databaseConnection);
+            insertGroupMembershipCommand.Parameters.AddWithValue("@UserId", groupMembership.GroupMembershipId);
+            insertGroupMembershipCommand.Parameters.AddWithValue("@GroupId", groupMembership.GroupId);
+            insertGroupMembershipCommand.Parameters.AddWithValue("@UserId", groupMembership.GroupMemberId);
+            insertGroupMembershipCommand.Parameters.AddWithValue("@GroupMemberRole", groupMembership.GroupMemberRole);
+            insertGroupMembershipCommand.Parameters.AddWithValue("@JoinDate", groupMembership.JoinDate);
+            insertGroupMembershipCommand.Parameters.AddWithValue("@IsBannedFromGroup", groupMembership.IsBannedFromGroup);
+            insertGroupMembershipCommand.Parameters.AddWithValue("@IsTimedOutFromGroup", groupMembership.IsTimedOutFromGroup);
+            insertGroupMembershipCommand.Parameters.AddWithValue("@BypassPostageRestriction", groupMembership.BypassPostageRestriction);
 
-            this.connection.Open();
-            command.ExecuteNonQuery();
-            this.connection.Close();
+            this.databaseConnection.Open();
+            insertGroupMembershipCommand.ExecuteNonQuery();
+            this.databaseConnection.Close();
 
-            this.groupMemberships.Add(groupMembership);
+            this.listOfGroupMemberships.Add(groupMembership);
         }
 
         public void UpdateGroupMembership(GroupMembership groupMembership)
         {
-            GroupMembership oldGroupMembership = this.groupMemberships.First(gm => gm.Id == groupMembership.Id);
+            GroupMembership oldGroupMembership = this.listOfGroupMemberships.First(gm => gm.GroupMembershipId == groupMembership.GroupMembershipId);
             if (oldGroupMembership == null)
             {
                 throw new Exception("Group membership not found");
             }
 
-            this.groupMemberships.Remove(oldGroupMembership);
-            this.groupMemberships.Add(groupMembership);
+            this.listOfGroupMemberships.Remove(oldGroupMembership);
+            this.listOfGroupMemberships.Add(groupMembership);
 
             string updateGroupMembershipQuery = @"
-            UPDATE GroupMemberships
-            SET Role = @Role, IsBanned = @IsBanned, IsTimedOut = @IsTimedOut, ByPassPostSettings = @ByPassPostSettings
-            WHERE GroupMembershipId = @Id";
-            SqlCommand command = new SqlCommand(updateGroupMembershipQuery, this.connection);
-            command.Parameters.AddWithValue("@Id", groupMembership.Id);
-            command.Parameters.AddWithValue("@Role", groupMembership.Role);
-            command.Parameters.AddWithValue("@IsBanned", groupMembership.IsBanned);
-            command.Parameters.AddWithValue("@IsTimedOut", groupMembership.IsTimedOut);
-            command.Parameters.AddWithValue("@ByPassPostSettings", groupMembership.ByPassPostSettings);
-            this.connection.Open();
-            command.ExecuteNonQuery();
-            this.connection.Close();
+            UPDATE ListOfGroupMemberships
+            SET GroupMemberRole = @GroupMemberRole, IsBannedFromGroup = @IsBannedFromGroup, IsTimedOutFromGroup = @IsTimedOutFromGroup, BypassPostageRestriction = @BypassPostageRestriction
+            WHERE GroupMembershipId = @UserId";
+            SqlCommand updateGroupMembershipCommand = new SqlCommand(updateGroupMembershipQuery, this.databaseConnection);
+            updateGroupMembershipCommand.Parameters.AddWithValue("@UserId", groupMembership.GroupMembershipId);
+            updateGroupMembershipCommand.Parameters.AddWithValue("@GroupMemberRole", groupMembership.GroupMemberRole);
+            updateGroupMembershipCommand.Parameters.AddWithValue("@IsBannedFromGroup", groupMembership.IsBannedFromGroup);
+            updateGroupMembershipCommand.Parameters.AddWithValue("@IsTimedOutFromGroup", groupMembership.IsTimedOutFromGroup);
+            updateGroupMembershipCommand.Parameters.AddWithValue("@BypassPostageRestriction", groupMembership.BypassPostageRestriction);
+            this.databaseConnection.Open();
+            updateGroupMembershipCommand.ExecuteNonQuery();
+            this.databaseConnection.Close();
         }
 
         public void RemoveGroupMembershipById(Guid groupMembershipId)
         {
-            GroupMembership groupMembership = this.groupMemberships.First(gm => gm.Id == groupMembershipId);
+            GroupMembership groupMembership = this.listOfGroupMemberships.First(gm => gm.GroupMembershipId == groupMembershipId);
             if (groupMembership == null)
             {
                 throw new Exception("Group membership not found");
             }
 
-            this.groupMemberships.Remove(groupMembership);
-            string deleteGroupMembershipQuery = "DELETE FROM GroupMemberships WHERE GroupMembershipId = @Id";
-            SqlCommand command = new SqlCommand(deleteGroupMembershipQuery, this.connection);
-            command.Parameters.AddWithValue("@Id", groupMembershipId);
-            this.connection.Open();
-            int affectedRows = command.ExecuteNonQuery();
-            this.connection.Close();
+            this.listOfGroupMemberships.Remove(groupMembership);
+            string deleteGroupMembershipQuery = "DELETE FROM ListOfGroupMemberships WHERE GroupMembershipId = @UserId";
+            SqlCommand deleteGroupMembershipCommand = new SqlCommand(deleteGroupMembershipQuery, this.databaseConnection);
+            deleteGroupMembershipCommand.Parameters.AddWithValue("@UserId", groupMembershipId);
+            this.databaseConnection.Open();
+            int affectedRows = deleteGroupMembershipCommand.ExecuteNonQuery();
+            this.databaseConnection.Close();
             if (affectedRows == 0)
             {
                 throw new Exception("No group membership was deleted; it may not exist.");

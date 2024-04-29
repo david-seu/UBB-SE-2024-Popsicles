@@ -2,55 +2,56 @@
 {
     public class Group
     {
-        private static string bannerPath = "../Resources/GroupBanners/";
-        private static string iconPath = "../Resources/GroupIcons/";
+        private static string groupBannerPath = "../Resources/GroupBanners/";
+        private static string groupIconPath = "../Resources/GroupIcons/";
 
-        public Guid Id { get; }
-        public Guid OwnerId { get; }
+        public Guid GroupId { get; }
+        public Guid GroupOwnerId { get; }
 
-        private string name;
-        public string Name { get => name; set => name = value; }
-        public string Description { get; set; }
-        private string icon;
-        public string Icon
+        private string groupName;
+        public string GroupName { get => groupName; set => groupName = value; }
+        public string GroupDescription { get; set; }
+
+        private string groupIcon;
+        public string GroupIcon
         {
-            get { return System.IO.Path.GetFileNameWithoutExtension(icon); }
-            set { icon = iconPath + value + ".jpg"; }
+            get { return System.IO.Path.GetFileNameWithoutExtension(groupIcon); }
+            set { groupIcon = groupIconPath + value + ".jpg"; }
         }
 
-        public string IconPath
+        public string GroupIconPath
         {
-            get { return icon; }
+            get { return groupIcon; }
         }
-        private string banner;
-        public string Banner
+        private string groupBanner;
+        public string GroupBanner
         {
             get
             {
-                return System.IO.Path.GetFileNameWithoutExtension(banner);
+                return System.IO.Path.GetFileNameWithoutExtension(groupBanner);
             }
             set
             {
-                banner = bannerPath + value + ".jpg";
+                groupBanner = groupBannerPath + value + ".jpg";
             }
         }
 
-        public string BannerPath
+        public string GroupBannerPath
         {
-            get { return banner; }
+            get { return groupBanner; }
         }
 
-        public int MaxPostsPerHourPerUser
-        {
-            get; set;
-        }
-
-        public bool IsPublic
+        public int MaximumNumberOfPostsPerHourPerUser
         {
             get; set;
         }
 
-        public bool CanMakePostsByDefault
+        public bool IsGroupPublic
+        {
+            get; set;
+        }
+
+        public bool AllowanceOfPostage
         {
             get; set;
         }
@@ -60,72 +61,72 @@
             get; set;
         }
 
-        public DateTime CreatedAt
+        public DateTime DateOfGroupCreation
         {
             get; set;
         }
 
-        public List<GroupMembership> Memberships
+        public List<GroupMembership> ListOfGroupMemberships
         {
             get; set;
         }
 
-        public List<Request> Requests
+        public List<JoinRequest> ListOfJoinRequests
         {
             get; set;
         }
 
-        public List<Poll> Polls
+        public List<GroupPoll> ListOfGroupPolls
         {
             get; set;
         }
 
-        public List<GroupPost> Posts
+        public List<GroupPost> ListOfGroupPosts
         {
             get; set;
         }
-        private int memberCount = 0;
+        private int groupMemberCount = 0;
 
-        public int MemberCount
+        public int GroupMemberCount
         {
-            get { return memberCount; }
+            get { return groupMemberCount; }
         }
-        private int postCount = 0;
+        private int groupPostCount = 0;
 
-        public int PostCount
+        public int GroupPostCount
         {
-            get { return postCount; }
+            get { return groupPostCount; }
         }
-        private int requestCount = 0;
+        private int joinRequestCount = 0;
 
-        public int RequestCount
+        public int JoinRequestCount
         {
-            get { return requestCount; }
+            get { return joinRequestCount; }
         }
 
-        public Group(Guid id, Guid ownerId, string name, string description, string icon, string banner, int maxPostsPerHourPerUser, bool isPublic, bool canMakePostsByDefault, string groupCode)
+        public Group(Guid groupId, Guid groupOwnerId, string groupName, string groupDescription, string groupIcon, string groupBanner, int maximumNumberOfPostsPerHourPerUser, bool isGroupPublic, bool allowanceOfPostage, string groupCode)
         {
-            Id = id;
-            OwnerId = ownerId;
-            Name = name;
-            Description = description;
-            Icon = icon;
-            Banner = banner;
-            MaxPostsPerHourPerUser = maxPostsPerHourPerUser;
-            IsPublic = isPublic;
-            CanMakePostsByDefault = canMakePostsByDefault;
+            GroupId = groupId;
+            GroupOwnerId = groupOwnerId;
+            GroupName = groupName;
+            GroupDescription = groupDescription;
+            GroupIcon = groupIcon;
+            GroupBanner = groupBanner;
+            MaximumNumberOfPostsPerHourPerUser = maximumNumberOfPostsPerHourPerUser;
+            IsGroupPublic = isGroupPublic;
+            AllowanceOfPostage = allowanceOfPostage;
             GroupCode = groupCode;
-            CreatedAt = DateTime.Now;
+            DateOfGroupCreation = DateTime.Now;
 
-            Memberships = new List<GroupMembership>();
-            Requests = new List<Request>();
-            Polls = new List<Poll>();
-            Posts = new List<GroupPost>();
+            ListOfGroupMemberships = new List<GroupMembership>();
+            ListOfJoinRequests = new List<JoinRequest>();
+            ListOfGroupPolls = new List<GroupPoll>();
+            ListOfGroupPosts = new List<GroupPost>();
         }
 
-        public GroupMembership GetMembership(Guid groupMemberId)
+        public GroupMembership GetMembershipFromGroupMemberId(Guid groupMemberId)
         {
-            GroupMembership groupMembership = Memberships.First(groupMembership => groupMembership.GroupMemberId == groupMemberId);
+            GroupMembership groupMembership = ListOfGroupMemberships.First(groupMembership => groupMembership.GroupMemberId == groupMemberId);
             if (groupMembership == null)
             {
                 throw new Exception("Membership not found");
@@ -135,100 +136,100 @@
 
         public void AddMember(GroupMembership groupMembership)
         {
-            Memberships.Add(groupMembership);
-            memberCount++;
+            ListOfGroupMemberships.Add(groupMembership);
+            groupMemberCount++;
         }
 
         public void RemoveMember(Guid groupMembershipId)
         {
-            GroupMembership groupMembership = Memberships.First(groupMembership => groupMembership.Id == groupMembershipId);
+            GroupMembership groupMembership = ListOfGroupMemberships.First(groupMembership => groupMembership.GroupMembershipId == groupMembershipId);
             if (groupMembership == null)
             {
                 throw new Exception("Membership not found");
             }
-            Memberships.Remove(groupMembership);
-            memberCount--;
+            ListOfGroupMemberships.Remove(groupMembership);
+            groupMemberCount--;
         }
 
-        public Request GetRequest(Guid requestId)
+        public JoinRequest GetJoinRequest(Guid joinRequestId)
         {
-            Request request = Requests.First(request => request.Id == requestId);
-            if (request == null)
+            JoinRequest joinRequest = ListOfJoinRequests.First(joinRequest => joinRequest.JoinRequestId == joinRequestId);
+            if (joinRequest == null)
             {
-                throw new Exception("Request not found");
+                throw new Exception("JoinRequest not found");
             }
-            return request;
+            return joinRequest;
         }
 
-        public void AddRequest(Request request)
+        public void AddJoinRequest(JoinRequest joinRequest)
         {
-            Requests.Add(request);
-            requestCount++;
+            ListOfJoinRequests.Add(joinRequest);
+            joinRequestCount++;
         }
 
-        public void RemoveRequest(Guid requestId)
+        public void RemoveJoinRequest(Guid joinRequestId)
         {
-            Request request = Requests.First(request => request.Id == requestId);
-            if (request == null)
+            JoinRequest joinRequest = ListOfJoinRequests.First(joinRequest => joinRequest.JoinRequestId == joinRequestId);
+            if (joinRequest == null)
             {
-                throw new Exception("Request not found");
+                throw new Exception("Join JoinRequest not found");
             }
-            Requests.Remove(request);
-            requestCount--;
+            ListOfJoinRequests.Remove(joinRequest);
+            joinRequestCount--;
         }
 
-        public GroupPost GetPost(Guid postId)
+        public GroupPost GetGroupPost(Guid groupPostId)
         {
-            GroupPost post = Posts.First(post => post.Id == postId);
-            if (post == null)
-            {
-                throw new Exception("Post not found");
-            }
-            return post;
-        }
-
-        public void AddPost(GroupPost post)
-        {
-            Posts.Add(post);
-            postCount++;
-        }
-
-        public void RemovePost(Guid postId)
-        {
-            GroupPost groupPost = Posts.First(groupPost => groupPost.Id == postId);
+            GroupPost groupPost = ListOfGroupPosts.First(groupPost => groupPost.PostId == groupPostId);
             if (groupPost == null)
             {
                 throw new Exception("Post not found");
             }
-            Posts.Remove(groupPost);
-            postCount--;
+            return groupPost;
         }
 
-        public Poll GetPoll(Guid pollId)
+        public void AddGroupPost(GroupPost groupPost)
         {
-            Poll poll = Polls.First(poll => poll.Id == pollId);
-            if (poll == null)
+            ListOfGroupPosts.Add(groupPost);
+            groupPostCount++;
+        }
+
+        public void RemoveGroupPost(Guid groupPostId)
+        {
+            GroupPost groupPost = ListOfGroupPosts.First(groupPost => groupPost.PostId == groupPostId);
+            if (groupPost == null)
             {
-                throw new Exception("Poll not found");
+                throw new Exception("Post not found");
             }
-            return poll;
+            ListOfGroupPosts.Remove(groupPost);
+            groupPostCount--;
         }
 
-        public void AddPoll(Poll poll)
+        public GroupPoll GetGroupPoll(Guid groupPollId)
         {
-            Polls.Add(poll);
-            postCount++;
-        }
-
-        public void RemovePoll(Guid pollId)
-        {
-            Poll poll = Polls.First(poll => poll.Id == pollId);
-            if (poll == null)
+            GroupPoll groupPoll = ListOfGroupPolls.First(groupPoll => groupPoll.PollId == groupPollId);
+            if (groupPoll == null)
             {
-                throw new Exception("Poll not found");
+                throw new Exception("GroupPoll not found");
             }
-            Polls.Remove(poll);
-            postCount--;
+            return groupPoll;
+        }
+
+        public void AddGroupPoll(GroupPoll groupPoll)
+        {
+            ListOfGroupPolls.Add(groupPoll);
+            groupPostCount++;
+        }
+
+        public void RemoveGroupPoll(Guid groupPollId)
+        {
+            GroupPoll groupPoll = ListOfGroupPolls.First(poll => poll.PollId == groupPollId);
+            if (groupPoll == null)
+            {
+                throw new Exception("GroupPoll not found");
+            }
+            ListOfGroupPolls.Remove(groupPoll);
+            groupPostCount--;
         }
     }
 }

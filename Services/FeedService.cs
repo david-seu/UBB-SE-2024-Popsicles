@@ -9,15 +9,15 @@ namespace UBB_SE_2024_Popsicles.Services
 {
     internal class FeedService : IFeedService
     {
-        public List<GroupPost> FilterPostsByTags(List<GroupPost> posts, List<string> tags)
+        public List<GroupPost> FilterGroupPostsByTags(List<GroupPost> listOfGroupPosts, List<string> listOfGroupPostTags)
         {
-            // Filtering the rest of the posts by tags and adding them int the filtered list
-            List<GroupPost> filteredPosts = posts.AsParallel()
-                .Where(post => post.Tags.Any(tag => tags.Contains(tag, StringComparer.OrdinalIgnoreCase)))
+            // Filtering the rest of the listOfGroupPosts by listOfGroupPostTags and adding them int the filtered list
+            List<GroupPost> filteredPosts = listOfGroupPosts.AsParallel()
+                .Where(post => post.GroupPostTags.Any(tag => listOfGroupPostTags.Contains(tag, StringComparer.OrdinalIgnoreCase)))
                 .ToList();
 
             // Order them be the ones that are pinned to be first in the list
-            return filteredPosts.OrderBy(post => !post.IsPinned).ToList();
+            return filteredPosts.OrderBy(post => !post.IsGroupPostPinnedAsImportant).ToList();
         }
     }
 }

@@ -68,6 +68,6 @@
             Grid.Row="3"
             Width="40"
             Height="20"
-            Content="Vote" />
+            Content="GroupPollVote" />
     </Grid>
 </UserControl>

@@ -9,7 +9,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
 {
     public class GroupViewModel : ViewModelBase
     {
-        public ObservableCollection<Poll> CollectionOfPolls
+        public ObservableCollection<GroupPoll> CollectionOfPolls
         {
             get; set;
         }
@@ -24,7 +24,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
             get; set;
         }
 
-        public ObservableCollection<Request> RequestsToJoinTheGroup
+        public ObservableCollection<JoinRequest> RequestsToJoinTheGroup
         {
             get; set;
         }
@@ -49,12 +49,12 @@ namespace UBB_SE_2024_Popsicles.ViewModels
                 new GroupMember(Guid.NewGuid(), "Cristos", "admin", "denis@ubb.ro", "0749999345", "I am stupid.")
             };
 
-            RequestsToJoinTheGroup = new ObservableCollection<Request>()
+            RequestsToJoinTheGroup = new ObservableCollection<JoinRequest>()
             {
-                new Request(Guid.NewGuid(), Guid.NewGuid(), "Vasile", Guid.NewGuid()),
-                new Request(Guid.NewGuid(), Guid.NewGuid(), "Andrei", Guid.NewGuid()),
-                new Request(Guid.NewGuid(), Guid.NewGuid(), "Maria", Guid.NewGuid()),
-                new Request(Guid.NewGuid(), Guid.NewGuid(), "Gabriel", Guid.NewGuid())
+                new JoinRequest(Guid.NewGuid(), Guid.NewGuid(), "Vasile", Guid.NewGuid()),
+                new JoinRequest(Guid.NewGuid(), Guid.NewGuid(), "Andrei", Guid.NewGuid()),
+                new JoinRequest(Guid.NewGuid(), Guid.NewGuid(), "Maria", Guid.NewGuid()),
+                new JoinRequest(Guid.NewGuid(), Guid.NewGuid(), "Gabriel", Guid.NewGuid())
             };
 
             PostsMadeInTheGroupChat = new ObservableCollection<GroupPost>
@@ -71,41 +71,41 @@ namespace UBB_SE_2024_Popsicles.ViewModels
                 new GroupPost(Guid.NewGuid(), Guid.NewGuid(), "This is a description", "This is an image", Guid.NewGuid())
             };
 
-            List<Poll> polls = new List<Poll>
+            List<GroupPoll> polls = new List<GroupPoll>
             {
-                new Poll(Guid.NewGuid(), Guid.NewGuid(), "Mergeti la Untold?", Guid.NewGuid()),
-                new Poll(Guid.NewGuid(), Guid.NewGuid(), "Il votati pe Boc?", Guid.NewGuid()),
-                new Poll(Guid.NewGuid(), Guid.NewGuid(), "V-ati facut la ISS?", Guid.NewGuid()),
-                new Poll(Guid.NewGuid(), Guid.NewGuid(), "Ati semnat pentru Sosoaca?", Guid.NewGuid()),
-                new Poll(Guid.NewGuid(), Guid.NewGuid(), "Iti place Aqua Carpatica?", Guid.NewGuid()),
+                new GroupPoll(Guid.NewGuid(), Guid.NewGuid(), "Mergeti la Untold?", Guid.NewGuid()),
+                new GroupPoll(Guid.NewGuid(), Guid.NewGuid(), "Il votati pe Boc?", Guid.NewGuid()),
+                new GroupPoll(Guid.NewGuid(), Guid.NewGuid(), "V-ati facut la ISS?", Guid.NewGuid()),
+                new GroupPoll(Guid.NewGuid(), Guid.NewGuid(), "Ati semnat pentru Sosoaca?", Guid.NewGuid()),
+                new GroupPoll(Guid.NewGuid(), Guid.NewGuid(), "Iti place Aqua Carpatica?", Guid.NewGuid()),
             };
-            foreach (Poll poll in polls)
+            foreach (GroupPoll poll in polls)
             {
-                poll.AddOption("Da");
-                poll.AddOption("Nu");
-                poll.AddOption("Poate");
-                poll.AddOption("Nu vreau sa raspund");
+                poll.AddGroupPollOption("Da");
+                poll.AddGroupPollOption("Nu");
+                poll.AddGroupPollOption("Poate");
+                poll.AddGroupPollOption("Nu vreau sa raspund");
             }
-            CollectionOfPolls = new ObservableCollection<Poll>(polls);
+            CollectionOfPolls = new ObservableCollection<GroupPoll>(polls);
 
             List<PollViewModel> pollViewModels = new List<PollViewModel>();
-            foreach (Poll poll in CollectionOfPolls)
+            foreach (GroupPoll poll in CollectionOfPolls)
             {
                 pollViewModels.Add(new PollViewModel(poll));
             }
             CollectionOfViewModelsForEachIndividualPoll = new ObservableCollection<PollViewModel>(pollViewModels);
         }
 
-        private Poll currentlySelectedPoll;
-        public Poll CurrentlySelectedPoll
+        private GroupPoll currentlySelectedGroupPoll;
+        public GroupPoll CurrentlySelectedGroupPoll
         {
             get
             {
-                return this.currentlySelectedPoll;
+                return this.currentlySelectedGroupPoll;
             }
             set
             {
-                this.currentlySelectedPoll = value;
+                this.currentlySelectedGroupPoll = value;
                 OnPropertyChanged();
             }
         }
@@ -143,12 +143,12 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         {
             get
             {
-                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.Name;
+                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.GroupName;
             }
             set
             {
-                GroupThatIsEncapsulatedByThisInstanceOnViewModel.Name = value;
-                // TODO: notify somehow the main window view model that Name has changed
+                GroupThatIsEncapsulatedByThisInstanceOnViewModel.GroupName = value;
+                // TODO: notify somehow the main window view model that GroupName has changed
                 OnPropertyChanged();
             }
         }
@@ -157,7 +157,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         {
             get
             {
-                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.BannerPath;
+                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.GroupBannerPath;
             }
         }
         // Group Settings Tab
@@ -166,7 +166,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
             // TODO: Fetch owner name from the repository
             get
             {
-                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.OwnerId.ToString();
+                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.GroupOwnerId.ToString();
             }
         }
 
@@ -183,7 +183,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         {
             get
             {
-                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.CreatedAt.ToString();
+                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.DateOfGroupCreation.ToString();
             }
         }
 
@@ -191,7 +191,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         {
             get
             {
-                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.MemberCount.ToString();
+                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.GroupMemberCount.ToString();
             }
         }
 
@@ -199,7 +199,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         {
             get
             {
-                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.PostCount.ToString();
+                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.GroupPostCount.ToString();
             }
         }
 
@@ -209,7 +209,7 @@ namespace UBB_SE_2024_Popsicles.ViewModels
             {
                 // ma everva ca afisa 0. DACA codul ar merge, ai folosi ca mai sus
                 return RequestsToJoinTheGroup.Count.ToString();
-                // return GroupThatIsEncapsulatedByThisInstanceOnViewModel.RequestCount.ToString();
+                // return GroupThatIsEncapsulatedByThisInstanceOnViewModel.JoinRequestCount.ToString();
             }
         }
 
@@ -217,11 +217,11 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         {
             get
             {
-                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.IsPublic == true ? "Public" : "Private";
+                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.IsGroupPublic == true ? "Public" : "Private";
             }
             set
             {
-                GroupThatIsEncapsulatedByThisInstanceOnViewModel.IsPublic = value == "Public";
+                GroupThatIsEncapsulatedByThisInstanceOnViewModel.IsGroupPublic = value == "Public";
                 OnPropertyChanged();
             }
         }
@@ -237,11 +237,11 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         {
             get
             {
-                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.Description;
+                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.GroupDescription;
             }
             set
             {
-                GroupThatIsEncapsulatedByThisInstanceOnViewModel.Description = value;
+                GroupThatIsEncapsulatedByThisInstanceOnViewModel.GroupDescription = value;
                 OnPropertyChanged();
             }
         }
@@ -250,11 +250,11 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         {
             get
             {
-                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.MaxPostsPerHourPerUser.ToString();
+                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.MaximumNumberOfPostsPerHourPerUser.ToString();
             }
             set
             {
-                GroupThatIsEncapsulatedByThisInstanceOnViewModel.MaxPostsPerHourPerUser = int.Parse(value);
+                GroupThatIsEncapsulatedByThisInstanceOnViewModel.MaximumNumberOfPostsPerHourPerUser = int.Parse(value);
                 OnPropertyChanged();
             }
         }
@@ -263,11 +263,11 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         {
             get
             {
-                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.CanMakePostsByDefault == true ? "Yes" : "No";
+                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.AllowanceOfPostage == true ? "Yes" : "No";
             }
             set
             {
-                GroupThatIsEncapsulatedByThisInstanceOnViewModel.CanMakePostsByDefault = value == "Yes";
+                GroupThatIsEncapsulatedByThisInstanceOnViewModel.AllowanceOfPostage = value == "Yes";
                 OnPropertyChanged();
             }
         }
@@ -284,13 +284,13 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         {
             get
             {
-                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.Icon;
+                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.GroupIcon;
             }
             set
             {
-                GroupThatIsEncapsulatedByThisInstanceOnViewModel.Icon = value;
-                // TODO: notify somehow the main window view model that IconPath has changed
-                // OnPropertyChanged("IconPath");
+                GroupThatIsEncapsulatedByThisInstanceOnViewModel.GroupIcon = value;
+                // TODO: notify somehow the main window view model that GroupIconPath has changed
+                // OnPropertyChanged("GroupIconPath");
                 OnPropertyChanged();
             }
         }
@@ -299,16 +299,16 @@ namespace UBB_SE_2024_Popsicles.ViewModels
         {
             get
             {
-                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.Banner;
+                return GroupThatIsEncapsulatedByThisInstanceOnViewModel.GroupBanner;
             }
             set
             {
-                GroupThatIsEncapsulatedByThisInstanceOnViewModel.Banner = value;
+                GroupThatIsEncapsulatedByThisInstanceOnViewModel.GroupBanner = value;
                 OnPropertyChanged();
-                OnPropertyChanged("BannerPath");
+                OnPropertyChanged("GroupBannerPath");
             }
         }
-        // Requests
+        // ListOfJoinRequests
         public RelayCommand AcceptJoinRequestCommand => new RelayCommand(execute => AcceptJoinRequest());
 
         private void AcceptJoinRequest()
